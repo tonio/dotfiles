@@ -111,3 +111,5 @@ map <F4> :JSLintLight<CR>
 " Run JSLint on the current file with quickfix when <F5> is pressed.
 map <F5> :JSLint<CR>
 
+" Mapserver config file
+au BufNewFile,BufRead *.map         setf map
