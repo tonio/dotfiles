@@ -95,9 +95,6 @@ vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR
 " espace insécable équivaut à échap en mode insertion
 inoremap <S-Space> <Esc>
 
-" twitvim tweets count
-let twitvim_count=50
-
 " recherche insensible à la casse sauf si chaine recherchée contient une maj
 set ignorecase
 set smartcase
@@ -109,7 +106,53 @@ set hidden
 map <F4> :JSLintLight<CR>
 
 " Run JSLint on the current file with quickfix when <F5> is pressed.
-map <F5> :JSLint<CR>
+map <F5> :JSLintClear<CR>
 
 " Mapserver config file
 au BufNewFile,BufRead *.map         setf map
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+ 
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+
+"Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
+
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+ 
+  " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+ 
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+ 
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+endif
+
+function! Preserve(command)
+  " Preparation: save last search, and cursor position.
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  " Do the business:
+  execute a:command
+  " Clean up: restore previous search history, and cursor position
+  let @/=_s
+  call cursor(l, c)
+endfunction
+
+" Shortcut to remove trailing spaces
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+" Shortcut for reindent file
+nmap _= :call Preserve("normal gg=G")<CR>
+
+

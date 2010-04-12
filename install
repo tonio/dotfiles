@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+$files = array(
+  '.vimrc',
+  '.jslintrc'
+);
+
+$dirs = array(
+  '.vim'
+);
+
+foreach (array_merge($dirs, $files) as $item) {
+  $src = dirname(__FILE__).'/'.$item;
+  $dst = '~/'.$item;
+  `rm -ri $dst`;
+  `ln -s $src $dst`;
+}
