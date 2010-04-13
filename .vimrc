@@ -1,9 +1,7 @@
 " * User Interface
 
 " have syntax highlighting in terminals which can display colours:
-if has('syntax') && (&t_Co > 2)
-  syntax on
-endif
+syntax on
 
 " have fifty lines of command-line (etc) history:
 set history=50
@@ -39,16 +37,18 @@ set autoread
 set ttyfast
 " highlight on search
 set incsearch
+set hlsearch
 
 " don't make it look like there are line breaks where there aren't:
 set nowrap
 
 " use indents of 2 spaces, and have them copied down lines:
 set shiftwidth=2
+set tabstop=2
+set softtabstop=2
 set shiftround
 set expandtab
 set autoindent
-set tabstop=2
 
 
 " normally don't automatically format `text' as it is typed, IE only do this
@@ -70,8 +70,6 @@ set pastetoggle=<F2>
 noremap é w
 noremap É W
 
-set hlsearch
-
 " Insert <Tab> or complete identifier
 " if the cursor is after a keyword character
 function MyTabOrComplete()
@@ -84,21 +82,17 @@ function MyTabOrComplete()
 endfunction
 inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 
-sy on
-
+" php man pages
 set showmatch
 set keywordprg=pman
 
 " svn blame of selection
 vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
-" espace insécable équivaut à échap en mode insertion
+" uncutable space for Esc equivalent
 inoremap <S-Space> <Esc>
 
-" twitvim tweets count
-let twitvim_count=50
-
-" recherche insensible à la casse sauf si chaine recherchée contient une maj
+" insentive search unless case differences in search terms
 set ignorecase
 set smartcase
 
