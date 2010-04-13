@@ -17,7 +17,6 @@ foreach (new DirectoryIterator('./') as $item) {
   
   $src = dirname(__FILE__).'/'.$item;
   $dst = '~/'.$item;
-  echo "$src \n";
-  //`rm -ri $dst`;
+  `rm -ri $dst`;
   `ln -s $src $dst`;
 }
