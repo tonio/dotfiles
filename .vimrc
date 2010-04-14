@@ -133,6 +133,7 @@ if has("autocmd")
  
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
+  autocmd BufNewFile,BufRead *.less setfiletype less
 endif
 
 function! Preserve(command)
