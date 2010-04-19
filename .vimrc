@@ -110,7 +110,7 @@ au BufNewFile,BufRead *.map         setf map
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
- 
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
@@ -122,15 +122,15 @@ highlight SpecialKey guifg=#4a4a59
 if has("autocmd")
   " Enable file type detection
   filetype on
- 
+
   " Syntax of these languages is fussy over tabs Vs spaces
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
- 
+
   " Customisations based on house-style (arbitrary)
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
- 
+
   " Treat .rss files as XML
   autocmd BufNewFile,BufRead *.rss setfiletype xml
   autocmd BufNewFile,BufRead *.less setfiletype less
@@ -153,4 +153,9 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 " Shortcut for reindent file
 nmap _= :call Preserve("normal gg=G")<CR>
 
-
+" Open file in the same directory as current file
+let mapleader=','
+map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
