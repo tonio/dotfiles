@@ -32,3 +32,5 @@
 	compact-mode = false
 	main-window-maximized = false
 	main-window-geometry = 1382x820+175+60
+[core]
+	excludesfile = ~/.gitignore
