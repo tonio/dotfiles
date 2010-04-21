@@ -4,7 +4,6 @@
 $excludes = array(
   '.gitignore',
   '.git',
-  'README',
   'install.php'
 );
 

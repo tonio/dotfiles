@@ -1,6 +1,6 @@
 [user]
-  email = brankgnol@gmail.com
-  name = Tonio
+  email = me@abt.im
+  name = Antoine Abt
 [github]
   user = Tonio
 [color]
@@ -28,3 +28,7 @@
   df = diff
   lg = log -p
 
+[giggle]
+	compact-mode = false
+	main-window-maximized = false
+	main-window-geometry = 1382x820+175+60
