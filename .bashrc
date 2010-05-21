@@ -100,4 +100,5 @@ alias cvsstatus='cvs status 2>&1 | egrep "(^\? |Status: )" | grep -v Up-to-date'
 export EDITOR=vim
 
 alias svnd='svn diff --diff-cmd colordiff'
-export PATH=$PATH:/opt/flex/bin/
+
+source ~/.bashrc_after
