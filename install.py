@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os, fnmatch, shutil
 
-exclude = [ '*.sw*', '.git', 'install.*' ]
+exclude = [ '*.sw*', '.git', 'install.*', '.gitmodules' ]
 
 for f in os.listdir('.'):
     if not any(fnmatch.fnmatch(f, p) for p in exclude):
