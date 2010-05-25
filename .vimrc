@@ -1,5 +1,7 @@
 " * User Interface
 
+call pathogen#runtime_append_all_bundles()
+
 " have syntax highlighting in terminals which can display colours:
 syntax on
 
