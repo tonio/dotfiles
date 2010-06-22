@@ -7,6 +7,7 @@
   branch = auto
   diff = auto
   status = auto
+  interactive = auto
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -31,6 +32,6 @@
 [giggle]
 	compact-mode = false
 	main-window-maximized = false
-	main-window-geometry = 1382x820+175+60
+	main-window-geometry = 1382x820+1904+136
 [core]
 	excludesfile = ~/.gitignore
