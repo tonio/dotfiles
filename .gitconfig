@@ -28,6 +28,7 @@
   co = checkout
   df = diff
   lg = log -p
+  lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
 
 [giggle]
 	compact-mode = false
