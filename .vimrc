@@ -60,8 +60,8 @@ set textwidth=79
 set bg=dark
 set number
 
-set backupdir=./.backup,.,/tmp
-set directory=.,./.backup,/tmp
+set backupdir=./.tmp,.,/tmp
+set directory=./.tmp,/tmp
 
 " source bin/vim-symfony/symfony.vim
 "
