@@ -214,4 +214,6 @@ export EDITOR=vim
 
 alias svnd='svn diff --diff-cmd colordiff'
 
+alias ack='~/.bin/ack-standalone'
+
 source ~/.bashrc_after
