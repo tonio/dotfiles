@@ -1,1 +1,2 @@
-/*global Ext, mapfish, OpenLayers, GeoExt, $, app, App, console, document */
+/*global Ext, mapfish, OpenLayers, GeoExt, $, app, App, console, document,
+  require, module */
