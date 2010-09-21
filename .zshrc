@@ -27,5 +27,5 @@ export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/b
 source $HOME/.prose.zsh-theme
 
 # Battery indicator
-export BAT_CHARGE='~/.bin/batcharge.py'
+export BAT_CHARGE=$HOME/bin/batcharge.py
 RPROMPT='$(battery_charge)'
