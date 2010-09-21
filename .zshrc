@@ -29,3 +29,9 @@ source $HOME/.prose.zsh-theme
 # Battery indicator
 export BAT_CHARGE=$HOME/bin/batcharge.py
 RPROMPT='$(battery_charge)'
+
+# z is the new j
+. $HOME/.zsh/z-zsh/z.sh
+function precmd () {
+    z --add "$(pwd -P)"
+}
