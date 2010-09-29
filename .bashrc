@@ -216,4 +216,5 @@ alias svnd='svn diff --diff-cmd colordiff'
 
 alias ack='~/.bin/ack-standalone'
 
+export TERM="xterm-256color"
 source ~/.bashrc_after

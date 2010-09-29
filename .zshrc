@@ -5,6 +5,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="robbyrussell"
 
+# 256 colors
+export TERM="xterm-256color"
+
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
 
@@ -21,7 +24,7 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/opt/local/bin
+export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/opt/local/bin
 
 # Nicer prompt
 source $HOME/.prose.zsh-theme
@@ -35,3 +38,6 @@ RPROMPT='$(battery_charge)'
 function precmd () {
     z --add "$(pwd -P)"
 }
+
+# task list
+alias t='python ~/bin/t/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
