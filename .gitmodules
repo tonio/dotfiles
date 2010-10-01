@@ -13,3 +13,9 @@
 [submodule ".zsh/z-zsh"]
 	path = .zsh/z-zsh
 	url = http://github.com/sjl/z-zsh.git
+[submodule ".vim/bundle/repeat"]
+	path = .vim/bundle/repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule ".vim/bundle/nerdcommenter"]
+	path = .vim/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
