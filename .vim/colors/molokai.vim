@@ -47,7 +47,6 @@ hi Error           guifg=#960050 guibg=#1E0010
 hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
 hi Exception       guifg=#A6E22E               gui=bold
 hi Float           guifg=#AE81FF
-hi FoldColumn      guifg=#465457 guibg=#000000
 hi Folded          guifg=#465457 guibg=#000000
 hi Function        guifg=#A6E22E
 hi Identifier      guifg=#FD971F
@@ -115,15 +114,17 @@ if s:molokai_original == 1
    hi CursorColumn                  guibg=#3E3D32
    hi ColorColumn                   guibg=#3E3D32
    hi LineNr          guifg=#AAAAAA guibg=#3B3A32
+   hi FoldColumn      guifg=#AAAAAA guibg=#3B3A32
    hi NonText         guifg=#BCBCBC guibg=#3B3A32
 else
    hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
    hi Folded          guifg=#666666 guibg=#1B1D1E
-   hi Comment         guifg=#465457
+   hi Comment         guifg=#5c7176
    hi CursorLine                    guibg=#232728
    hi CursorColumn                  guibg=#232728
    hi ColorColumn                   guibg=#232728
    hi LineNr          guifg=#AAAAAA guibg=#1B1D1E
+   hi FoldColumn      guifg=#AAAAAA guibg=#1B1D1E
    
    " Invisible character colors
    highlight NonText    guifg=#444444 guibg=#1a1c1d
@@ -137,7 +138,7 @@ if &t_Co > 255
    hi Boolean         ctermfg=135
    hi Character       ctermfg=144
    hi Number          ctermfg=135
-   hi String          ctermfg=144
+   hi String          ctermfg=3
    hi Conditional     ctermfg=161               cterm=bold
    hi Constant        ctermfg=135               cterm=bold
    hi Cursor          ctermfg=16  ctermbg=253
@@ -163,7 +164,7 @@ if &t_Co > 255
    hi IncSearch       ctermfg=193 ctermbg=16
 
    hi Keyword         ctermfg=161               cterm=bold
-   hi Label           ctermfg=229               cterm=none
+   hi Label           ctermfg=9                 cterm=none
    hi Macro           ctermfg=193
    hi SpecialKey      ctermfg=81
 
@@ -216,4 +217,6 @@ if &t_Co > 255
    hi CursorColumn                ctermbg=234
    hi LineNr          ctermfg=250 ctermbg=234
    hi NonText         ctermfg=250 ctermbg=234
+
+   hi SpellBad        ctermbg=238 cterm=bold
 end

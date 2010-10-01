@@ -28,7 +28,9 @@ set listchars=tab:▸\ ,eol:¬
 set shortmess+=r
 set showmode
 set showcmd
-" colorscheme molokai
+set t_Co=256
+colorscheme molokai
+set cursorline
 
 " Leader
 let mapleader=','
