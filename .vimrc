@@ -92,11 +92,6 @@ vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR
 " allow switch buffer with modified content without prompt
 set hidden
 
-" JSLint
-map <F3> :JSLint<CR>
-map <F4> :JSLintLight<CR>
-map <F5> :JSLintClear<CR>
-
 " Hidden chars
 nmap <leader>l :set list!<CR>
 
@@ -124,6 +119,12 @@ endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 " Indent whole file
 nmap _= :call Preserve("normal gg=G")<CR>
+
+" Order CSS properties
+nnoremap <leader>S ?{<CR>jV/}$<CR>k:sort<CR>:noh<CR>
+
+" Sudo save
+cmap w!! w !sudo tee % >/dev/null
 
 " Open file in the same directory as current file
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
