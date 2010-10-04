@@ -8,9 +8,9 @@ set nocompatible
 set modelines=0
 
 " Tab/spaces
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
 set expandtab
 
 " Backups
@@ -86,8 +86,6 @@ inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 
 " svn blame of selection
 vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-
-" insentive search unless case differences in search terms
 
 " allow switch buffer with modified content without prompt
 set hidden
