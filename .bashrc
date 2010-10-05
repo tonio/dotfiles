@@ -215,6 +215,9 @@ alias cvsstatus='cvs status 2>&1 | egrep "(^\? |Status: )" | grep -v Up-to-date'
 
 export EDITOR=vim
 
+# make grep exclude .svn directories
+export GREP_OPTIONS="--exclude-dir=\.svn"
+
 alias svnd='svn diff --diff-cmd colordiff'
 
 alias ack='~/.bin/ack-standalone'
