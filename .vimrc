@@ -17,7 +17,6 @@ set expandtab
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
 
-
 " User Interface
 set guioptions-=T
 set guioptions-=r
@@ -71,10 +70,11 @@ vnoremap <F1> <ESC>
 " Bépo specifid
 noremap é w
 noremap É W
+noremap è bbbe
 
 " Insert <Tab> or complete identifier
 " if the cursor is after a keyword character
-function MyTabOrComplete()
+function! MyTabOrComplete()
     let col = col('.')-1
     if !col || getline('.')[col-1] !~ '\k'
          return "\<tab>"
@@ -123,6 +123,16 @@ nnoremap <leader>S ?{<CR>jV/}$<CR>k:sort<CR>:noh<CR>
 
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
+
+" Select previous selection
+nmap gV `[v`[
+
+" Bubble single lines
+nmap <C-k> [e
+nmap <C-j> ]e
+" Bubble multiple lines
+vmap <C-k> [egv
+vmap <C-j> ]egv
 
 " Open file in the same directory as current file
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
