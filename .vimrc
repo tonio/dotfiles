@@ -127,6 +127,9 @@ cmap w!! w !sudo tee % >/dev/null
 " Select previous selection
 nmap gV `[v`[
 
+" Surround shortcut
+nmap <leader>é ysiw
+
 " Bubble single lines
 nmap <C-k> [e
 nmap <C-j> ]e
