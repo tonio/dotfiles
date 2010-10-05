@@ -22,3 +22,6 @@
 [submodule ".vim/bundle/bufexplorer"]
 	path = .vim/bundle/bufexplorer
 	url = http://github.com/markabe/bufexplorer.git
+[submodule ".vim/bundle/unimpaired"]
+	path = .vim/bundle/unimpaired
+	url = http://github.com/tpope/vim-unimpaired.git
