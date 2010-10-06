@@ -26,15 +26,12 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/opt/local/bin
 
-# Nicer prompt
-source $HOME/.prose.zsh-theme
-
 # Battery indicator
-export BAT_CHARGE=$HOME/bin/batcharge.py
-RPROMPT='$(battery_charge)'
+#export BAT_CHARGE=$HOME/bin/batcharge.py
+#RPROMPT='$(battery_charge)'
 
 # z is the new j
-. $HOME/.zsh/z-zsh/z.sh
+source $HOME/.zsh/z-zsh/z.sh
 function precmd () {
     z --add "$(pwd -P)"
 }

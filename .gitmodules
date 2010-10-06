@@ -25,3 +25,6 @@
 [submodule ".vim/bundle/unimpaired"]
 	path = .vim/bundle/unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = http://github.com/sjl/oh-my-zsh.git
