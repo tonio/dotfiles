@@ -67,6 +67,9 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
+" remap Y to follow same principle as C, D
+noremap Y y$
+
 " Bépo specifid
 noremap é w
 noremap É W
