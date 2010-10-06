@@ -97,9 +97,6 @@ set hidden
 " Hidden chars
 nmap <leader>l :set list!<CR>
 
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
-
 " Special filetype conf
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd BufNewFile,BufRead *.less setfiletype less
