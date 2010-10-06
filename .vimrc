@@ -35,7 +35,8 @@ set cursorline
 let mapleader=','
 
 " commands
-set history=50
+set history=500
+set undolevels=500
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 set wildmode=list:longest,full
 
