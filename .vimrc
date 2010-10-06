@@ -27,9 +27,11 @@ set listchars=tab:▸\ ,eol:¬
 set shortmess+=r
 set showmode
 set showcmd
+set showmatch
 set t_Co=256
 colorscheme molokai
 set cursorline
+set ruler
 
 " Leader
 let mapleader=','
@@ -43,7 +45,7 @@ set wildmode=list:longest,full
 " have the mouse enabled all the time:
 set mouse=a
 
-set autoread
+"set autoread
 set ttyfast
 set incsearch
 set hlsearch
