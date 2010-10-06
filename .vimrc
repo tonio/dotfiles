@@ -71,9 +71,9 @@ vnoremap <F1> <ESC>
 noremap Y y$
 
 " Bépo specifid
-noremap é w
-noremap É W
-noremap è bbbe
+"noremap é w
+"noremap É W
+"noremap è bbbe
 
 " Insert <Tab> or complete identifier
 " if the cursor is after a keyword character
