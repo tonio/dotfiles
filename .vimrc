@@ -49,7 +49,7 @@ set mouse=a
 set ttyfast
 set incsearch
 set hlsearch
-set nowrap
+"set nowrap
 set shiftround
 set expandtab
 set autoindent
