@@ -41,3 +41,6 @@ alias t='python ~/bin/t/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
 
 # cd to git root dir
 alias gitroot='cd $(git rev-parse --show-cdup)'
+
+# static serve files
+alias serve='python -m SimpleHTTPServer'
