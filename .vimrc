@@ -16,6 +16,7 @@ set expandtab
 " Backups
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
+set undofile
 
 " User Interface
 set guioptions-=T
