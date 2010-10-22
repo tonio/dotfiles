@@ -23,7 +23,7 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-set number
+set relativenumber
 set listchars=tab:▸\ ,eol:¬
 set shortmess+=r
 set showmode
