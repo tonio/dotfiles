@@ -16,26 +16,30 @@ set expandtab
 " Backups
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
+set undofile
 
 " User Interface
 set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-set number
+set relativenumber
 set listchars=tab:▸\ ,eol:¬
 set shortmess+=r
 set showmode
 set showcmd
+set showmatch
 set t_Co=256
 colorscheme molokai
 set cursorline
+set ruler
 
 " Leader
 let mapleader=','
 
 " commands
-set history=50
+set history=500
+set undolevels=500
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 set wildmode=list:longest,full
 
@@ -67,7 +71,10 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
-" Bépo specifid
+" remap Y to follow same principle as C, D
+noremap Y y$
+
+" Bépo specifidc
 noremap é w
 noremap É W
 noremap è bbbe
@@ -97,9 +104,9 @@ nmap <leader>l :set list!<CR>
 set listchars=tab:▸\ ,eol:¬
 
 " Special filetype conf
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd BufNewFile,BufRead *.less setfiletype less
-au BufNewFile,BufRead *.map         setf map
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+au BufNewFile,BufRead *.less setf less
+au BufNewFile,BufRead *.map  setf map
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
