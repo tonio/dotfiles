@@ -5,6 +5,9 @@
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
+# increase history size
+export HISTFILESIZE=1000
+export HISTSIZE=1000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -155,9 +158,9 @@ if [ "$color_prompt" = yes ]; then
  #    PS1="${debian_chroot:+$debian_chroot }[\[\033[1;34m\] \w \[\033[00m\]]\[\033[0m\] \[\033[0m\]\n\[\033[1;32m\]\u\[\033[1;34m\] \$ \[\033[0m\]"
  #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
  # En fait l'important ici c'est le "\033[1;32m\]$(__git_ps1)\[\033[0m\]", le reste c'est mon prompt usuel…
-    export PS1='\[\033[0;37m\]\u@\h:\[\033[0;33m\]\W\[\033[0m\]\[\033[1;32m\]$(__git_ps1)\[\033[0m\] \$ '
+    export PS1='\[\033[0;37m\]\u@\h: \[\033[0;33m\]\w\[\033[0m\]\[\033[1;32m\]$(__git_ps1)\[\033[0m\] \$ '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h: \w\$ '
 fi
 
 # If this is an xterm set the title to user@host:dir
@@ -212,9 +215,14 @@ alias cvsstatus='cvs status 2>&1 | egrep "(^\? |Status: )" | grep -v Up-to-date'
 
 export EDITOR=vim
 
+# make grep exclude .svn directories
+export GREP_OPTIONS="--exclude-dir=\.svn"
+
 alias svnd='svn diff --diff-cmd colordiff'
 
 alias ack='~/.bin/ack-standalone'
 
 export TERM="xterm-256color"
-source ~/.bashrc_after
+if [ -f ~/.bashrc_after ]; then
+    source ~/.bashrc_after
+fi
