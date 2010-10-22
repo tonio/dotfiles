@@ -74,7 +74,7 @@ vnoremap <F1> <ESC>
 " remap Y to follow same principle as C, D
 noremap Y y$
 
-" Bépo specifidc
+" Bépo specific
 noremap é w
 noremap É W
 noremap è bbbe
@@ -107,6 +107,7 @@ set listchars=tab:▸\ ,eol:¬
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map  setf map
+au BufNewFile,BufRead .tmux.conf  setf tmux
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
