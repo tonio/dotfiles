@@ -33,6 +33,7 @@ set t_Co=256
 colorscheme molokai
 set cursorline
 set ruler
+set backspace=indent,eol,start
 
 " Leader
 let mapleader=','
