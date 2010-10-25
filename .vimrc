@@ -107,9 +107,10 @@ set hidden
 nmap <leader>l :set list!<CR>
 
 " Special filetype conf
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-autocmd BufNewFile,BufRead *.less setfiletype less
-au BufNewFile,BufRead *.map         setf map
+au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+au BufNewFile,BufRead *.less setf less
+au BufNewFile,BufRead *.map  setf map
+au BufNewFile,BufRead .tmux.conf  setf tmux
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.

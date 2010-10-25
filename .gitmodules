@@ -28,3 +28,9 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = http://github.com/sjl/oh-my-zsh.git
+[submodule ".vim/bundle/jslint"]
+	path = .vim/bundle/jslint
+	url = http://github.com/mattn/jslint.vim.git
+[submodule ".vim/bundle/gundo"]
+	path = .vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git
