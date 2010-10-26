@@ -33,6 +33,7 @@ set t_Co=256
 colorscheme molokai
 set cursorline
 set ruler
+set backspace=indent,eol,start
 
 " Leader
 let mapleader=','
@@ -74,7 +75,7 @@ vnoremap <F1> <ESC>
 " remap Y to follow same principle as C, D
 noremap Y y$
 
-" Bépo specifidc
+" Bépo specific
 noremap é w
 noremap É W
 noremap è bbbe
@@ -91,6 +92,10 @@ function! MyTabOrComplete()
 endfunction
 inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 
+"This autocommand jumps to the last known position in a file
+"just after opening it, if the '"' mark is set:
+:au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 " svn blame of selection
 vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
@@ -104,6 +109,7 @@ nmap <leader>l :set list!<CR>
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map  setf map
+au BufNewFile,BufRead .tmux.conf  setf tmux
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
