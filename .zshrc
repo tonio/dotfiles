@@ -47,3 +47,6 @@ alias gitroot='cd $(git rev-parse --show-cdup)'
 
 # static serve files
 alias serve='python -m SimpleHTTPServer'
+
+# vim only
+alias vi='vim'
