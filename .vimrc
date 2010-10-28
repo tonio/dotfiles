@@ -45,7 +45,7 @@ set wildmode=list:longest,full
 
 " have the mouse enabled all the time:
 set mouse=a
-
+set scrolloff=3
 set autoread
 set ttyfast
 set incsearch
