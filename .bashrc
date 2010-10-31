@@ -222,6 +222,9 @@ alias svnd='svn diff --diff-cmd colordiff'
 
 alias ack='~/.bin/ack-standalone'
 
+# cd to git root dir
+alias gitroot='cd $(git rev-parse --show-cdup)'
+
 export TERM="xterm-256color"
 if [ -f ~/.bashrc_after ]; then
     source ~/.bashrc_after
