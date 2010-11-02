@@ -14,9 +14,10 @@ set softtabstop=4
 set expandtab
 
 " Backups
+set undofile
+set undodir=./.tmp,/tmp
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
-set undofile
 
 " User Interface
 set guioptions-=T
