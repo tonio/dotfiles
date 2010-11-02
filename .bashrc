@@ -5,6 +5,9 @@
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
+# increase history size
+export HISTFILESIZE=1000
+export HISTSIZE=1000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -212,9 +215,14 @@ alias cvsstatus='cvs status 2>&1 | egrep "(^\? |Status: )" | grep -v Up-to-date'
 
 export EDITOR=vim
 
+# make grep exclude .svn directories
+export GREP_OPTIONS="--exclude-dir=\.svn"
+
 alias svnd='svn diff --diff-cmd colordiff'
 
 alias ack='~/.bin/ack-standalone'
 
 export TERM="xterm-256color"
-source ~/.bashrc_after
+if [ -f ~/.bashrc_after ]; then
+    source ~/.bashrc_after
+fi

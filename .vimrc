@@ -33,6 +33,7 @@ set t_Co=256
 colorscheme molokai
 set cursorline
 set ruler
+set backspace=indent,eol,start
 
 " Leader
 let mapleader=','
@@ -90,6 +91,10 @@ function! MyTabOrComplete()
     endif
 endfunction
 inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
+
+"This autocommand jumps to the last known position in a file
+"just after opening it, if the '"' mark is set:
+:au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " svn blame of selection
 vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
