@@ -73,6 +73,7 @@ set pastetoggle=<F2>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+nnoremap <F3> :GundoToggle<CR>
 
 " remap Y to follow same principle as C, D
 noremap Y y$
