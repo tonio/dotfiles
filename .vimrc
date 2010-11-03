@@ -14,8 +14,10 @@ set softtabstop=4
 set expandtab
 
 " Backups
-set undofile
-set undodir=./.tmp,/tmp
+if version >= 730
+    set undofile
+    set undodir=./.tmp,/tmp
+endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
 
@@ -24,7 +26,9 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-set relativenumber
+if version >= 730
+    set relativenumber
+endif
 set listchars=tab:▸\ ,eol:¬
 set shortmess+=r
 set showmode
