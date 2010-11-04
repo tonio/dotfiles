@@ -39,7 +39,7 @@ colorscheme molokai
 set cursorline
 set ruler
 set backspace=indent,eol,start
-"set laststatus=2
+set laststatus=2
 
 " Leader
 let mapleader=','
@@ -53,7 +53,7 @@ set wildmode=list:longest,full
 " have the mouse enabled all the time:
 set mouse=a
 set scrolloff=3
-"set autoread
+set autoread
 set ttyfast
 set incsearch
 set hlsearch
