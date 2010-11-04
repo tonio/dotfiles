@@ -14,16 +14,21 @@ set softtabstop=4
 set expandtab
 
 " Backups
+if version >= 730
+    set undofile
+    set undodir=./.tmp,/tmp
+endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
-set undofile
 
 " User Interface
 set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-set relativenumber
+if version >= 730
+    set relativenumber
+endif
 set listchars=tab:▸\ ,eol:¬
 set shortmess+=r
 set showmode
@@ -34,6 +39,7 @@ colorscheme molokai
 set cursorline
 set ruler
 set backspace=indent,eol,start
+"set laststatus=2
 
 " Leader
 let mapleader=','
@@ -46,7 +52,7 @@ set wildmode=list:longest,full
 
 " have the mouse enabled all the time:
 set mouse=a
-
+set scrolloff=3
 "set autoread
 set ttyfast
 set incsearch
