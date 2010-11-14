@@ -14,7 +14,7 @@ set softtabstop=4
 set expandtab
 
 " Backups
-if version >= 730
+if v:version >= 703
     set undofile
     set undodir=./.tmp,/tmp
 endif
@@ -26,7 +26,7 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-if version >= 730
+if v:version >= 703
     set relativenumber
 endif
 set listchars=tab:▸\ ,eol:¬
