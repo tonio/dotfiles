@@ -71,6 +71,7 @@ set gdefault
 set formatoptions-=t
 set textwidth=79
 
+nnoremap <F3> :set invrelativenumber relativenumber?<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
