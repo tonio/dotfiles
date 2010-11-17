@@ -14,8 +14,10 @@ set softtabstop=4
 set expandtab
 
 " Backups
-set undofile
-set undodir=./.tmp,/tmp
+if v:version >= 703
+    set undofile
+    set undodir=./.tmp,/tmp
+endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
 set undofile
@@ -25,8 +27,9 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-if version >= 730
+if v:version >= 703
     set relativenumber
+    set cc=80
 endif
 set listchars=tab:▸\ ,eol:¬
 set shortmess+=r
@@ -35,6 +38,7 @@ set showcmd
 set showmatch
 set t_Co=256
 colorscheme molokai
+hi ColorColumn ctermbg=234
 set cursorline
 set ruler
 set backspace=indent,eol,start
@@ -76,6 +80,9 @@ set pastetoggle=<F2>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+nnoremap <F3> GundoToggle<CR>
+nnoremap <silent> <F4> :YRShow<cr>
+inoremap <silent> <F4> <ESC>:YRShow<cr>
 
 " remap Y to follow same principle as C, D
 noremap Y y$
@@ -144,6 +151,9 @@ nmap gV `[v`[
 
 " Surround shortcut
 nmap <leader>é ysiw
+
+" Change word case
+nmap <leader>~ viw~
 
 " Bubble single lines
 nmap <C-k> [e
