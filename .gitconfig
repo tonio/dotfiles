@@ -1,8 +1,8 @@
 [user]
-  email = me@abt.im
   name = Antoine Abt
+  email = antoine@abt.im
 [github]
-  user = Tonio
+  user = tonio
 [color]
   branch = auto
   diff = auto

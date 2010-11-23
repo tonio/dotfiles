@@ -14,17 +14,23 @@ set softtabstop=4
 set expandtab
 
 " Backups
-set undofile
-set undodir=./.tmp,/tmp
+if v:version >= 703
+    set undofile
+    set undodir=./.tmp,/tmp
+endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
+set undofile
 
 " User Interface
 set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-set relativenumber
+if v:version >= 703
+    set relativenumber
+    set cc=80
+endif
 set listchars=tab:▸\ ,eol:¬
 set shortmess+=r
 set showmode
@@ -32,6 +38,10 @@ set showcmd
 set showmatch
 set t_Co=256
 colorscheme molokai
+hi ColorColumn ctermbg=234
+if has('gui_running')
+    set guifont=Monaco:h12
+endif
 set cursorline
 set ruler
 set backspace=indent,eol,start
@@ -61,7 +71,6 @@ set ignorecase
 set smartcase
 set gdefault
 
-
 " normally don't automatically format `text' as it is typed, IE only do this
 " with comments, at 79 characters:
 set formatoptions-=t
@@ -74,6 +83,8 @@ inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 nnoremap <F3> :GundoToggle<CR>
+nnoremap <silent> <F4> :YRShow<cr>
+inoremap <silent> <F4> <ESC>:YRShow<cr>
 
 " remap Y to follow same principle as C, D
 noremap Y y$
@@ -107,9 +118,6 @@ set hidden
 
 " Hidden chars
 nmap <leader>l :set list!<CR>
-
-" Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
 
 " Special filetype conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
