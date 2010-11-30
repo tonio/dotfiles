@@ -39,6 +39,9 @@ set showmatch
 set t_Co=256
 colorscheme molokai
 hi ColorColumn ctermbg=234
+if has('gui_running')
+    set guifont=Monaco:h12
+endif
 set cursorline
 set ruler
 set backspace=indent,eol,start
@@ -68,7 +71,6 @@ set ignorecase
 set smartcase
 set gdefault
 
-
 " normally don't automatically format `text' as it is typed, IE only do this
 " with comments, at 79 characters:
 set formatoptions-=t
@@ -80,7 +82,7 @@ set pastetoggle=<F2>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
-nnoremap <F3> GundoToggle<CR>
+nnoremap <F3> :GundoToggle<CR>
 nnoremap <silent> <F4> :YRShow<cr>
 inoremap <silent> <F4> <ESC>:YRShow<cr>
 
@@ -151,9 +153,6 @@ nmap gV `[v`[
 
 " Surround shortcut
 nmap <leader>é ysiw
-
-" Change word case
-nmap <leader>~ viw~
 
 " Bubble single lines
 nmap <C-k> [e
