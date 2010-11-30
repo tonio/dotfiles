@@ -113,6 +113,9 @@ set hidden
 " Hidden chars
 nmap <leader>l :set list!<CR>
 
+" Disable highlight
+map <leader><space> :noh<cr>
+
 " Special filetype conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
