@@ -52,6 +52,8 @@ set wildmode=list:longest,full
 
 " have the mouse enabled all the time:
 set mouse=a
+" make mouse to work with gnu screen
+set ttymouse=xterm2
 set scrolloff=3
 "set autoread
 set ttyfast
