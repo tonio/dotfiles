@@ -14,7 +14,7 @@ set softtabstop=4
 set expandtab
 
 " Backups
-if version >= 730
+if v:version >= 703
     set undofile
     set undodir=./.tmp,/tmp
 else
@@ -28,7 +28,7 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-if version >= 730
+if v:version >= 703
     set relativenumber
 endif
 set listchars=tab:▸\ ,eol:¬
@@ -54,6 +54,8 @@ set wildmode=list:longest,full
 
 " have the mouse enabled all the time:
 set mouse=a
+" make mouse to work with gnu screen
+set ttymouse=xterm2
 set scrolloff=3
 "set autoread
 set ttyfast
@@ -73,6 +75,7 @@ set gdefault
 set formatoptions-=t
 set textwidth=79
 
+nnoremap <F3> :set invrelativenumber relativenumber?<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
@@ -113,6 +116,9 @@ set hidden
 
 " Hidden chars
 nmap <leader>l :set list!<CR>
+
+" Disable highlight
+map <leader><space> :noh<cr>
 
 " Special filetype conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

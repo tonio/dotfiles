@@ -214,6 +214,7 @@ alias cvsstatus='cvs status 2>&1 | egrep "(^\? |Status: )" | grep -v Up-to-date'
 #export LC_ALL='fr_FR.UTF-8'
 
 export EDITOR=vim
+export LESS='-XFR'
 
 # make grep exclude .svn directories
 export GREP_OPTIONS="--exclude-dir=\.svn"
