@@ -17,6 +17,8 @@ set expandtab
 if version >= 730
     set undofile
     set undodir=./.tmp,/tmp
+else
+    let g:gundo_disable = 1
 endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
