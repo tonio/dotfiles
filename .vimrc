@@ -145,6 +145,12 @@ nmap _= :call Preserve("normal gg=G")<CR>
 " Order CSS properties
 nnoremap <leader>S ?{<CR>jV/}$<CR>k:sort<CR>:noh<CR>
 
+" Quicker window switching
+nnoremap <leader>, <c-w><c-w>
+
+" Tabularize
+noremap <leader>: :Tabularize /:<cr>
+
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
 
