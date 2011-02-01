@@ -41,6 +41,9 @@ function precmd () {
 # task list
 alias t='python ~/bin/t/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
 
+# git svn externals
+alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; th    en echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
+
 # cd to git root dir
 alias gitroot='cd $(git rev-parse --show-cdup)'
 
