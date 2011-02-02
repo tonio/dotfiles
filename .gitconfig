@@ -1,6 +1,6 @@
 [user]
-  name = Bruno Binet
-  email = binet.bruno@gmail.com
+	name = Bruno Binet
+	email = bruno.binet@camptocamp.com
 [github]
   user = inneos
 [color]
@@ -16,6 +16,7 @@
   df = diff
   lg = log -p
   lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
+  addremove = !git add . && git ls-files --deleted | xargs --no-run-if-empty git rm
 
 [giggle]
 	compact-mode = false
