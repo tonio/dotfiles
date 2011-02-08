@@ -20,12 +20,14 @@ def gen_gitconfig():
         # ask for github token or we could use
         # https://github.com/radar/github-token-fetcher
         # to retrieve it (but it's ruby)
-        token = raw_input('What is your github token? ')
-        gh_config += '    token = %s' % token.strip()
-        print 'cache %s' % gh_path
-        f = open(gh_path, 'w')
-        f.write(gh_config)
-        f.close()
+        token = raw_input('What is your github token? ').strip()
+        if token:
+            # cache .githubconfig only if a token has been given
+            gh_config += '    token = %s' % token
+            print 'cache %s' % gh_path
+            f = open(gh_path, 'w')
+            f.write(gh_config)
+            f.close()
 
     g_path = os.path.join(home, '.gitconfig')
     shutil.copy('.gitconfig', g_path)
