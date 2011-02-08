@@ -1,5 +1,7 @@
 #!/usr/bin/env python
-import os, fnmatch, shutil
+import os
+import fnmatch
+import shutil
 
 exclude = [ '*.sw*', '.git', 'install.*', '.gitmodules' ]
 
