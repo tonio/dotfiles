@@ -1,24 +1,27 @@
 [user]
-	name = Bruno Binet
-	email = bruno.binet@camptocamp.com
+    name = Bruno Binet
+    email = bruno.binet@camptocamp.com
+
 [color]
-  branch = auto
-  diff = auto
-  status = auto
-  interactive = auto
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+
 [alias]
-  st = status
-  ci = commit
-  br = branch
-  co = checkout
-  df = diff
-  lg = log -p
-  lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
-  addremove = !git add . && git ls-files --deleted | xargs --no-run-if-empty git rm
+    st = status
+    ci = commit
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
+    addremove = !git add . && git ls-files --deleted | xargs --no-run-if-empty git rm
 
 [giggle]
-	compact-mode = false
-	main-window-maximized = false
-	main-window-geometry = 1382x820+1904+136
+    compact-mode = false
+    main-window-maximized = false
+    main-window-geometry = 1382x820+1904+136
+
 [core]
-	excludesfile = ~/.global_gitignore
+    excludesfile = ~/.global_gitignore
