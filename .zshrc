@@ -53,6 +53,7 @@ alias serve='python -m SimpleHTTPServer'
 # vim only
 export EDITOR=vim
 alias vi='vim'
+alias o='mvim'
 
 # coherent less output
 export LESS='-R -F -X'
