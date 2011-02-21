@@ -175,3 +175,6 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Save when losing focus
 au FocusLost * :wa
+
+" ack-grep word under cursor
+noremap <leader># "ayiw:Ack <c-r>a<CR>
