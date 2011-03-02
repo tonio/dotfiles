@@ -57,3 +57,6 @@ alias o='mvim'
 
 # coherent less output
 export LESS='-R -F -X'
+
+# tmux
+alias tma='tmux attach -t'
