@@ -1,5 +1,6 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 filetype plugin indent on
 
 set nocompatible
@@ -86,6 +87,11 @@ nnoremap <F3> :GundoToggle<CR>
 nnoremap <silent> <F4> :YRShow<cr>
 inoremap <silent> <F4> <ESC>:YRShow<cr>
 
+" Yankring
+let g:yankring_max_history = 100
+let g:yankring_max_element_length = 512000
+let g:yankring_history_file = '.vim_yankring_history'
+
 " remap Y to follow same principle as C, D
 noremap Y y$
 
@@ -122,8 +128,8 @@ nmap <leader>l :set list!<CR>
 " Special filetype conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
-au BufNewFile,BufRead *.map  setf map
-au BufNewFile,BufRead .tmux.conf  setf tmux
+au BufNewFile,BufRead *.map setf map
+au BufNewFile,BufRead *.tmux.conf setf tmux
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.

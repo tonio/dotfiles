@@ -37,6 +37,7 @@ source $HOME/.zsh/z-zsh/z.sh
 function precmd () {
     z --add "$(pwd -P)"
 }
+alias j=z
 
 # task list
 alias t='python ~/bin/t/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
