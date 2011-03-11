@@ -26,7 +26,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.prose.zsh-theme
 
 # Customize to your needs...
-export PATH=$HOME/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/opt/local/bin
+export PATH=$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin
 
 # Battery indicator
 #export BAT_CHARGE=$HOME/bin/batcharge.py
@@ -37,9 +37,13 @@ source $HOME/.zsh/z-zsh/z.sh
 function precmd () {
     z --add "$(pwd -P)"
 }
+alias j=z
 
 # task list
 alias t='python ~/bin/t/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
+
+# git svn externals
+alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; then echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
 
 # cd to git root dir
 alias gitroot='cd $(git rev-parse --show-cdup)'
@@ -50,6 +54,10 @@ alias serve='python -m SimpleHTTPServer'
 # vim only
 export EDITOR=vim
 alias vi='vim'
+alias o='mvim'
 
 # coherent less output
 export LESS='-R -F -X'
+
+# tmux
+alias tma='tmux attach -t'
