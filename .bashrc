@@ -219,6 +219,8 @@ export LESS='-XFR'
 # make grep exclude .svn directories
 export GREP_OPTIONS="--exclude-dir=\.svn"
 
+export PYTHONSTARTUP="$HOME/.pystartup"
+
 alias svnd='svn diff --diff-cmd colordiff'
 
 alias ack='~/.bin/ack-standalone'
