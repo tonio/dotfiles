@@ -137,6 +137,7 @@ au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map setf map
 au BufNewFile,BufRead *.tmux.conf setf tmux
+au BufNewFile,BufRead *.pp setf puppet
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
