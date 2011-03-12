@@ -6,6 +6,8 @@
 " Last Change:
 " Version:
 "
+" Downloaded from:
+" https://github.com/puppetlabs/puppet/blob/master/ext/vim/syntax/puppet.vim
 
 " Copied from the cfengine, ruby, and perl syntax files
 " For version 5.x: Clear all syntax items
