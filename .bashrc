@@ -42,6 +42,20 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+gmail_read_by_day () {
+    echo "today -->"
+    for i in $(seq 0 5)
+    do
+        BEFORE=$(date -d"$i day ago" +%Y/%m/%d)
+        AFTER=$(date -d"$((i+1)) day ago" +%Y/%m/%d)
+        echo "is:read before:$BEFORE after:$AFTER"
+    done
+    echo "--> 5 days ago"
+    PASTE="is:read before:$(date +%Y/%m/%d) after:$(date -d yesterday +%Y/%m/%d)"
+    echo "$PASTE" | xsel
+    echo "echo \"$PASTE\" | xsel"
+}
+
 # Scavenged from Git 1.6.5.x contrib/completion/git_completion.bash
 # __git_ps1 accepts 0 or 1 arguments (i.e., format string)
 # returns text to add to bash PS1 prompt (includes branch name)
