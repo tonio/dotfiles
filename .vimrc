@@ -91,7 +91,7 @@ nnoremap <silent> <F4> :YRShow<cr>
 inoremap <silent> <F4> <ESC>:YRShow<cr>
 
 " Yankring
-let g:yankring_max_history = 100
+let g:yankring_max_history = 10
 let g:yankring_max_element_length = 512000
 let g:yankring_history_file = '.vim_yankring_history'
 
