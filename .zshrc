@@ -26,7 +26,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.prose.zsh-theme
 
 # Customize to your needs...
-export PATH=$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin
+export PATH=$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/Library/PostgreSQL/8.4/bin
 
 # Battery indicator
 #export BAT_CHARGE=$HOME/bin/batcharge.py
@@ -38,6 +38,7 @@ function precmd () {
     z --add "$(pwd -P)"
 }
 alias j=z
+alias f='find . -name'
 
 # task list
 alias t='python ~/bin/t/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
