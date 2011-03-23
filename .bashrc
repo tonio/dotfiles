@@ -42,6 +42,20 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+gmail_read_by_day () {
+    echo "today -->"
+    for i in $(seq 0 5)
+    do
+        BEFORE=$(date -d"$i day ago" +%Y/%m/%d)
+        AFTER=$(date -d"$((i+1)) day ago" +%Y/%m/%d)
+        echo "is:read before:$BEFORE after:$AFTER"
+    done
+    echo "--> 5 days ago"
+    PASTE="is:read before:$(date +%Y/%m/%d) after:$(date -d yesterday +%Y/%m/%d)"
+    echo "$PASTE" | xsel
+    echo "echo \"$PASTE\" | xsel"
+}
+
 # Scavenged from Git 1.6.5.x contrib/completion/git_completion.bash
 # __git_ps1 accepts 0 or 1 arguments (i.e., format string)
 # returns text to add to bash PS1 prompt (includes branch name)
@@ -214,9 +228,12 @@ alias cvsstatus='cvs status 2>&1 | egrep "(^\? |Status: )" | grep -v Up-to-date'
 #export LC_ALL='fr_FR.UTF-8'
 
 export EDITOR=vim
+export LESS='-XFR'
 
 # make grep exclude .svn directories
 export GREP_OPTIONS="--exclude-dir=\.svn"
+
+export PYTHONSTARTUP="$HOME/.pystartup"
 
 alias svnd='svn diff --diff-cmd colordiff'
 
@@ -224,6 +241,8 @@ alias ack='~/.bin/ack-standalone'
 
 # cd to git root dir
 alias gitroot='cd $(git rev-parse --show-cdup)'
+
+alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; then echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
 
 export TERM="xterm-256color"
 if [ -f ~/.bashrc_after ]; then

@@ -18,10 +18,11 @@ set expandtab
 if v:version >= 703
     set undofile
     set undodir=./.tmp,/tmp
+else
+    let g:gundo_disable = 1
 endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
-set undofile
 
 " User Interface
 set guioptions-=T
@@ -88,7 +89,7 @@ nnoremap <silent> <F4> :YRShow<cr>
 inoremap <silent> <F4> <ESC>:YRShow<cr>
 
 " Yankring
-let g:yankring_max_history = 100
+let g:yankring_max_history = 10
 let g:yankring_max_element_length = 512000
 let g:yankring_history_file = '.vim_yankring_history'
 
@@ -118,6 +119,7 @@ inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 
 " svn blame of selection
 vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+vmap gb :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " allow switch buffer with modified content without prompt
 set hidden
@@ -125,11 +127,15 @@ set hidden
 " Hidden chars
 nmap <leader>l :set list!<CR>
 
+" Disable highlight
+map <leader><space> :noh<cr>
+
 " Special filetype conf
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map setf map
 au BufNewFile,BufRead *.tmux.conf setf tmux
+au BufNewFile,BufRead *.pp setf puppet
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.

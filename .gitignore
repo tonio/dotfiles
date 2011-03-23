@@ -1,4 +1,2 @@
-*.sw?
 .vimperator/info
 .vim/.netrwhist
-*.un~
