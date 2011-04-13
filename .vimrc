@@ -33,7 +33,7 @@ if v:version >= 703
     set relativenumber
     set cc=80
 endif
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,trail:·
 set shortmess+=r
 set showmode
 set showcmd
