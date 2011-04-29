@@ -49,6 +49,9 @@ alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\
 # cd to git root dir
 alias gitroot='cd $(git rev-parse --show-cdup)'
 
+# svn
+alias svnd='svn diff | colordiff | less'
+
 # static serve files
 alias serve='python -m SimpleHTTPServer'
 

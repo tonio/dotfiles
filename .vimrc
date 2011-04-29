@@ -188,5 +188,11 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Save when losing focus
 au FocusLost * :wa
 
+" Change theme for diff
+au FilterWritePre * if &diff | colorscheme solarized | endif
+if &diff
+    colorscheme solarized
+endif
+
 " ack-grep word under cursor
 noremap <leader># "ayiw:Ack <c-r>a<CR>
