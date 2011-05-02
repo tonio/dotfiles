@@ -1,4 +1,0 @@
-set complete=ls
-set wildoptions=auto
-
-source .vimperator/desert.vimp
