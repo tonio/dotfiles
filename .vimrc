@@ -87,6 +87,7 @@ vnoremap <F1> <ESC>
 nnoremap <F3> :GundoToggle<CR>
 nnoremap <silent> <F4> :YRShow<cr>
 inoremap <silent> <F4> <ESC>:YRShow<cr>
+nnoremap <F5> :execute 'set ' . (&relativenumber ? 'number' : 'relativenumber') <CR>
 
 " Yankring
 let g:yankring_max_history = 10
