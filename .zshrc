@@ -26,7 +26,7 @@ source $ZSH/oh-my-zsh.sh
 source ~/.prose.zsh-theme
 
 # Customize to your needs...
-export PATH=$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/Library/PostgreSQL/8.4/bin
+export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/Library/PostgreSQL/8.4/bin
 
 # Battery indicator
 #export BAT_CHARGE=$HOME/bin/batcharge.py
