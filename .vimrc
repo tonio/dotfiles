@@ -57,6 +57,7 @@ set history=500
 set undolevels=500
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 set wildmode=list:longest,full
+set wildignore+=*.o,*.obj,.git,.svn,*.pyc
 
 " have the mouse enabled all the time:
 set mouse=a
