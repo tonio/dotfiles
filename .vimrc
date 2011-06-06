@@ -163,6 +163,7 @@ nnoremap <leader>, <c-w><c-w>
 
 " Tabularize
 noremap <leader>: :Tabularize /:<cr>
+noremap <leader>= :Tabularize /=<cr>
 
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
@@ -197,3 +198,6 @@ endif
 
 " ack-grep word under cursor
 noremap <leader># "ayiw:Ack <c-r>a<CR>
+
+" Search for todo
+nnoremap <leader>d /\(TODO\|FIXME\)<CR>
