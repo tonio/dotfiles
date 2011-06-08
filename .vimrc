@@ -8,11 +8,12 @@ set nocompatible
 " Security
 set modelines=0
 
-" Tab/spaces
+" Tab/spaces {{{
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
+" }}}
 
 " Backups
 if v:version >= 703
@@ -175,18 +176,21 @@ nmap gV `[v`[
 " Surround shortcut
 nmap <leader>é ysiw
 
+" Bubbling {{{
 " Bubble single lines
 nmap <C-k> [e
 nmap <C-j> ]e
 " Bubble multiple lines
 vmap <C-k> [egv
 vmap <C-j> ]egv
+" }}}
 
-" Open file in the same directory as current file
+" Fast file opening {{{
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" }}}
 
 " Save when losing focus
 au FocusLost * :wa
@@ -202,3 +206,35 @@ noremap <leader># "ayiw:Ack <c-r>a<CR>
 
 " Search for todo
 nnoremap <leader>d /\(TODO\|FIXME\)<CR>
+
+" Folding {{{
+
+" Folding methods {{{
+au FileType vim setlocal foldmethod=marker
+au FileType css setlocal foldmethod=marker
+au BufNewFile,BufRead *.css  setlocal foldmarker={,}
+au FileType javascript setlocal foldmethod=marker
+au FileType javascript setlocal foldmarker={,}
+au FileType html setlocal foldmethod=manual
+" }}}
+
+nnoremap   za
+vnoremap   za
+
+function! MyFoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=MyFoldText()
+" }}}
