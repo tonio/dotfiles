@@ -53,6 +53,12 @@
 [submodule ".vim/bundle/solarized"]
 	path = .vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+    ignore = untracked
 [submodule ".vim/bundle/jslint"]
 	path = .vim/bundle/jslint
 	url = git://github.com/hallettj/jslint.vim.git
+    ignore = untracked
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/sjl/oh-my-zsh.git
+    ignore = dirty
