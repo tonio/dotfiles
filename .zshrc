@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-# export ZSH_THEME="prose"
+export ZSH_THEME="prose"
 
 # 256 colors
 export TERM="xterm-256color"
@@ -23,7 +23,6 @@ plugins=(git)
 
 # Nicer prompt
 source $ZSH/oh-my-zsh.sh
-source $ZSH/themes/prose.zsh-theme
 
 # Customize to your needs...
 export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/Library/PostgreSQL/8.4/bin
