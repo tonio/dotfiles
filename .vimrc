@@ -25,7 +25,7 @@ endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
 
-" User Interface
+" User Interface {{{
 set guioptions-=T
 set guioptions-=r
 syntax on
@@ -49,6 +49,7 @@ set cursorline
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
+" }}}
 
 " Leader
 let mapleader=','
@@ -80,31 +81,33 @@ set gdefault
 set formatoptions-=t
 set textwidth=79
 
-nnoremap <F2> :set invpaste paste?<CR>
-imap <F2> <C-O><F2>
-set pastetoggle=<F2>
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
 nnoremap <F3> :GundoToggle<CR>
 nnoremap <silent> <F4> :YRShow<cr>
 inoremap <silent> <F4> <ESC>:YRShow<cr>
 nnoremap <F5> :execute 'set ' . (&relativenumber ? 'number' : 'relativenumber') <CR>
 
-" Yankring
+" Yankring {{{
 let g:yankring_max_history = 10
 let g:yankring_max_element_length = 512000
 let g:yankring_history_file = '.vim_yankring_history'
+" }}}
 
 " remap Y to follow same principle as C, D
 noremap Y y$
 
-" Bépo specific
+" Bépo specific {{{
 noremap é w
 noremap É W
 noremap è bbbe
+" }}}
 
-" Insert <Tab> or complete identifier
+" Insert <Tab> or complete identifier {{{
 " if the cursor is after a keyword character
 function! MyTabOrComplete()
     let col = col('.')-1
@@ -115,6 +118,7 @@ function! MyTabOrComplete()
     endif
 endfunction
 inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
+" }}}
 
 "This autocommand jumps to the last known position in a file
 "just after opening it, if the '"' mark is set:
@@ -133,12 +137,13 @@ nmap <leader>l :set list!<CR>
 " Disable highlight
 map <leader><space> :noh<cr>
 
-" Special filetype conf
+" Special filetype conf {{{
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map setf map
 au BufNewFile,BufRead *.tmux.conf setf tmux
 au BufNewFile,BufRead *.pp setf puppet
+" }}}
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
@@ -196,7 +201,7 @@ map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 au FocusLost * :wa
 
 " Change theme for diff
-au FilterWritePre * if &diff | colorscheme solarized | endif
+"au FilterWritePre * if &diff | colorscheme solarized | endif
 if &diff
     colorscheme solarized
 endif
