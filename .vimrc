@@ -15,7 +15,7 @@ set softtabstop=4
 set expandtab
 " }}}
 
-" Backups
+" Backups {{{
 if v:version >= 703
     set undofile
     set undodir=./.tmp,/tmp
@@ -24,6 +24,7 @@ else
 endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
+" }}}
 
 " User Interface {{{
 set guioptions-=T
@@ -66,21 +67,24 @@ set mouse=a
 set scrolloff=3
 set autoread
 set ttyfast
+"
+" Search {{{
 set incsearch
 set hlsearch
 set nowrap
 set shiftround
-set expandtab
 set autoindent
 set ignorecase
 set smartcase
 set gdefault
+" }}}
 
 " normally don't automatically format `text' as it is typed, IE only do this
 " with comments, at 79 characters:
 set formatoptions-=t
 set textwidth=79
 
+" F* keys mapping {{{
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
@@ -91,6 +95,7 @@ nnoremap <F3> :GundoToggle<CR>
 nnoremap <silent> <F4> :YRShow<cr>
 inoremap <silent> <F4> <ESC>:YRShow<cr>
 nnoremap <F5> :execute 'set ' . (&relativenumber ? 'number' : 'relativenumber') <CR>
+" }}}
 
 " Yankring {{{
 let g:yankring_max_history = 10
