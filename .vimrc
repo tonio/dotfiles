@@ -47,6 +47,7 @@ colorscheme molokai
 hi ColorColumn ctermbg=234
 if has('gui_running')
     set guifont=Menlo:h12
+    set go-=m
 endif
 set cursorline
 set ruler
