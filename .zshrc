@@ -20,7 +20,7 @@ export TERM="xterm-256color"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git zsh-syntax-highlighting)
 
 # Nicer prompt
 source $ZSH/oh-my-zsh.sh
@@ -31,6 +31,9 @@ export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/lo
 # Battery indicator
 #export BAT_CHARGE=$HOME/bin/batcharge.py
 #RPROMPT='$(battery_charge)'
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # z is the new j
 source $HOME/.zsh/z-zsh/z.sh

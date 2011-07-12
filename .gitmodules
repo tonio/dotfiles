@@ -65,3 +65,6 @@
 [submodule ".vim/bundle/vim-coffee-script"]
 	path = .vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule ".zsh-syntax-hightlighting"]
+	path = .zsh-syntax-hightlighting
+	url = git://github.com/nicoulaj/zsh-syntax-highlighting.git
