@@ -68,3 +68,6 @@
 [submodule ".zsh-syntax-hightlighting"]
 	path = .zsh-syntax-hightlighting
 	url = git://github.com/nicoulaj/zsh-syntax-highlighting.git
+[submodule ".vim/bundle/file-line"]
+	path = .vim/bundle/file-line
+	url = https://github.com/bogado/file-line.git
