@@ -1,20 +1,23 @@
+" Pathogen {{{
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
+" }}}
 
 set nocompatible
 
 " Security
 set modelines=0
 
-" Tab/spaces
+" Tab/spaces {{{
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
+" }}}
 
-" Backups
+" Backups {{{
 if v:version >= 703
     set undofile
     set undodir=./.tmp,/tmp
@@ -23,8 +26,9 @@ else
 endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
+" }}}
 
-" User Interface
+" User Interface {{{
 set guioptions-=T
 set guioptions-=r
 syntax on
@@ -43,11 +47,13 @@ colorscheme molokai
 hi ColorColumn ctermbg=234
 if has('gui_running')
     set guifont=Menlo:h12
+    set go-=m
 endif
 set cursorline
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
+" }}}
 
 " Leader
 let mapleader=','
@@ -57,51 +63,59 @@ set history=500
 set undolevels=500
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 set wildmode=list:longest,full
+set wildignore+=*.o,*.obj,.git,.svn,*.pyc
 
 " have the mouse enabled all the time:
 set mouse=a
 set scrolloff=3
 set autoread
 set ttyfast
+"
+" Search {{{
 set incsearch
 set hlsearch
 set nowrap
 set shiftround
-set expandtab
 set autoindent
 set ignorecase
 set smartcase
 set gdefault
+" }}}
 
 " normally don't automatically format `text' as it is typed, IE only do this
 " with comments, at 79 characters:
 set formatoptions-=t
 set textwidth=79
 
-nnoremap <F2> :set invpaste paste?<CR>
-imap <F2> <C-O><F2>
-set pastetoggle=<F2>
+" F* keys mapping {{{
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O><F2>
+set pastetoggle=<F2>
 nnoremap <F3> :GundoToggle<CR>
 nnoremap <silent> <F4> :YRShow<cr>
 inoremap <silent> <F4> <ESC>:YRShow<cr>
+nnoremap <F5> :execute 'set ' . (&relativenumber ? 'number' : 'relativenumber') <CR>
+" }}}
 
-" Yankring
+" Yankring {{{
 let g:yankring_max_history = 10
 let g:yankring_max_element_length = 512000
 let g:yankring_history_file = '.vim_yankring_history'
+" }}}
 
 " remap Y to follow same principle as C, D
 noremap Y y$
 
-" Bépo specific
+" Bépo specific {{{
 noremap é w
 noremap É W
 noremap è bbbe
+" }}}
 
-" Insert <Tab> or complete identifier
+" Insert <Tab> or complete identifier {{{
 " if the cursor is after a keyword character
 function! MyTabOrComplete()
     let col = col('.')-1
@@ -112,6 +126,7 @@ function! MyTabOrComplete()
     endif
 endfunction
 inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
+" }}}
 
 "This autocommand jumps to the last known position in a file
 "just after opening it, if the '"' mark is set:
@@ -130,12 +145,13 @@ nmap <leader>l :set list!<CR>
 " Disable highlight
 map <leader><space> :noh<cr>
 
-" Special filetype conf
+" Special filetype conf {{{
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map setf map
 au BufNewFile,BufRead *.tmux.conf setf tmux
 au BufNewFile,BufRead *.pp setf puppet
+" }}}
 
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
@@ -162,6 +178,7 @@ nnoremap <leader>, <c-w><c-w>
 
 " Tabularize
 noremap <leader>: :Tabularize /:<cr>
+noremap <leader>= :Tabularize /=<cr>
 
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
@@ -172,27 +189,65 @@ nmap gV `[v`[
 " Surround shortcut
 nmap <leader>é ysiw
 
+" Bubbling {{{
 " Bubble single lines
 nmap <C-k> [e
 nmap <C-j> ]e
 " Bubble multiple lines
 vmap <C-k> [egv
 vmap <C-j> ]egv
+" }}}
 
-" Open file in the same directory as current file
+" Fast file opening {{{
 map <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" }}}
 
 " Save when losing focus
 au FocusLost * :wa
 
 " Change theme for diff
-au FilterWritePre * if &diff | colorscheme solarized | endif
+"au FilterWritePre * if &diff | colorscheme solarized | endif
 if &diff
     colorscheme solarized
 endif
 
 " ack-grep word under cursor
 noremap <leader># "ayiw:Ack <c-r>a<CR>
+
+" Search for todo
+nnoremap <leader>d /\(TODO\|FIXME\)<CR>
+
+" Folding {{{
+
+" Folding methods {{{
+au FileType vim setlocal foldmethod=marker
+au FileType css setlocal foldmethod=marker
+au BufNewFile,BufRead *.css  setlocal foldmarker={,}
+au FileType javascript setlocal foldmethod=marker
+au FileType javascript setlocal foldmarker={,}
+au FileType html setlocal foldmethod=manual
+" }}}
+
+nnoremap   za
+vnoremap   za
+
+function! MyFoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=MyFoldText()
+" }}}

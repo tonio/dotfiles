@@ -34,10 +34,6 @@
     path = .vim/bundle/unimpaired
     url = http://github.com/tpope/vim-unimpaired.git
     ignore = untracked
-[submodule ".vim/bundle/jslint"]
-    path = .vim/bundle/jslint
-    url = http://github.com/mattn/jslint.vim.git
-    ignore = untracked
 [submodule ".vim/bundle/gundo"]
     path = .vim/bundle/gundo
     url = http://github.com/sjl/gundo.vim.git
@@ -57,3 +53,21 @@
 [submodule ".vim/bundle/solarized"]
 	path = .vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+    ignore = untracked
+[submodule ".vim/bundle/jslint"]
+	path = .vim/bundle/jslint
+	url = git://github.com/hallettj/jslint.vim.git
+    ignore = untracked
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/sjl/oh-my-zsh.git
+    ignore = dirty
+[submodule ".vim/bundle/vim-coffee-script"]
+	path = .vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule ".zsh-syntax-hightlighting"]
+	path = .zsh-syntax-hightlighting
+	url = git://github.com/nicoulaj/zsh-syntax-highlighting.git
+[submodule ".vim/bundle/file-line"]
+	path = .vim/bundle/file-line
+	url = https://github.com/bogado/file-line.git
