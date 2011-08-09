@@ -151,6 +151,7 @@ au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map setf map
 au BufNewFile,BufRead *.tmux.conf setf tmux
 au BufNewFile,BufRead *.pp setf puppet
+au BufNewFile,BufRead *.penta setf pentadactyl
 " }}}
 
 function! Preserve(command)
