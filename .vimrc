@@ -87,6 +87,11 @@ set gdefault
 set formatoptions-=t
 set textwidth=79
 
+" Moving {{{
+set sidescroll=1
+set sidescrolloff=10
+" }}}
+
 " F* keys mapping {{{
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
