@@ -28,10 +28,6 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/Library/PostgreSQL/8.4/bin
 
-# Battery indicator
-#export BAT_CHARGE=$HOME/bin/batcharge.py
-#RPROMPT='$(battery_charge)'
-
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
