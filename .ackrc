@@ -1,2 +1,3 @@
 --type-set=conf=.cfg,.in,.ini
 --type-set=map=.map
+--type-set=mako=.mako
