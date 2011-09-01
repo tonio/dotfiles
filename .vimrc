@@ -26,6 +26,8 @@ else
 endif
 set backupdir=./.tmp,.,/tmp
 set directory=./.tmp,/tmp
+set history=500
+set undolevels=500
 " }}}
 
 " User Interface {{{
@@ -59,15 +61,12 @@ set laststatus=2
 let mapleader=','
 
 " commands
-set history=500
-set undolevels=500
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 set wildmode=list:longest,full
 set wildignore+=*.o,*.obj,.git,.svn,*.pyc
 
 " have the mouse enabled all the time:
 set mouse=a
-set scrolloff=3
 set autoread
 set ttyfast
 "
@@ -87,12 +86,13 @@ set gdefault
 set formatoptions-=t
 set textwidth=79
 
-" Moving {{{
+" Scroll {{{
+set scrolloff=3
 set sidescroll=1
 set sidescrolloff=10
 " }}}
 
-" F* keys mapping {{{
+" Fn keys mapping {{{
 inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
