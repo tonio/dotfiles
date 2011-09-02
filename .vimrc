@@ -5,10 +5,17 @@ call pathogen#helptags()
 filetype plugin indent on
 " }}}
 
+" Globals {{{
 set nocompatible
-
-" Security
 set modelines=0
+set mouse=a
+set autoread
+set ttyfast
+set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
+set wildmode=list:longest,full
+set wildignore+=*.o,*.obj,.git,.svn,*.pyc
+set hidden
+" }}}
 
 " Tab/spaces {{{
 set shiftwidth=4
@@ -57,19 +64,10 @@ set backspace=indent,eol,start
 set laststatus=2
 " }}}
 
-" Leader
+" Leader {{{
 let mapleader=','
+" }}}
 
-" commands
-set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
-set wildmode=list:longest,full
-set wildignore+=*.o,*.obj,.git,.svn,*.pyc
-
-" have the mouse enabled all the time:
-set mouse=a
-set autoread
-set ttyfast
-"
 " Search {{{
 set incsearch
 set hlsearch
@@ -81,10 +79,10 @@ set smartcase
 set gdefault
 " }}}
 
-" normally don't automatically format `text' as it is typed, IE only do this
-" with comments, at 79 characters:
+" Text {{{
 set formatoptions-=t
 set textwidth=79
+" }}}
 
 " Scroll {{{
 set scrolloff=3
@@ -111,9 +109,6 @@ let g:yankring_max_element_length = 512000
 let g:yankring_history_file = '.vim_yankring_history'
 " }}}
 
-" remap Y to follow same principle as C, D
-noremap Y y$
-
 " Bépo specific {{{
 noremap é w
 noremap É W
@@ -133,22 +128,18 @@ endfunction
 inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 " }}}
 
-"This autocommand jumps to the last known position in a file
-"just after opening it, if the '"' mark is set:
+" Autocommands {{{
+"
+" Jumps to the last known position in a file , if the '"' mark is set:
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
+" Save when losing focus
+au FocusLost * :wa
+
+" }}}
 
 " svn blame of selection
 vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-vmap gb :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-
-" allow switch buffer with modified content without prompt
-set hidden
-
-" Hidden chars
-nmap <leader>l :set list!<CR>
-
-" Disable highlight
-map <leader><space> :noh<cr>
 
 " Special filetype conf {{{
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
@@ -160,6 +151,7 @@ au BufNewFile,BufRead *.penta setf pentadactyl
 au BufNewFile,BufRead .pentadactylrc setf pentadactyl
 " }}}
 
+" Execute function preserving state {{{
 function! Preserve(command)
   " Preparation: save last search, and cursor position.
   let _s=@/
@@ -171,9 +163,22 @@ function! Preserve(command)
   let @/=_s
   call cursor(l, c)
 endfunction
+" }}}
+
+" Utilities {{{
+
+" Disable highlight
+map <leader><space> :noh<cr>
+
+" Hidden chars
+nmap <leader>l :set list!<CR>
+
+" remap Y to follow same principle as C, D
+noremap Y y$
 
 " Remove trailing spaces
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+
 " Indent whole file
 nmap _= :call Preserve("normal gg=G")<CR>
 
@@ -183,18 +188,23 @@ nnoremap <leader>S ?{<CR>jV/}$<CR>k:sort<CR>:noh<CR>
 " Quicker window switching
 nnoremap <leader>, <c-w><c-w>
 
+" ack-grep word under cursor
+noremap <leader># "ayiw:Ack <c-r>a<CR>
+
 " Tabularize
 noremap <leader>: :Tabularize /:<cr>
 noremap <leader>= :Tabularize /=<cr>
-
-" Sudo save
-cmap w!! w !sudo tee % >/dev/null
 
 " Select previous selection
 nmap gV `[v`[
 
 " Surround shortcut
 nmap <leader>é ysiw
+
+" Sudo save
+cmap w!! w !sudo tee % >/dev/null
+
+" }}}
 
 " Bubbling {{{
 " Bubble single lines
@@ -211,21 +221,6 @@ map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " }}}
-
-" Save when losing focus
-au FocusLost * :wa
-
-" Change theme for diff
-"au FilterWritePre * if &diff | colorscheme solarized | endif
-if &diff
-    colorscheme solarized
-endif
-
-" ack-grep word under cursor
-noremap <leader># "ayiw:Ack <c-r>a<CR>
-
-" Search for todo
-nnoremap <leader>d /\(TODO\|FIXME\)<CR>
 
 " Folding {{{
 
