@@ -282,6 +282,7 @@ au FocusLost * :wa
 
 " Special filetype conf {{{
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+au FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
 au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map setf map
 au BufNewFile,BufRead *.tmux.conf setf tmux
