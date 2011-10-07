@@ -111,8 +111,8 @@ set undolevels=500
         let g:default_stl .= "<CUR>#[FileFormat]%{&fileformat} </CUR>" " File format
         let g:default_stl .= "<CUR>#[FileEncoding]%{(&fenc == '' ? &enc : &fenc)} </CUR>" " File encoding
         let g:default_stl .= "<CUR>#[Separator]  ⊂ #[FileType]%{strlen(&ft) ? &ft : 'n/a'} </CUR>" " File type
-        let g:default_stl .= "#[LinePercentS] #[LinePercent] %p%% " " Line/column/virtual column, Line percentage
-        let g:default_stl .= "#[LineNumberS] #[LineNumber]  %l#[LineColumn]:%c%V " " Line/column/virtual column, Line percentage
+        let g:default_stl .= "#[LinePercentS] #[LinePercent]%02(%p%)%% " " Line/column/virtual column, Line percentage
+        let g:default_stl .= "#[LineNumberS] #[LineNumber]%03(%l%)#[LineColumn]:%03(%c%) " " Line/column/virtual column, Line percentage
         let g:default_stl .= "%{exists('g:synid') && g:synid ? ' '.synIDattr(synID(line('.'), col('.'), 1), 'name').' ' : ''}" " Current syntax group
     " }}}
     " Color dict {{{
