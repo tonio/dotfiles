@@ -101,16 +101,16 @@ set undolevels=500
         let g:default_stl  = ""
         let g:default_stl .= "<CUR>#[Mode] %{&paste ? 'PASTE  ' : ''}%{substitute(mode(), '', '', 'g')} #[ModeS]</CUR>"
         let g:default_stl .= "#[ModFlag]%{&readonly ? 'RO ' : ''}" " RO flag
-        let g:default_stl .= " #[FileName]%t " " File name
+        let g:default_stl .= " #[FileName]%f " " File name
         let g:default_stl .= "#[ModFlag]%(%M %)" " Modified flag
         let g:default_stl .= "#[BufFlag]%(%H%W %)" " HLP,PRV flags
-        let g:default_stl .= "#[FileNameS] " " Separator
+        let g:default_stl .= "#[FileNameS]" " Separator
+        let g:default_stl .= "#[FileType] %{strlen(&ft) ? &ft : 'n/a'}" " File type
         let g:default_stl .= "#[FunctionName] " " Padding/HL group
         let g:default_stl .= "%<" " Truncate right
         let g:default_stl .= "%= " " Right align
         let g:default_stl .= "<CUR>#[FileFormat]%{&fileformat} </CUR>" " File format
         let g:default_stl .= "<CUR>#[FileEncoding]%{(&fenc == '' ? &enc : &fenc)} </CUR>" " File encoding
-        let g:default_stl .= "<CUR>#[Separator]  ⊂ #[FileType]%{strlen(&ft) ? &ft : 'n/a'} </CUR>" " File type
         let g:default_stl .= "#[LinePercentS] #[LinePercent]%02(%p%)%% " " Line/column/virtual column, Line percentage
         let g:default_stl .= "#[LineNumberS] #[LineNumber]%03(%l%)#[LineColumn]:%03(%c%) " " Line/column/virtual column, Line percentage
         let g:default_stl .= "%{exists('g:synid') && g:synid ? ' '.synIDattr(synID(line('.'), col('.'), 1), 'name').' ' : ''}" " Current syntax group
