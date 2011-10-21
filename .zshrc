@@ -40,7 +40,7 @@ alias j=z
 alias f='find . -name'
 
 # task list
-alias t='python ~/bin/t/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
+alias t='python ~/Documents/Dropbox/bin/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
 
 # git svn externals
 alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; then echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
@@ -62,5 +62,9 @@ export LESS='-R -F -X'
 # tmux
 alias tma='tmux attach -t'
 
+# virtualenvwrapper
 export WORKON_HOME=~/Library/Envs
-source /usr/local/bin/virtualenvwrapper.sh
+if [[ -s /usr/local/bin/virtualenvwrapper.sh ]] ; then source /usr/local/bin/virtualenvwrapper.sh ; fi
+
+# local settings
+if [[ -s $HOME/.zshrc_local ]] ; then source $HOME/.zshrc_local ; fi
