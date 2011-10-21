@@ -61,3 +61,6 @@ export LESS='-R -F -X'
 
 # tmux
 alias tma='tmux attach -t'
+
+export WORKON_HOME=~/Library/Envs
+source /usr/local/bin/virtualenvwrapper.sh
