@@ -76,3 +76,6 @@
 [submodule ".vim/bundle/argtextobj.vim"]
 	path = .vim/bundle/argtextobj.vim
 	url = https://github.com/vim-scripts/argtextobj.vim.git
+[submodule ".vim/bundle/zencoding"]
+	path = .vim/bundle/zencoding
+	url = https://github.com/mattn/zencoding-vim.git
