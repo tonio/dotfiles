@@ -368,6 +368,7 @@ map <leader>c :CtrlP<CR>
 " Folding methods {{{
 au FileType vim setlocal foldmethod=marker
 au FileType css setlocal foldmethod=marker
+au FileType pentadactyl setlocal foldmethod=marker
 au BufNewFile,BufRead *.css  setlocal foldmarker={,}
 au FileType javascript setlocal foldmethod=marker
 au FileType javascript setlocal foldmarker={,}
