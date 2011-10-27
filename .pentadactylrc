@@ -63,6 +63,8 @@ set editor='/usr/local/bin/mvim -f +<line> <file>'
 set followhints=1
 set showtabline=never
 set showstatuslinks=command
+set guioptions-=r
+set titlestring=Firefox
 
 nnoremap j 3j
 nnoremap k 3k

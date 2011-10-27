@@ -19,6 +19,7 @@
     addremove = !git add . && git ls-files --deleted | xargs git rm
     fshow = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
     vim   = ! sh -c 'vim `git fshow $1`' -
+    vm = ! sh -c 'vim `git ls-files -m`' -
 
 [giggle]
     compact-mode = false
