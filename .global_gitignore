@@ -1,3 +1,4 @@
 *.sw?
 *.un~
 *.pyc
+.DS_Store
