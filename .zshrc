@@ -20,7 +20,7 @@ export TERM="xterm-256color"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting brew)
+plugins=(git zsh-syntax-highlighting brew osx)
 
 # Nicer prompt
 source $ZSH/oh-my-zsh.sh
