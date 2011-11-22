@@ -337,6 +337,7 @@ noremap <leader># "ayiw:Ack <c-r>a<CR>
 " Tabularize
 noremap <leader>: :Tabularize /:<cr>
 noremap <leader>= :Tabularize /=<cr>
+noremap <leader>o vi{:Tabularize /:<cr>
 
 " Select previous selection
 nmap gV `[v`[
@@ -444,4 +445,10 @@ function! PulseCursorLine()
     execute current_window . 'wincmd w'
 endfunction
 
+" }}}
+
+" Abbreviations {{{
+" Typos
+ab calss class
+ab hig highlight
 " }}}
