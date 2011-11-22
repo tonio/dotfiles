@@ -236,9 +236,9 @@ set sidescrolloff=10
 " }}}
 
 " Fn keys mapping {{{
-inoremap <F1> <ESC>
-nnoremap <F1> <ESC>
-vnoremap <F1> <ESC>
+" Get out of <esc>
+inoremap gq <esc>
+inoremap <esc> <nop>
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
