@@ -81,3 +81,6 @@
 	path = .vim/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
     ignore = untracked
+[submodule ".vim/bundle/matchtag"]
+	path = .vim/bundle/matchtag
+	url = https://github.com/gregsexton/MatchTag.git
