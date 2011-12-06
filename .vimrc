@@ -348,6 +348,9 @@ nmap <leader>é ysiw
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
 
+" From tab to vsplit
+nnoremap <c-w>V mAZZ<c-w>v`A
+
 " }}}
 
 " Bubbling {{{
