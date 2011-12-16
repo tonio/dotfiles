@@ -3,7 +3,7 @@
 " Author: Tomas Restrepo <tomas@winterdom.com>
 "
 " Note: Based on the monokai theme for textmate
-" by Wimer Hazenberg and its darker variant 
+" by Wimer Hazenberg and its darker variant
 " by Hamish Stuart Macpherson
 "
 
@@ -125,7 +125,7 @@ else
    hi ColorColumn                   guibg=#232728
    hi LineNr          guifg=#AAAAAA guibg=#1B1D1E
    hi FoldColumn      guifg=#AAAAAA guibg=#1B1D1E
-   
+
    " Invisible character colors
    highlight NonText    guifg=#444444 guibg=#1a1c1d
    highlight SpecialKey guifg=#444444 guibg=#1a1c1d
@@ -220,3 +220,9 @@ if &t_Co > 255
 
    hi SpellBad        ctermbg=238 cterm=bold
 end
+
+" Custom tab bar
+hi Title ctermfg=LightBlue
+hi TabLineFill ctermbg=234 term=bold cterm=bold
+hi TabLine ctermbg=234 ctermfg=DarkGrey
+hi TabLineSel ctermbg=0 ctermfg=Green
