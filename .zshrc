@@ -65,7 +65,7 @@ alias tma='tmux attach -t'
 
 # virtualenvwrapper
 export WORKON_HOME=~/Library/Envs
-if [[ -s /usr/local/bin/virtualenvwrapper.sh ]] ; then source /usr/local/bin/virtualenvwrapper.sh ; fi
+if [[ -s /usr/local/bin/virtualenvwrapper.sh ]] ; then alias vv='source /usr/local/bin/virtualenvwrapper.sh' ; fi
 
 # local settings
 if [[ -s $HOME/.zshrc_local ]] ; then source $HOME/.zshrc_local ; fi
