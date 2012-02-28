@@ -87,3 +87,6 @@
 [submodule ".vim/bundle/vim-powerline"]
 	path = .vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule ".vim/bundle/vim-python"]
+	path = .vim/bundle/vim-python
+	url = git://github.com/klen/python-mode.git
