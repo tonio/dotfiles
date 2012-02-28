@@ -14,6 +14,7 @@ set ttyfast
 set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 set wildmode=list:longest,full
 set wildignore+=*.o,*.obj,.git,.svn,*.pyc
+set wildignore+=*/.git/*,*/.svn/*
 set hidden
 set switchbuf=usetab,newtab
 " }}}
@@ -43,6 +44,7 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
+set number
 if v:version >= 703
     set relativenumber
     set cc=80
@@ -147,6 +149,7 @@ au FocusLost * :wa
 " Special filetype conf {{{
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
+au FileType html setlocal textwidth=0
 au BufNewFile,BufRead *.less setf less
 au BufNewFile,BufRead *.map setf map
 au BufNewFile,BufRead *.tmux.conf setf tmux
@@ -229,6 +232,8 @@ map <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>c :CtrlP<CR>
+let g:ctrlp_working_path_mode=2
+let g:ctrlp_custom_ignore='buildout'
 " }}}
 
 " Folding {{{
