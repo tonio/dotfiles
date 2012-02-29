@@ -233,7 +233,7 @@ map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>c :CtrlP<CR>
 let g:ctrlp_working_path_mode=2
-let g:ctrlp_custom_ignore='buildout'
+let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
 " }}}
 
 " Folding {{{
