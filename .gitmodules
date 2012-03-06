@@ -30,10 +30,6 @@
     path = .vim/bundle/gundo
     url = http://github.com/sjl/gundo.vim.git
     ignore = untracked
-[submodule ".vim/bundle/yankring"]
-    path = .vim/bundle/yankring
-    url = https://github.com/vim-scripts/YankRing.vim.git
-    ignore = untracked
 [submodule ".vim/bundle/tabular"]
     path = .vim/bundle/tabular
     url = git://github.com/godlygeek/tabular.git
@@ -41,10 +37,6 @@
 [submodule ".vim/bundle/command-t"]
     path = .vim/bundle/command-t
     url = git://git.wincent.com/command-t.git
-    ignore = untracked
-[submodule ".vim/bundle/solarized"]
-	path = .vim/bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
     ignore = untracked
 [submodule ".vim/bundle/jslint"]
 	path = .vim/bundle/jslint
@@ -63,9 +55,6 @@
 [submodule ".vim/bundle/vim-commentary"]
 	path = .vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule ".vim/bundle/vim-jade"]
-	path = .vim/bundle/vim-jade
-	url = https://github.com/digitaltoad/vim-jade.git
 [submodule ".vim/bundle/argtextobj.vim"]
 	path = .vim/bundle/argtextobj.vim
 	url = https://github.com/vim-scripts/argtextobj.vim.git
