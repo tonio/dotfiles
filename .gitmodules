@@ -34,10 +34,6 @@
     path = .vim/bundle/tabular
     url = git://github.com/godlygeek/tabular.git
     ignore = untracked
-[submodule ".vim/bundle/command-t"]
-    path = .vim/bundle/command-t
-    url = git://git.wincent.com/command-t.git
-    ignore = untracked
 [submodule ".vim/bundle/jslint"]
 	path = .vim/bundle/jslint
 	url = git://github.com/hallettj/jslint.vim.git
