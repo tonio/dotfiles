@@ -6,6 +6,10 @@ filetype plugin indent on
 " }}}
 
 " Globals {{{
+if $VIM_CRONTAB == "true"
+    set nobackup
+    set nowritebackup
+endif
 set nocompatible
 set modelines=0
 set mouse=a
@@ -320,4 +324,20 @@ endfunction
 " Typos
 ab calss class
 ab hig highlight
+" }}}
+
+" Firefox Reload (UX) ---------------------------------------------------- {{{
+function! UXReload()
+python << EOF
+from subprocess import call
+browser = """
+tell application "UX"
+    activate
+    tell application "System Events" to keystroke "r" using command down
+end tell
+"""
+call(['osascript', '-e', browser])
+EOF
+endfunction
+noremap <leader>r :call UXReload()<cr>
 " }}}
