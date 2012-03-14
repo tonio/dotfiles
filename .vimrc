@@ -332,7 +332,7 @@ function! UXReload()
 python << EOF
 from subprocess import call
 browser = """
-tell application "UX"
+tell application "Firefox UX Nightly"
     activate
     tell application "System Events" to keystroke "r" using command down
 end tell
