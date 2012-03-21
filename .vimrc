@@ -244,6 +244,7 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
 " Folding {{{
 
 " Folding methods {{{
+set foldmethod=marker
 au FileType vim setlocal foldmethod=marker
 au FileType css setlocal foldmethod=marker
 au FileType pentadactyl setlocal foldmethod=marker
