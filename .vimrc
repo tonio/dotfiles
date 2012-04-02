@@ -1,7 +1,7 @@
 " Pathogen {{{
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
 filetype plugin indent on
 " }}}
 
@@ -244,6 +244,7 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
 " Folding {{{
 
 " Folding methods {{{
+set foldmethod=marker
 au FileType vim setlocal foldmethod=marker
 au FileType css setlocal foldmethod=marker
 au FileType pentadactyl setlocal foldmethod=marker
@@ -332,7 +333,7 @@ function! UXReload()
 python << EOF
 from subprocess import call
 browser = """
-tell application "UX"
+tell application "Firefox UX Nightly"
     activate
     tell application "System Events" to keystroke "r" using command down
 end tell

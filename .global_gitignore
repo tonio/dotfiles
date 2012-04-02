@@ -2,3 +2,4 @@
 *.un~
 *.pyc
 .DS_Store
+tags
