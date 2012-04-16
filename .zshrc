@@ -1,3 +1,4 @@
+# OhMyZsh -----------------------------------------------------------------{{{
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -25,13 +26,14 @@ plugins=(git command-coloring brew osx)
 # Nicer prompt
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
+# }}}
+
+# Paths -------------------------------------------------------------------{{{
 export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/Library/PostgreSQL/8.4/bin
 export NODE_PATH=/usr/local/lib/node_modules
+# }}}
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
+# Utilities ---------------------------------------------------------------{{{
 # z is the new j
 source $HOME/.zsh/z-zsh/z.sh
 function precmd () {
@@ -40,22 +42,16 @@ function precmd () {
 alias j=z
 alias f='find . -name'
 
+# quicklook
+alias ql='qlmanage -p 2>&1 > /dev/null'
+
 # task list
 alias t='python ~/Documents/Dropbox/bin/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
 
-# git svn externals
-alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; then echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
-
-# cd to git root dir
-alias gitroot='cd $(git rev-parse --show-cdup)'
-
-# svn
-alias svnd='svn diff | colordiff | less'
-
-# vim only
-export EDITOR=vim
-alias vi='vim'
-alias o='mvim'
+# Edit current line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
 
 # coherent less output
 export LESS='-R -F -X'
@@ -63,9 +59,26 @@ export LESS='-R -F -X'
 # tmux
 alias tma='tmux attach -t'
 
-# virtualenvwrapper
+# }}}
+
+# CSM ---------------------------------------------------------------------{{{
+alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; then echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
+alias gitroot='cd $(git rev-parse --show-cdup)'
+alias svnd='svn diff | colordiff | less'
+if [[ -s /usr/local/bin/hub ]] ; then function git(){hub "$@"} ; fi
+# }}}
+
+# Vim ---------------------------------------------------------------------{{{
+export EDITOR=vim
+alias vi='vim'
+alias o='mvim'
+# }}}
+
+# VirtualEnvWrapper -------------------------------------------------------{{{
 export WORKON_HOME=~/Library/Envs
 if [[ -s /usr/local/bin/virtualenvwrapper.sh ]] ; then alias vv='source /usr/local/bin/virtualenvwrapper.sh' ; fi
+# }}}
 
-# local settings
+# Local settings ----------------------------------------------------------{{{
 if [[ -s $HOME/.zshrc_local ]] ; then source $HOME/.zshrc_local ; fi
+# }}}

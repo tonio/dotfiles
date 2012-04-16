@@ -1,11 +1,15 @@
 " Pathogen {{{
 filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect()
 filetype plugin indent on
 " }}}
 
 " Globals {{{
+if $VIM_CRONTAB == "true"
+    set nobackup
+    set nowritebackup
+endif
 set nocompatible
 set modelines=0
 set mouse=a
@@ -67,6 +71,13 @@ set backspace=indent,eol,start
 set laststatus=2
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
+if exists('$TMUX')
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 " }}}
 
 " Leader {{{
@@ -240,6 +251,7 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
 " Folding {{{
 
 " Folding methods {{{
+set foldmethod=marker
 au FileType vim setlocal foldmethod=marker
 au FileType css setlocal foldmethod=marker
 au FileType pentadactyl setlocal foldmethod=marker
@@ -321,4 +333,20 @@ endfunction
 " Typos
 ab calss class
 ab hig highlight
+" }}}
+
+" Firefox Reload (UX) ---------------------------------------------------- {{{
+function! UXReload()
+python << EOF
+from subprocess import call
+browser = """
+tell application "Firefox UX Nightly"
+    activate
+    tell application "System Events" to keystroke "r" using command down
+end tell
+"""
+call(['osascript', '-e', browser])
+EOF
+endfunction
+noremap <leader>r :call UXReload()<cr>
 " }}}

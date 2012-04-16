@@ -1,19 +1,15 @@
 [submodule ".vim/bundle/surround"]
     path = .vim/bundle/surround
     url = git://github.com/tpope/vim-surround.git
-    ignore = untracked
 [submodule ".vim/bundle/ack"]
     path = .vim/bundle/ack
     url = git://github.com/mileszs/ack.vim.git
-    ignore = untracked
 [submodule ".vim/bundle/fugitive"]
     path = .vim/bundle/fugitive
     url = git://github.com/tpope/vim-fugitive.git
-    ignore = untracked
 [submodule ".vim/bundle/gist"]
     path = .vim/bundle/gist
     url = git://github.com/mattn/gist-vim.git
-    ignore = untracked
 [submodule ".zsh/z-zsh"]
     path = .zsh/z-zsh
     url = http://github.com/sjl/z-zsh.git
@@ -21,23 +17,18 @@
 [submodule ".vim/bundle/repeat"]
     path = .vim/bundle/repeat
     url = git://github.com/tpope/vim-repeat.git
-    ignore = untracked
 [submodule ".vim/bundle/unimpaired"]
     path = .vim/bundle/unimpaired
     url = http://github.com/tpope/vim-unimpaired.git
-    ignore = untracked
 [submodule ".vim/bundle/gundo"]
     path = .vim/bundle/gundo
     url = http://github.com/sjl/gundo.vim.git
-    ignore = untracked
 [submodule ".vim/bundle/tabular"]
     path = .vim/bundle/tabular
     url = git://github.com/godlygeek/tabular.git
-    ignore = untracked
 [submodule ".vim/bundle/jslint"]
 	path = .vim/bundle/jslint
 	url = git://github.com/hallettj/jslint.vim.git
-    ignore = untracked
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/sjl/oh-my-zsh.git
@@ -57,14 +48,27 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-    ignore = untracked
 [submodule ".vim/bundle/zencoding"]
 	path = .vim/bundle/zencoding
 	url = https://github.com/mattn/zencoding-vim.git
-    ignore = untracked
 [submodule ".vim/bundle/matchtag"]
 	path = .vim/bundle/matchtag
 	url = https://github.com/gregsexton/MatchTag.git
 [submodule ".vim/bundle/vim-powerline"]
 	path = .vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
+[submodule ".vim/bundle/matchit"]
+	path = .vim/bundle/matchit
+	url = https://github.com/tsaleh/vim-matchit.git
+[submodule ".vim/bundle/vim-afterimage"]
+	path = .vim/bundle/vim-afterimage
+	url = https://github.com/tpope/vim-afterimage.git
+[submodule ".vim/bundle/smartinput"]
+	path = .vim/bundle/smartinput
+	url = https://github.com/kana/vim-smartinput.git
+[submodule ".vim/bundle/css-colors"]
+	path = .vim/bundle/css-colors
+	url = https://github.com/ap/vim-css-color.git
