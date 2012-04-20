@@ -58,6 +58,7 @@ export LESS='-R -F -X'
 
 # tmux
 alias tma='tmux attach -t'
+if [[ -s  "`brew --prefix grc`/etc/grc.bashrc" ]] ; then source "`brew --prefix grc`/etc/grc.bashrc" ; fi
 
 # }}}
 
