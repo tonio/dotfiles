@@ -54,6 +54,7 @@ if v:version >= 703
     set cc=80
 endif
 set listchars=tab:▸\ ,eol:¬,trail:·
+set list
 set shortmess+=r
 set showmode
 set showcmd
