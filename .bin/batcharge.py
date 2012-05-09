@@ -13,23 +13,24 @@ b_max = float(o_max.rpartition('=')[-1].strip())
 b_cur = float(o_cur.rpartition('=')[-1].strip())
 
 charge = b_cur / b_max
-charge_threshold = int(math.ceil(10 * charge))
+c = int(math.ceil(5 * charge))
 
 # Output
 
-total_slots, slots = 10, []
-filled = int(math.ceil(charge_threshold * (total_slots / 10.0))) * u'▸'
-empty = (total_slots - len(filled)) * u'▹'
-
-out = (filled + empty).encode('utf-8')
+if c == 1: out = u'○'
+if c == 2: out = u'◔'
+if c == 3: out = u'◑'
+if c == 4: out = u'◕'
+if c == 5: out = u'●'
+out = out.encode('utf-8')
 import sys
 
 color_green = 'green'
 color_yellow = 'yellow'
 color_red = 'red'
 color_out = (
-    color_green if len(filled) > 6
-    else color_yellow if len(filled) > 4
+    color_green if c > 3
+    else color_yellow if c > 1
     else color_red
 )
 
