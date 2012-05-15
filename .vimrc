@@ -210,7 +210,8 @@ noremap <leader>= :Tabularize /=<cr>
 noremap <leader>o vi{:Tabularize /:<cr>
 
 " Select previous selection
-nmap gV `[v`[
+nmap gV `[v`]
+vmap Y y`]
 
 " Surround shortcut
 nmap <leader>é ysiw
