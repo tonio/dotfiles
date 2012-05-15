@@ -213,9 +213,9 @@ if &t_Co > 255
 
    "hi Normal          ctermfg=252 ctermbg=233
    hi Comment         ctermfg=59
-   hi CursorLine                  ctermbg=234   cterm=none
-   hi CursorColumn                ctermbg=234
-   hi LineNr          ctermfg=250 ctermbg=234
+   hi CursorLine                  ctermbg=235   cterm=none
+   hi CursorColumn                ctermbg=235
+   hi LineNr          ctermfg=245 ctermbg=233
    hi NonText         ctermfg=234 ctermbg=234
 
    hi SpellBad        ctermbg=238 cterm=bold
@@ -225,4 +225,4 @@ end
 hi Title ctermfg=LightBlue
 hi TabLineFill ctermbg=234 term=bold cterm=bold
 hi TabLine ctermbg=234 ctermfg=DarkGrey
-hi TabLineSel ctermbg=0 ctermfg=White
+hi TabLineSel ctermbg=234 ctermfg=White

@@ -61,7 +61,7 @@ set showcmd
 set showmatch
 set t_Co=256
 colorscheme molokai
-hi ColorColumn ctermbg=234
+hi ColorColumn ctermbg=235
 if has('gui_running')
     set guifont=Menlo:h12
     set go-=m
