@@ -216,7 +216,7 @@ if &t_Co > 255
    hi CursorLine                  ctermbg=235   cterm=none
    hi CursorColumn                ctermbg=235
    hi LineNr          ctermfg=245 ctermbg=233
-   hi NonText         ctermfg=234 ctermbg=234
+   hi NonText         ctermfg=236 ctermbg=234
 
    hi SpellBad        ctermbg=238 cterm=bold
 end
