@@ -8,6 +8,6 @@ activity "Activity in %t(%n)"
 autodetach on
 shelltitle ""
 hardstatus alwayslastline
-hardstatus string "%{.kW}%-w%{.WK}%n %t%{-}%{=b kw}%?%+w%? %=%H"
+hardstatus string "%{= d}%-w%{= dg}%n/%t%{-}%+w %=%H"
 #shell -$SHELL
 altscreen on
