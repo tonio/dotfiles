@@ -223,6 +223,9 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <c-w>V mAZZ<c-w>v`A
 
 " }}}
+" Zencoding {{{
+let g:user_zen_settings = {'indentation' : '    '}
+" }}}
 
 " Bubbling {{{
 " Bubble single lines

@@ -72,3 +72,6 @@
 [submodule ".vim/bundle/vitality"]
 	path = .vim/bundle/vitality
 	url = https://github.com/sjl/vitality.vim.git
+[submodule ".vim/bundle/webapi"]
+	path = .vim/bundle/webapi
+	url = https://github.com/mattn/webapi-vim.git
