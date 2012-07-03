@@ -8,7 +8,12 @@ export ZSH_THEME="prose"
 export DISABLE_AUTO_UPDATE="true"
 
 # 256 colors
-export TERM="xterm-256color"
+if [[ ${TMUX} == '' ]]
+then
+    export TERM="xterm-256color"
+else
+    export TERM="screen-256color"
+fi
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
