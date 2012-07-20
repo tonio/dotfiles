@@ -72,6 +72,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
+call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 " }}}
 
 " Leader {{{
