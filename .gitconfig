@@ -21,6 +21,7 @@
     fshow = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
     vim   = ! sh -c 'vim `git fshow $1`' -
     vm = ! sh -c 'vim `git ls-files -m`' -
+    ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
 
 [giggle]
     compact-mode = false
@@ -30,5 +31,8 @@
 [core]
     excludesfile = ~/.global_gitignore
 
+[init]
+    templatedir = ~/.git_template
+
 [merge]
-	tool = vimdiff
+    tool = vimdiff

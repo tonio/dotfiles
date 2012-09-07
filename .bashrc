@@ -236,6 +236,7 @@ export GREP_OPTIONS="--exclude-dir=\.svn"
 export PYTHONSTARTUP="$HOME/.pystartup"
 
 alias svnd='svn diff --diff-cmd colordiff'
+alias gdf='git diff --word-diff=color'
 
 alias ack='~/.bin/ack-standalone'
 
