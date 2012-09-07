@@ -32,7 +32,7 @@
     excludesfile = ~/.global_gitignore
 
 [init]
-    templatedir = ~/.git_template
+    templatedir = ~/.dotfiles/.git_template
 
 [merge]
     tool = vimdiff
