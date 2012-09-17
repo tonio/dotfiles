@@ -1,0 +1,12 @@
+body {
+    background: #fff;
+}
+#hdr {
+    display:none;
+}
+.profile {
+    visibility: hidden;
+}
+.catmain {
+    background: #ddd;
+}
