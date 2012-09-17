@@ -342,6 +342,10 @@ command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
 " }}}
 
+" Tags ------------------------------------------------------------------- {{{
+noremap <leader>d <c-]>
+noremap <leader>gd g<c-]>
+" }}}
 " Firefox Reload (UX) ---------------------------------------------------- {{{
 function! UXReload()
 python << EOF
