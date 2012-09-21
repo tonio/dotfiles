@@ -13,7 +13,7 @@ hi CompItem             font: normal 12px 'Lucida Grande' !important;
 hi Normal               color: #afafaf; background: #000;
 hi CompDesc             color: white; width: 50%; font-size: 12px;
 hi CompIcon             width: 16px; min-width: 16px; display: inline-block; margin-right: .5ex;
-hi CompItem[selected]   background: #666666; color: #afafaf; 
+hi CompItem[selected]   background: #666666; color: #afafaf;
 hi CompLess             text-align: center; height: 0; line-height: .5ex; padding-top: 1ex;
 hi CompMore             text-align: center; height: .5ex; line-height: .5ex; margin-bottom: -.5ex;
 hi CompMsg              font-style: italic; margin-left: 16px;
