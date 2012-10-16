@@ -21,6 +21,7 @@ set wildignore+=*.o,*.obj,.git,.svn,*.pyc
 set wildignore+=*/.git/*,*/.svn/*
 set hidden
 set switchbuf=usetab,newtab
+set nrformats=
 " }}}
 
 " Tab/spaces {{{
