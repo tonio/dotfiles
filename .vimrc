@@ -49,10 +49,11 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-set number
 if v:version >= 703
     set relativenumber
     set cc=80
+else
+    set number
 endif
 set listchars=tab:▸\ ,eol:¬,trail:·
 set list
@@ -112,21 +113,7 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 nnoremap <F3> :GundoToggle<CR>
-nnoremap <silent> <F4> :YRShow<cr>
-inoremap <silent> <F4> <ESC>:YRShow<cr>
 nnoremap <F5> :execute 'set ' . (&relativenumber ? 'number' : 'relativenumber') <CR>
-" }}}
-
-" Yankring {{{
-let g:yankring_max_history = 10
-let g:yankring_max_element_length = 512000
-let g:yankring_history_file = '.vim_yankring_history'
-" }}}
-
-" Bépo specific {{{
-noremap é w
-noremap É W
-noremap è bbbe
 " }}}
 
 " Insert <Tab> or complete identifier {{{
@@ -143,13 +130,8 @@ inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 " }}}
 
 " Autocommands {{{
-"
 " Jumps to the last known position in a file , if the '"' mark is set:
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-" Save when losing focus
-au FocusLost * :wa
-
 " }}}
 
 " Special filetype conf {{{
@@ -224,6 +206,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <c-w>V mAZZ<c-w>v`A
 
 " }}}
+
 " Zencoding {{{
 let g:user_zen_settings = {'indentation' : '    '}
 " }}}
@@ -282,7 +265,7 @@ endfunction " }}}
 set foldtext=MyFoldText()
 " }}}
 
-" Abbreviations & commands {{{
+" Abbreviations & commands ------------------------------------------------{{{
 " Typos
 ab calss class
 ab hig highlight
