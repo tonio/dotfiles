@@ -1,11 +1,11 @@
-" Pathogen {{{
+" Pathogen ----------------------------------------------------------------{{{
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on
 " }}}
 
-" Globals {{{
+" Globals -----------------------------------------------------------------{{{
 if $VIM_CRONTAB == "true"
     set nobackup
     set nowritebackup
@@ -24,7 +24,7 @@ set switchbuf=usetab,newtab
 set nrformats=
 " }}}
 
-" Tab/spaces {{{
+" Tab/spaces --------------------------------------------------------------{{{
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -89,9 +89,8 @@ set autoindent
 set ignorecase
 set smartcase
 set gdefault
-" PulseCursorLine
-nnoremap n nzzzv:call PulseCursorLine()<cr>
-nnoremap N Nzzzv:call PulseCursorLine()<cr>
+nnoremap n nzz
+nnoremap N Nzz
 " }}}
 
 " Text {{{
@@ -283,53 +282,6 @@ endfunction " }}}
 set foldtext=MyFoldText()
 " }}}
 
-" Pulse {{{
-function! PulseCursorLine()
-    let current_window = winnr()
-
-    windo set nocursorline
-    execute current_window . 'wincmd w'
-
-    setlocal cursorline
-
-    redir => old_hi
-        silent execute 'hi CursorLine'
-    redir END
-    let old_hi = split(old_hi, '\n')[0]
-    let old_hi = substitute(old_hi, 'xxx', '', '')
-
-    hi CursorLine guibg=#2a2a2a ctermbg=233
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#333333 ctermbg=235
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#3a3a3a ctermbg=237
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#444444 ctermbg=239
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#4a4a4a ctermbg=237
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#555555 ctermbg=235
-    redraw
-    sleep 20m
-
-    execute 'hi ' . old_hi
-
-    windo set cursorline
-    execute current_window . 'wincmd w'
-endfunction
-
-" }}}
-
 " Abbreviations & commands {{{
 " Typos
 ab calss class
@@ -347,12 +299,17 @@ command! -bang WQ wq<bang>
 noremap <leader>d <c-]>
 noremap <leader>gd g<c-]>
 " }}}
-" Firefox Reload (UX) ---------------------------------------------------- {{{
+
+" Git -------------------------------------------------------------------- {{{
+noremap <leader>s Gstatus<CR>
+" }}}
+
+" Firefox Reload --------------------------------------------------------- {{{
 function! UXReload()
 python << EOF
 from subprocess import call
 browser = """
-tell application "Firefox UX Nightly"
+tell application "Firefox Aurora"
     activate
     tell application "System Events" to keystroke "r" using command down
 end tell
