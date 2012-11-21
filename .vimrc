@@ -1,11 +1,11 @@
-" Pathogen {{{
+" Pathogen ----------------------------------------------------------------{{{
 filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on
 " }}}
 
-" Globals {{{
+" Globals -----------------------------------------------------------------{{{
 if $VIM_CRONTAB == "true"
     set nobackup
     set nowritebackup
@@ -21,9 +21,10 @@ set wildignore+=*.o,*.obj,.git,.svn,*.pyc
 set wildignore+=*/.git/*,*/.svn/*
 set hidden
 set switchbuf=usetab,newtab
+set nrformats=
 " }}}
 
-" Tab/spaces {{{
+" Tab/spaces --------------------------------------------------------------{{{
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -48,10 +49,11 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=dark
-set number
 if v:version >= 703
     set relativenumber
     set cc=80
+else
+    set number
 endif
 set listchars=tab:▸\ ,eol:¬,trail:·
 set list
@@ -88,9 +90,8 @@ set autoindent
 set ignorecase
 set smartcase
 set gdefault
-" PulseCursorLine
-nnoremap n nzzzv:call PulseCursorLine()<cr>
-nnoremap N Nzzzv:call PulseCursorLine()<cr>
+nnoremap n nzz
+nnoremap N Nzz
 " }}}
 
 " Text {{{
@@ -112,21 +113,7 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 nnoremap <F3> :GundoToggle<CR>
-nnoremap <silent> <F4> :YRShow<cr>
-inoremap <silent> <F4> <ESC>:YRShow<cr>
 nnoremap <F5> :execute 'set ' . (&relativenumber ? 'number' : 'relativenumber') <CR>
-" }}}
-
-" Yankring {{{
-let g:yankring_max_history = 10
-let g:yankring_max_element_length = 512000
-let g:yankring_history_file = '.vim_yankring_history'
-" }}}
-
-" Bépo specific {{{
-noremap é w
-noremap É W
-noremap è bbbe
 " }}}
 
 " Insert <Tab> or complete identifier {{{
@@ -143,13 +130,8 @@ inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 " }}}
 
 " Autocommands {{{
-"
 " Jumps to the last known position in a file , if the '"' mark is set:
 :au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-" Save when losing focus
-au FocusLost * :wa
-
 " }}}
 
 " Special filetype conf {{{
@@ -224,6 +206,7 @@ cmap w!! w !sudo tee % >/dev/null
 nnoremap <c-w>V mAZZ<c-w>v`A
 
 " }}}
+
 " Zencoding {{{
 let g:user_zen_settings = {'indentation' : '    '}
 " }}}
@@ -282,54 +265,7 @@ endfunction " }}}
 set foldtext=MyFoldText()
 " }}}
 
-" Pulse {{{
-function! PulseCursorLine()
-    let current_window = winnr()
-
-    windo set nocursorline
-    execute current_window . 'wincmd w'
-
-    setlocal cursorline
-
-    redir => old_hi
-        silent execute 'hi CursorLine'
-    redir END
-    let old_hi = split(old_hi, '\n')[0]
-    let old_hi = substitute(old_hi, 'xxx', '', '')
-
-    hi CursorLine guibg=#2a2a2a ctermbg=233
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#333333 ctermbg=235
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#3a3a3a ctermbg=237
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#444444 ctermbg=239
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#4a4a4a ctermbg=237
-    redraw
-    sleep 20m
-
-    hi CursorLine guibg=#555555 ctermbg=235
-    redraw
-    sleep 20m
-
-    execute 'hi ' . old_hi
-
-    windo set cursorline
-    execute current_window . 'wincmd w'
-endfunction
-
-" }}}
-
-" Abbreviations & commands {{{
+" Abbreviations & commands ------------------------------------------------{{{
 " Typos
 ab calss class
 ab hig highlight
@@ -401,12 +337,17 @@ hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 noremap <leader>d <c-]>
 noremap <leader>gd g<c-]>
 " }}}
-" Firefox Reload (UX) ---------------------------------------------------- {{{
+
+" Git -------------------------------------------------------------------- {{{
+noremap <leader>s Gstatus<CR>
+" }}}
+
+" Firefox Reload --------------------------------------------------------- {{{
 function! UXReload()
 python << EOF
 from subprocess import call
 browser = """
-tell application "Firefox UX Nightly"
+tell application "Firefox Aurora"
     activate
     tell application "System Events" to keystroke "r" using command down
 end tell
