@@ -62,8 +62,14 @@ set showmode
 set showcmd
 set showmatch
 set t_Co=256
-colorscheme molokai
-hi ColorColumn ctermbg=235
+" Solarized ---------------------------------------------------------------{{{
+let g:solarized_termcolors=256
+let g:solarized_visibility = "high"
+let g:solarized_constrast = "high"
+colorscheme solarized
+" }}}
+" colorscheme molokai
+" hi ColorColumn ctermbg=235
 if has('gui_running')
     set guifont=Menlo:h12
     set go-=m
