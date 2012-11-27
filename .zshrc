@@ -65,6 +65,17 @@ export LESS='-R -F -X'
 alias tma='tmux attach -t'
 if [[ -s  "`brew --prefix grc`/etc/grc.bashrc" ]] ; then source "`brew --prefix grc`/etc/grc.bashrc" ; fi
 
+# dircolors
+if [[ -s /usr/local/bin/gdircolors ]] ; then
+    eval `gdircolors $HOME/.dotfiles/zsh/dircolors-solarized/dircolors.256dark`
+; else
+    eval `dircolors $HOME/.dotfiles/zsh/dircolors-solarized/dircolors.256dark`
+; fi
+if [[ -s /usr/local/bin/gls ]] ; then
+    alias ls='gls --color=auto'
+; fi
+
+
 # }}}
 
 # CSM ---------------------------------------------------------------------{{{
