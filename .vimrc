@@ -13,9 +13,7 @@ endif
 set nocompatible
 set modelines=0
 set mouse=a
-set autoread
 set ttyfast
-set viminfo=/10,'10,r/mnt/zip,r/mnt/floppy,f0,h,\"100
 set wildmode=list:longest,full
 set wildignore+=*.o,*.obj,.git,.svn,*.pyc
 set wildignore+=*/.git/*,*/.svn/*
@@ -32,14 +30,9 @@ set expandtab
 " }}}
 
 " Backups {{{
-if v:version >= 703
-    set undofile
-    set undodir=./.tmp,/tmp
-else
+if v:version < 703
     let g:gundo_disable = 1
 endif
-set backupdir=./.tmp,.,/tmp
-set directory=./.tmp,/tmp
 set history=500
 set undolevels=500
 " }}}
@@ -55,12 +48,10 @@ if v:version >= 703
 else
     set number
 endif
-set listchars=tab:▸\ ,eol:¬,trail:·
+set listchars+=tab:▸\ ,eol:¬,trail:·
 set list
 set shortmess+=r
 set showmode
-set showcmd
-set showmatch
 set t_Co=256
 " Solarized ---------------------------------------------------------------{{{
 let g:solarized_termcolors=256
@@ -75,9 +66,6 @@ if has('gui_running')
     set go-=m
 endif
 set cursorline
-set ruler
-set backspace=indent,eol,start
-set laststatus=2
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
@@ -88,13 +76,10 @@ let mapleader=','
 " }}}
 
 " Search {{{
-set incsearch
 set hlsearch
 set nowrap
 set shiftround
-set autoindent
 set ignorecase
-set smartcase
 set gdefault
 nnoremap n nzz
 nnoremap N Nzz
@@ -103,12 +88,6 @@ nnoremap N Nzz
 " Text {{{
 set formatoptions-=t
 set textwidth=79
-" }}}
-
-" Scroll {{{
-set scrolloff=3
-set sidescroll=1
-set sidescrolloff=10
 " }}}
 
 " Fn keys mapping {{{
@@ -173,9 +152,6 @@ map <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " Hidden chars
 nmap <leader>l :set list!<CR>
-
-" remap Y to follow same principle as C, D
-noremap Y y$
 
 " Remove trailing spaces
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
