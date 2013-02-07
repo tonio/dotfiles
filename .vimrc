@@ -6,10 +6,6 @@ filetype plugin indent on
 " }}}
 
 " Globals -----------------------------------------------------------------{{{
-if $VIM_CRONTAB == "true"
-    set nobackup
-    set nowritebackup
-endif
 set nocompatible
 set modelines=0
 set mouse=a
@@ -69,6 +65,7 @@ set cursorline
 set encoding=utf-8
 let g:Powerline_symbols = 'fancy'
 call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
+set noshowmode
 " }}}
 
 " Leader {{{
