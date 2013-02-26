@@ -87,3 +87,6 @@
 [submodule ".vim/bundle/abolish"]
 	path = .vim/bundle/abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule ".vim/bundle/gitgutter"]
+	path = .vim/bundle/gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
