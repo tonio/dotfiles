@@ -15,7 +15,6 @@ set wildignore+=*.o,*.obj,.git,.svn,*.pyc
 set wildignore+=*/.git/*,*/.svn/*
 set hidden
 set switchbuf=usetab,newtab
-set nrformats=
 " }}}
 
 " Tab/spaces --------------------------------------------------------------{{{
@@ -25,15 +24,14 @@ set softtabstop=4
 set expandtab
 " }}}
 
-" Backups {{{
+" Backups -----------------------------------------------------------------{{{
 if v:version < 703
     let g:gundo_disable = 1
 endif
-set history=500
 set undolevels=500
 " }}}
 
-" User Interface {{{
+" User Interface ----------------------------------------------------------{{{
 set guioptions-=T
 set guioptions-=r
 syntax on
@@ -44,10 +42,8 @@ if v:version >= 703
 else
     set number
 endif
-set listchars+=tab:▸\ ,eol:¬,trail:·
 set list
 set shortmess+=r
-set showmode
 set t_Co=256
 " Solarized ---------------------------------------------------------------{{{
 let g:solarized_termcolors=256
@@ -63,9 +59,8 @@ if has('gui_running')
 endif
 set cursorline
 set encoding=utf-8
-let g:Powerline_symbols = 'fancy'
-call Pl#Theme#InsertSegment('ws_marker', 'after', 'lineinfo')
 set noshowmode
+hi clear SignColumn
 " }}}
 
 " Leader {{{
@@ -75,7 +70,6 @@ let mapleader=','
 " Search {{{
 set hlsearch
 set nowrap
-set shiftround
 set ignorecase
 set gdefault
 nnoremap n nzz
@@ -215,6 +209,7 @@ let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
 " Folding methods {{{
 set foldmethod=marker
 au FileType vim setlocal foldmethod=marker
+au FileType vim setlocal foldlevel=1
 au FileType css setlocal foldmethod=marker
 au FileType pentadactyl setlocal foldmethod=marker
 au BufNewFile,BufRead *.css  setlocal foldmarker={,}
@@ -326,7 +321,7 @@ function! UXReload()
 python << EOF
 from subprocess import call
 browser = """
-tell application "Firefox Aurora"
+tell application "Nightly UX"
     activate
     tell application "System Events" to keystroke "r" using command down
 end tell
