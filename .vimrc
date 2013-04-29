@@ -3,6 +3,7 @@ filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on
+set rtp+=~/.dotfiles/powerline/powerline/bindings/vim
 " }}}
 
 " Globals -----------------------------------------------------------------{{{
@@ -84,12 +85,10 @@ set textwidth=79
 " Fn keys mapping {{{
 " Get out of <esc>
 inoremap gq <esc>
-inoremap <esc> <nop>
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 nnoremap <F3> :GundoToggle<CR>
-nnoremap <F5> :execute 'set ' . (&relativenumber ? 'number' : 'relativenumber') <CR>
 " }}}
 
 " Insert <Tab> or complete identifier {{{
@@ -263,25 +262,19 @@ command! -bang WQ wq<bang>
 " a number from 1-6 to highlight the current word in a specific color.
 
 function! HiInterestingWord(n) " {{{
-" Save our location.
+    " Save our location.
     normal! mz
-
-" Yank the current word into the z register.
+    " Yank the current word into the z register.
     normal! "zyiw
-
-" Calculate an arbitrary match ID. Hopefully nothing else is using it.
+    " Calculate an arbitrary match ID. Hopefully nothing else is using it.
     let mid = 86750 + a:n
-
-" Clear existing matches, but don't worry if they don't exist.
+    " Clear existing matches, but don't worry if they don't exist.
     silent! call matchdelete(mid)
-
-" Construct a literal pattern that has to match at boundaries.
+    " Construct a literal pattern that has to match at boundaries.
     let pat = '\V\<' . escape(@z, '\') . '\>'
-
-" Actually match the words.
+    " Actually match the words.
     call matchadd("InterestingWord" . a:n, pat, 1, mid)
-
-" Move back to our original location.
+    " Move back to our original location.
     normal! `z
 endfunction " }}}
 
@@ -312,22 +305,3 @@ noremap <leader>d <c-]>
 noremap <leader>gd g<c-]>
 " }}}
 
-" Git -------------------------------------------------------------------- {{{
-noremap <leader>s Gstatus<CR>
-" }}}
-
-" Firefox Reload --------------------------------------------------------- {{{
-function! UXReload()
-python << EOF
-from subprocess import call
-browser = """
-tell application "Nightly UX"
-    activate
-    tell application "System Events" to keystroke "r" using command down
-end tell
-"""
-call(['osascript', '-e', browser])
-EOF
-endfunction
-noremap <leader>r :call UXReload()<cr>
-" }}}
