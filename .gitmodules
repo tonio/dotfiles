@@ -90,3 +90,6 @@
 [submodule ".vim/bundle/gitgutter"]
 	path = .vim/bundle/gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/tern"]
+	path = .vim/bundle/tern
+	url = https://github.com/marijnh/tern_for_vim.git
