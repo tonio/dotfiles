@@ -3,7 +3,9 @@ filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on
-set rtp+=~/.dotfiles/powerline/powerline/bindings/vim
+"set rtp+=~/.dotfiles/powerline/powerline/bindings/vim
+let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
 " }}}
 
 " Globals -----------------------------------------------------------------{{{

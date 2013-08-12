@@ -93,3 +93,6 @@
 [submodule ".vim/bundle/tern"]
 	path = .vim/bundle/tern
 	url = https://github.com/marijnh/tern_for_vim.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
