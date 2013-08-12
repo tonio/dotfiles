@@ -78,17 +78,18 @@ if [[ -s /usr/local/bin/gls ]] ; then
 
 # }}}
 
-# CSM ---------------------------------------------------------------------{{{
+# Git ---------------------------------------------------------------------{{{
 alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; then echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
 alias gitroot='cd $(git rev-parse --show-cdup)'
+alias gr=gitroot
 alias svnd='svn diff | colordiff | less'
-if [[ -s /usr/local/bin/hub ]] ; then function git(){hub "$@"} ; fi
 # }}}
 
 # Vim ---------------------------------------------------------------------{{{
 export EDITOR=vim
 alias vi='vim'
 alias o='mvim'
+alias v='vim -u NONE'
 # }}}
 
 # VirtualEnvWrapper -------------------------------------------------------{{{

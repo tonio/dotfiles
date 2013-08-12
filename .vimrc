@@ -171,6 +171,12 @@ vmap Y y`]
 " Surround shortcut
 nmap <leader>é ysiw
 
+" insert 1 char
+nnoremap <space> :<C-U>call InsertChar#insert(v:count1)<CR>
+
+" Reload file
+nnoremap <leader>r :e!<CR>
+
 " Sudo save
 cmap w!! w !sudo tee % >/dev/null
 

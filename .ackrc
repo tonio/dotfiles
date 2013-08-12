@@ -1,6 +1,6 @@
 --type-set=conf=.cfg,.in,.ini
 --type-set=map=.map
 --type-set=mako=.mako
---type-set=front=.js,.mako,.html,.css,.scss
+--type-set=front=.js,.mako,.html,.css,.scss.less
 --ignore-dir=buildout
 --ignore-dir=build
