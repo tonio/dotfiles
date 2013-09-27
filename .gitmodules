@@ -48,9 +48,6 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/zencoding"]
-	path = .vim/bundle/zencoding
-	url = https://github.com/mattn/zencoding-vim.git
 [submodule ".vim/bundle/matchtag"]
 	path = .vim/bundle/matchtag
 	url = https://github.com/gregsexton/MatchTag.git
@@ -96,3 +93,6 @@
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/emmet"]
+	path = .vim/bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
