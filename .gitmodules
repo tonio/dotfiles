@@ -99,3 +99,6 @@
 [submodule ".vim/bundle/syntastic"]
 	path = .vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/colortable"]
+	path = .vim/bundle/colortable
+	url = https://github.com/guns/xterm-color-table.vim.git

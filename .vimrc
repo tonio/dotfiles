@@ -3,7 +3,6 @@ filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on
-"set rtp+=~/.dotfiles/powerline/powerline/bindings/vim
 let g:airline_powerline_fonts=1
 let g:airline_theme='solarized'
 " }}}
@@ -38,7 +37,7 @@ set undolevels=500
 set guioptions-=T
 set guioptions-=r
 syntax on
-set bg=dark
+set bg=light
 if v:version >= 703
     set relativenumber
     set cc=80
@@ -49,21 +48,21 @@ set list
 set shortmess+=r
 set t_Co=256
 " Solarized ---------------------------------------------------------------{{{
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 let g:solarized_visibility = "high"
 let g:solarized_constrast = "high"
 colorscheme solarized
 " }}}
 " colorscheme molokai
-" hi ColorColumn ctermbg=235
 if has('gui_running')
-    set guifont=Menlo:h12
+    set guifont=PragmataPro\ for\ Powerline:h12
     set go-=m
 endif
 set cursorline
 set encoding=utf-8
 set noshowmode
 hi clear SignColumn
+hi SignColumn ctermbg=15
 " }}}
 
 " Leader {{{
