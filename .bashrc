@@ -172,7 +172,8 @@ if [ "$color_prompt" = yes ]; then
  #    PS1="${debian_chroot:+$debian_chroot }[\[\033[1;34m\] \w \[\033[00m\]]\[\033[0m\] \[\033[0m\]\n\[\033[1;32m\]\u\[\033[1;34m\] \$ \[\033[0m\]"
  #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
  # En fait l'important ici c'est le "\033[1;32m\]$(__git_ps1)\[\033[0m\]", le reste c'est mon prompt usuel…
-    export PS1='\[\033[0;37m\]\u@\h: \[\033[0;34m\]\w\[\033[0m\]\[\033[1;32m\]$(__git_ps1)\[\033[0m\] \$ '
+    # export PS1='\[\033[0;37m\]\u@\h: \[\033[0;34m\]\w\[\033[0m\]\[\033[1;32m\]$(__git_ps1)\[\033[0m\] \$ '
+    export PS1='\[\033[00;32m\]\u@\[\033[00;34m\]\h\[\033[00m\]:\w\$ \[\033[00;32m\]$(__git_ps1)\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h: \w\$ '
 fi
