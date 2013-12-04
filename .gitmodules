@@ -31,7 +31,7 @@
 	url = git://github.com/hallettj/jslint.vim.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
-	url = https://github.com/sjl/oh-my-zsh.git
+	url = https://github.com/robbyrussell/oh-my-zsh.git
     ignore = dirty
 [submodule ".vim/bundle/vim-coffee-script"]
 	path = .vim/bundle/vim-coffee-script

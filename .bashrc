@@ -118,7 +118,7 @@ __git_ps1 ()
 
         b="$(cut -c1-7 "$g/HEAD" 2>/dev/null)..." ||
         b="unknown"
-        b="($b)"
+        b="$b"
       }
     fi
 
@@ -173,7 +173,7 @@ if [ "$color_prompt" = yes ]; then
  #    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
  # En fait l'important ici c'est le "\033[1;32m\]$(__git_ps1)\[\033[0m\]", le reste c'est mon prompt usuel…
     # export PS1='\[\033[0;37m\]\u@\h: \[\033[0;34m\]\w\[\033[0m\]\[\033[1;32m\]$(__git_ps1)\[\033[0m\] \$ '
-    export PS1='\[\033[00;32m\]\u@\[\033[00;34m\]\h\[\033[00m\]:\w\$ \[\033[00;32m\]$(__git_ps1)\[\033[00m\] '
+    export PS1='\w\[\033[00;32m\]$(__git_ps1)\[\033[00m\] \$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h: \w\$ '
 fi
