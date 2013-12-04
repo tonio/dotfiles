@@ -23,11 +23,6 @@
     vm = ! sh -c 'vim `git ls-files -m`' -
     ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
 
-[giggle]
-    compact-mode = false
-    main-window-maximized = false
-    main-window-geometry = 1382x820+1904+136
-
 [core]
     excludesfile = ~/.global_gitignore
 
