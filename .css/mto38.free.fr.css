@@ -1,0 +1,26 @@
+body, p, table, th, td {
+    font-family: Cochin;
+    font-size: 18px !important;
+    background: white;
+    border: 0;
+}
+th {
+    display: none;
+}
+table, body > i {
+    width: 40em;
+    margin: 0 auto;
+}
+i {
+    font-style: normal;
+}
+body > i {
+    display: block;
+}
+td > b {
+    line-height: 3em;
+    color: #666;
+}
+a {
+    color: darkgreen;
+}
