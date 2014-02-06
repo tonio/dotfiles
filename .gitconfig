@@ -10,6 +10,7 @@
 
 [alias]
     st = status
+    s = status -sb
     ci = commit
     br = branch
     co = checkout
@@ -22,6 +23,16 @@
     vim   = ! sh -c 'vim `git fshow $1`' -
     vm = ! sh -c 'vim `git ls-files -m`' -
     ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
+    mine = log --author=abt
+    d = diff --word-diff=color
+    dc = diff --cached
+    fo = fetch origin
+    fu = fetch upstream
+    lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %s%C(reset) %C(magenta)- %an%C(reset)%C(cyan)%d%C(reset)' --all
+    tags = tag
+    remotes = remote -v
+    branches = branch -a
+
 
 [core]
     excludesfile = ~/.global_gitignore

@@ -34,11 +34,15 @@ source $ZSH/oh-my-zsh.sh
 # }}}
 
 # Paths -------------------------------------------------------------------{{{
-export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin
+export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin:$HOME/.bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin
 export PATH=$PATH:/Library/PostgreSQL/8.4/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/lib/node_modules
+
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
 # }}}
 
 # Utilities ---------------------------------------------------------------{{{
