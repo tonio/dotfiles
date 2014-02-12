@@ -102,3 +102,6 @@
 [submodule ".vim/bundle/colortable"]
 	path = .vim/bundle/colortable
 	url = https://github.com/guns/xterm-color-table.vim.git
+[submodule ".vim/bundle/ag"]
+	path = .vim/bundle/ag
+	url = git@github.com:rking/ag.vim.git
