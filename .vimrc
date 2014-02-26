@@ -42,12 +42,9 @@ set guioptions-=T
 set guioptions-=r
 syntax on
 set bg=light
-if v:version >= 703
-    set relativenumber
-    set cc=80
-else
-    set number
-endif
+set number
+set relativenumber
+set cc=80
 set list
 set shortmess+=r
 set t_Co=256
