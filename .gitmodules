@@ -54,9 +54,6 @@
 [submodule ".vim/bundle/vim-pathogen"]
 	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule ".vim/bundle/matchit"]
-	path = .vim/bundle/matchit
-	url = https://github.com/tsaleh/vim-matchit.git
 [submodule ".vim/bundle/vim-afterimage"]
 	path = .vim/bundle/vim-afterimage
 	url = https://github.com/tpope/vim-afterimage.git
