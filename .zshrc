@@ -40,7 +40,7 @@ export PATH=$PATH:/Library/PostgreSQL/8.4/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 export NODE_PATH=/usr/local/lib/node_modules
 
-unalias run-help
+#unalias run-help
 autoload run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 # }}}

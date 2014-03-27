@@ -3,10 +3,16 @@ filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on
+" Airline
 let g:airline_powerline_fonts=0
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='solarized'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#close_symbol = 'X'
+" Gist
+let g:gist_get_multiplefile = 1
 " }}}
 
 " Globals -----------------------------------------------------------------{{{
