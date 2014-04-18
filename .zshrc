@@ -26,7 +26,7 @@ fi
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git zsh-syntax-highlighting brew osx virtualenv)
+plugins=(git brew osx virtualenv zsh-syntax-highlighting )
 
 # Nicer prompt
 source $ZSH/oh-my-zsh.sh

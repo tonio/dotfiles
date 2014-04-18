@@ -97,6 +97,8 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O><F2>
 set pastetoggle=<F2>
 nnoremap <F3> :GundoToggle<CR>
+nnoremap <F4> :set norelativenumber<CR>:set nonumber<CR>
+nnoremap <F5> :set relativenumber<CR>:set number<CR>
 " }}}
 
 " Insert <Tab> or complete identifier {{{
