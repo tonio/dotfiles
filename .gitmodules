@@ -105,3 +105,6 @@
 [submodule ".vim/bundle/json"]
 	path = .vim/bundle/json
 	url = git@github.com:elzr/vim-json.git
+[submodule ".zsh-syntax-highlighting"]
+	path = .zsh-syntax-highlighting
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
