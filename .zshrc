@@ -82,6 +82,8 @@ if [[ -s /usr/local/bin/gls ]] ; then
     alias ls='gls --color=auto'
 ; fi
 
+#grep colors
+export GREP_COLOR='2;31'
 
 # }}}
 
