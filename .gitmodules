@@ -111,3 +111,6 @@
 [submodule ".vim/bundle/mapfile"]
 	path = .vim/bundle/mapfile
 	url = git@github.com:walkermatt/vim-mapfile.git
+[submodule ".vim/bundle/expand-region"]
+	path = .vim/bundle/expand-region
+	url = https://github.com/terryma/vim-expand-region.git
