@@ -177,6 +177,10 @@ noremap <leader>o vi{:Tabularize /:<cr>
 nmap gV `[v`]
 vmap Y y`]
 
+" Expand region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 " Surround shortcut
 nmap <leader>é ysiw
 
