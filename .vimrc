@@ -325,7 +325,7 @@ noremap <leader>gd g<c-]>
 " }}}
 
 " Backups ---------------------------------------------------------------- {{{
-let s:dir = has('win32') ? '$APPDATA/Vim' : match(system('uname'), "Darwin") > -1 ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim': '$XDG_DATA_HOME/vim'
+let s:dir = '~/Library/Vim'
 
 if isdirectory(expand(s:dir))
   if &directory =~# '^\.,'
