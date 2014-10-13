@@ -18,6 +18,7 @@
     lg = log -p
     lastweek = log --since="1 week" --oneline
     lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
+    oops = commit --amend --no-edit
     addremove = !git add . && git ls-files --deleted | xargs git rm
     fshow = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
     vim   = ! sh -c 'vim `git fshow $1`' -
