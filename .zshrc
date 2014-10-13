@@ -5,6 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="lambda"
+export ZSH_THEME="avit"
 export DISABLE_AUTO_UPDATE="true"
 
 # 256 colors
@@ -30,6 +31,10 @@ plugins=(git brew osx virtualenv zsh-syntax-highlighting )
 
 # Nicer prompt
 source $ZSH/oh-my-zsh.sh
+
+# Customize `avit` theme
+ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}×%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}•%{$reset_color%}"
 
 # }}}
 
@@ -58,7 +63,7 @@ alias f='find . -name'
 alias ql='qlmanage -p 2>&1 > /dev/null'
 
 # task list
-alias t='python ~/Documents/Dropbox/bin/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
+alias task='python ~/Documents/Dropbox/bin/t.py --task-dir ~/Documents/Dropbox/tasks --list tasks'
 
 # Edit current line
 autoload -U edit-command-line
