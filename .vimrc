@@ -122,9 +122,10 @@ inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
 " Special filetype conf {{{
 au FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 au FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
-au FileType html setlocal textwidth=0
+au FileType html setlocal textwidth=0 sw=2
+au FileType javascript setlocal sw=2
 au BufNewFile,BufRead *.less setf less
-au BufNewFile,BufRead *.tmux.conf setf tmux
+au BufNewFile,BufRead .tmux.conf setf tmux
 au BufNewFile,BufRead *.pp setf puppet
 au BufNewFile,BufRead *.penta setf pentadactyl
 au BufNewFile,BufRead .pentadactylrc setf pentadactyl
@@ -234,6 +235,7 @@ au BufNewFile,BufRead *.css  setlocal foldmarker={,}
 au FileType javascript setlocal foldmethod=marker
 au FileType javascript setlocal foldmarker={,}
 au FileType html setlocal foldmethod=manual
+set foldlevel=3
 " }}}
 
 nnoremap   za
