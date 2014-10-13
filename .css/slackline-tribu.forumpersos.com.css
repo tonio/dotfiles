@@ -1,0 +1,117 @@
+body {
+  background: white;
+  font-size: 1.1em;
+  font-family: 'PT Serif', 'Helvetica Neue' !important;
+}
+#page-header, #left, #right {
+  display: none;
+}
+#wrap {
+  min-width: auto;
+  padding: 0;
+  background: white;
+  border: none;
+  width: 90em;
+  margin: auto;
+  font-size: 0.6em;
+}
+#main-content > div:first-child {
+  display:none;
+}
+.postprofile img {
+  display: none;
+}
+.post, .content {
+  background: white;
+  color: black !important;
+  font-family: 'PT Serif', 'Helvetica Neue' !important;
+  padding: 0;
+}
+
+[href=#top], [href=#bottom] {
+  display: none;
+}
+
+a img[src$=i_icon_latest_reply\.png],
+a img[alt~=Voir],
+a img[alt~=Aller],
+a img[alt~=Revenir],
+a img[alt~=Suivant] {
+display: none;
+}
+.postprofile,
+.author img
+{
+  display: none;
+}
+a, a:link,
+a:visited,
+.postprofile a, .postprofile a:link {
+  color: #61D2D6;
+  font-family: 'PT Serif', 'Helvetica Neue' !important;
+}
+
+.pagination span strong,
+.pagination span a {
+  display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  color: white;
+  background: grey;
+}
+.pagination span a {
+  background-color: #61D2D6;
+  color: white;
+  border: none;
+  float: right;
+}
+#main-content .post .topic-title {
+  display: none;
+}
+#main-content .post:first-of-type .topic-title {
+  display: block;
+}
+h1.page-title {
+  width: 39em;
+  margin: auto;
+  font-size: 1.2em;
+}
+.topic-actions {
+  width: 39em;
+  margin: auto;
+  font-size: 1.1em;
+}
+.page-title a {
+  color: black;
+}
+ul * {
+    border: none !important;
+}
+ul.topiclist,
+li.row, li.row1,
+li.row:hover, li.row1:hover {
+    background: white;
+    border: 0 !important;
+    border-bottom: 1px solid #ddd !important;
+}
+.icon {
+    background: none !important;
+}
+div#content {
+    width: 700px;
+    margin: 0 auto !important;
+}
+.forumbg {
+    background: white;
+    border: none;
+}
+.dterm {
+    padding-left: 0;
+}
+.panel.introduction, #page-footer {
+    display: none !important;
+}
+.forabg, .panel{
+    background: white;
+}
