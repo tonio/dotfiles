@@ -111,3 +111,9 @@
 [submodule ".vim/bundle/expand-region"]
 	path = .vim/bundle/expand-region
 	url = https://github.com/terryma/vim-expand-region.git
+[submodule ".vim/bundle/javascript"]
+	path = .vim/bundle/javascript
+	url = git@github.com:pangloss/vim-javascript.git
+[submodule ".tmux/resurrect"]
+	path = .tmux/resurrect
+	url = git@github.com:tmux-plugins/tmux-resurrect.git
