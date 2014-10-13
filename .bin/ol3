@@ -10,7 +10,7 @@ tmux new-window -n serve -t ol3
 tmux split-window -h -t ol3
 tmux send-keys -t ol3:3.0 'vv' C-m
 tmux send-keys -t ol3:3.0 'workon ol3' C-m
-tmux send-keys -t ol3:3.0 './build.py serve' C-m
-tmux send-keys -t ol3:3.1 'python -m SimpleHTTPServer' C-m
+tmux send-keys -t ol3:3.0 'npm start' C-m
+tmux send-keys -t ol3:3.1 'cowsay ol3' C-m
 tmux select-window -t ol3:1
 tmux attach -t ol3
