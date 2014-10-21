@@ -185,8 +185,9 @@ vmap <C-v> <Plug>(expand_region_shrink)
 " Surround shortcut
 nmap <leader>é ysiw
 
-" insert 1 char
-nnoremap <space> :<C-U>call InsertChar#insert(v:count1)<CR>
+" faster tab switching
+nnoremap é gT
+nnoremap è gt
 
 " Reload file
 nnoremap <leader>r :e!<CR>
