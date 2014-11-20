@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
 export ZSH_THEME="lambda"
-export ZSH_THEME="avit"
+# export ZSH_THEME="avit"
 export DISABLE_AUTO_UPDATE="true"
 
 # 256 colors
@@ -86,6 +86,9 @@ if [[ -s /usr/local/bin/gdircolors ]] ; then
 if [[ -s /usr/local/bin/gls ]] ; then
     alias ls='gls --color=auto'
 ; fi
+
+# ts helpers
+alias ts="pmset -g log | grep -v Dark | grep -v Maintenance | grep -e 'Wake   ' -e 'Entering'"
 
 #grep colors
 export GREP_COLOR='2;31'

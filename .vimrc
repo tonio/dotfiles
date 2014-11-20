@@ -101,6 +101,9 @@ nnoremap <F4> :set norelativenumber<CR>:set nonumber<CR>
 nnoremap <F5> :set relativenumber<CR>:set number<CR>
 " }}}
 
+" C-d to delete word after cursor in insert mode
+imap <C-d> <C-[>diwi
+
 " Insert <Tab> or complete identifier {{{
 " if the cursor is after a keyword character
 function! MyTabOrComplete()
