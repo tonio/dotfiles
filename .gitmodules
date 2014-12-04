@@ -117,3 +117,6 @@
 [submodule ".tmux/resurrect"]
 	path = .tmux/resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
+[submodule ".vim/bundle/dispatch"]
+	path = .vim/bundle/dispatch
+	url = git@github.com:tpope/vim-dispatch.git
