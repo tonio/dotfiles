@@ -1,7 +1,17 @@
 body {
-  background: white;
+  background: white !important;
+  color: #444 !important;
   font-size: 1.1em;
   font-family: 'PT Serif', 'Helvetica Neue' !important;
+}
+.bodyline {
+  background: white !important;
+  color: #444 !important;
+  border: none;
+}
+a[rel=nofollow],
+.bodyline > *:not(#page-body) {
+  display: none;
 }
 #page-header, #left, #right {
   display: none;
