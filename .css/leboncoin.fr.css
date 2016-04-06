@@ -1,0 +1,39 @@
+body,
+.page_width,
+.search_box {
+  background: white;
+}
+#header_logo,
+.list-gallery {
+  display: none;
+}
+
+a {
+  color: #2875C2;
+}
+.navlist.type li {
+  font-size: 10px;
+  background: #bbb;
+}
+.navlist.type li a {
+  color: white;
+}
+.navlist.type li.selected {
+  background: #666;
+}
+.content-border {
+  background: #666;
+}
+.thumbs,
+.images,
+img {
+  opacity: 0.2;
+  filter: grayscale(1);
+  transition: all .25s ease;
+}
+.thumbs:hover,
+.images:hover,
+img:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}

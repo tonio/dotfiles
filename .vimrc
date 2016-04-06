@@ -8,8 +8,8 @@ let g:airline_powerline_fonts=0
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='solarized'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#show_tab_type = 0
 let g:airline#extensions#tabline#close_symbol = 'X'
 " Gist
 let g:gist_get_multiplefile = 1
@@ -132,6 +132,8 @@ au BufNewFile,BufRead .tmux.conf setf tmux
 au BufNewFile,BufRead *.pp setf puppet
 au BufNewFile,BufRead *.penta setf pentadactyl
 au BufNewFile,BufRead .pentadactylrc setf pentadactyl
+au BufNewFile,BufRead *.es6 setf javascript
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " }}}
 
 " Execute function preserving state {{{
@@ -225,6 +227,16 @@ map <leader>c :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_working_path_mode=2
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
+
+augroup VIMRC
+    autocmd!
+
+    autocmd BufLeave *.css  normal! mC
+    autocmd BufLeave *.less  normal! mL
+    autocmd BufLeave *.html normal! mH
+    autocmd BufLeave *.js   normal! mJ
+    autocmd BufLeave *.py   normal! mP
+augroup END
 " }}}
 
 " Folding {{{

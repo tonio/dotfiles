@@ -10,6 +10,7 @@
 
 [alias]
     st = status
+    ts = status
     s = status -sb
     ci = commit
     br = branch
@@ -37,9 +38,13 @@
 
 [core]
     excludesfile = ~/.global_gitignore
+    # insanely beautiful diffs
+    #pager = zsh -lc 'diff-highlight | strip_diff_leading_symbols() | less -r'
 
 [init]
     templatedir = ~/.dotfiles/.git_template
 
 [merge]
     tool = vimdiff
+[push]
+	default = simple

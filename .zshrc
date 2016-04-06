@@ -27,7 +27,8 @@ fi
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew osx virtualenv zsh-syntax-highlighting )
+# plugins=(git brew osx virtualenv zsh-syntax-highlighting )
+plugins=(git  virtualenv zsh-syntax-highlighting )
 
 # Nicer prompt
 source $ZSH/oh-my-zsh.sh
@@ -43,6 +44,8 @@ export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin:$HOME/.bin
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:usr/local/git/bin:/usr/X11/bin:/opt/local/bin
 export PATH=$PATH:/Library/PostgreSQL/8.4/bin
 export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=$PATH:/usr/games
+export PATH=$PATH:$HOME/.local/bin
 export NODE_PATH=/usr/local/lib/node_modules
 
 #unalias run-help
@@ -75,7 +78,10 @@ export LESS='-R -F -X'
 
 # tmux
 alias tma='tmux attach -t'
-if [[ -s  "`brew --prefix grc`/etc/grc.bashrc" ]] ; then source "`brew --prefix grc`/etc/grc.bashrc" ; fi
+# if [[ -s  "`brew --prefix grc`/etc/grc.bashrc" ]] ; then source "`brew --prefix grc`/etc/grc.bashrc" ; fi
+export DISABLE_AUTO_TITLE=true
+if [[ -s $HOME/.bin/tmuxinator.sh ]] ; then source ~/.bin/tmuxinator.sh ; fi
+# }}}
 
 # dircolors
 if [[ -s /usr/local/bin/gdircolors ]] ; then
@@ -90,11 +96,18 @@ if [[ -s /usr/local/bin/gls ]] ; then
 # ts helpers
 alias ts="pmset -g log | grep -v Dark | grep -v Maintenance | grep -e 'Wake   ' -e 'Entering'"
 
+# fucking mouse
+alias tp='rfkill block 0 && sleep 1 && rfkill unblock 0 && hidd --connect D8:A2:5E:FD:AF:2A'
+
 #grep colors
 export GREP_COLOR='2;31'
 
 # }}}
 
+# Go ----------------------------------------------------------------------{{{
+export GOPATH=/home/aabt/nobackup/go
+# }}}
+#
 # Git ---------------------------------------------------------------------{{{
 alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; then echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
 alias gitroot='cd $(git rev-parse --show-cdup)'
@@ -113,9 +126,28 @@ alias v='vim -u NONE'
 
 # VirtualEnvWrapper -------------------------------------------------------{{{
 export WORKON_HOME=~/Library/Envs
-if [[ -s /usr/local/bin/virtualenvwrapper.sh ]] ; then alias vv='source /usr/local/bin/virtualenvwrapper.sh' ; fi
+if [[ -s $HOME/.local/bin/virtualenvwrapper.sh ]] ; then alias vv='source ~/.local/bin/virtualenvwrapper.sh' ; fi
 # }}}
 
 # Local settings ----------------------------------------------------------{{{
+function strip_diff_leading_symbols(){
+color_code_regex="(\x1B\[([0-9]{1,2}(;[0-9]{1,2})?)?[m|K])"
+
+# simplify the unified patch diff header
+sed -r "s/^($color_code_regex)diff --git .*$//g" | \
+    sed -r "s/^($color_code_regex)index .*$/\n\1$(rule)/g" | \
+    sed -r "s/^($color_code_regex)\+\+\+(.*)$/\1+++\5\n\1$(rule)\x1B\[m/g" | \
+    sed -r "s/^($color_code_regex)[\+\-]/\1 /g"
+ }
+
+ # Print a horizontal rule
+ rule () {
+     printf "%$(tput cols)s\n"|tr " " "─"
+ }
+# }}}
+# Local settings ----------------------------------------------------------{{{
 if [[ -s $HOME/.zshrc_local ]] ; then source $HOME/.zshrc_local ; fi
 # }}}
+
+export NVM_DIR="/home/aabt/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
