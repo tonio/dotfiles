@@ -35,6 +35,8 @@
     remotes = remote -v
     branches = branch -a
 
+[diff "asciidiff"]
+    textconv = ~/.bin/img-ascii-diff
 
 [core]
     excludesfile = ~/.global_gitignore
@@ -47,4 +49,4 @@
 [merge]
     tool = vimdiff
 [push]
-	default = simple
+    default = simple
