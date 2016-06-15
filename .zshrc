@@ -123,6 +123,9 @@ alias vi='vim'
 alias o='mvim'
 alias v='vim -u NONE'
 # }}}
+# Utils -------------------------------------------------------------------{{{
+# alias kdev = "kill -9 $(ps aux | grep firefox | grep nobackup | head -1 | awk '{print $2}')"
+# }}}
 
 # VirtualEnvWrapper -------------------------------------------------------{{{
 export WORKON_HOME=~/Library/Envs

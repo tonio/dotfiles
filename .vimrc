@@ -115,6 +115,7 @@ function! MyTabOrComplete()
     endif
 endfunction
 inoremap <Tab> <C-R>=MyTabOrComplete()<CR>
+inoremap conl console.log(
 " }}}
 
 " Autocommands {{{
@@ -183,6 +184,10 @@ noremap <leader>o vi{:Tabularize /:<cr>
 nmap gV `[v`]
 vmap Y y`]
 
+" Go to changes
+nmap » ]c
+nmap « [c
+
 " Expand region
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
@@ -225,6 +230,7 @@ map <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 map <leader>c :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
+map <leader>f :CtrlPFunky<CR>
 let g:ctrlp_working_path_mode=2
 let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files', 'find %s -type f']
 
