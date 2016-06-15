@@ -44,7 +44,7 @@
 	url = https://github.com/vim-scripts/argtextobj.vim.git
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule ".vim/bundle/matchtag"]
 	path = .vim/bundle/matchtag
 	url = https://github.com/gregsexton/MatchTag.git
