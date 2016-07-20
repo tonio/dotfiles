@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+require('console-png').attachTo(console);
+var path = require('path');
+
+var file = path.resolve(process.cwd(), process.argv[2]);
+var image = require('fs').readFileSync(file);
+
+console.png(image)

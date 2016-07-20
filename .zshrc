@@ -4,9 +4,13 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="lambda"
+# export ZSH_THEME="lambda"
 # export ZSH_THEME="avit"
+export PURE_PROMPT_SYMBOL="λ"
+export ZSH_THEME="purity"
 export DISABLE_AUTO_UPDATE="true"
+
+PURE_PROMPT_SYMBOL="λ"
 
 # 256 colors
 if [[ ${TMUX} == '' ]]
@@ -32,6 +36,8 @@ plugins=(git  virtualenv zsh-syntax-highlighting )
 
 # Nicer prompt
 source $ZSH/oh-my-zsh.sh
+
+source ~/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Customize `avit` theme
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[yellow]%}×%{$reset_color%}"
@@ -104,10 +110,19 @@ export GREP_COLOR='2;31'
 
 # }}}
 
+# auto-ls on cd -----------------------------------------------------------{{{
+auto-ls () {
+    emulate -L zsh;
+    # explicit sexy ls'ing as aliases arent honored in here.
+    hash gls >/dev/null 2>&1 && CLICOLOR_FORCE=1 gls -aFh --color --group-directories-first || ls
+}
+chpwd_functions=( auto-ls $chpwd_functions )
+# }}}
+
 # Go ----------------------------------------------------------------------{{{
 export GOPATH=/home/aabt/nobackup/go
 # }}}
-#
+
 # Git ---------------------------------------------------------------------{{{
 alias git-co-externals='git svn show-externals | grep "^/" | sed "s|^/\([^ ]*\)\(.*\) \(.*\)|(mkdir -p \1 \&\& cd \1 \&\& if [ -d .svn ]; then echo \"svn up \2 \1\" \&\& svn up \2 ; else echo \"svn co \2 \3 \1\" \&\& svn co \2 \3 . ; fi)|" | sh'
 alias gitroot='cd $(git rev-parse --show-cdup)'
@@ -124,7 +139,7 @@ alias o='mvim'
 alias v='vim -u NONE'
 # }}}
 # Utils -------------------------------------------------------------------{{{
-# alias kdev = "kill -9 $(ps aux | grep firefox | grep nobackup | head -1 | awk '{print $2}')"
+alias kdev="kill -9 $(ps aux | grep firefox | grep nobackup | head -1 | awk '{print $2}')"
 # }}}
 
 # VirtualEnvWrapper -------------------------------------------------------{{{
