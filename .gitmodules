@@ -117,3 +117,9 @@
 [submodule ".vim/bundle/vim-airline-themes"]
 	path = .vim/bundle/vim-airline-themes
 	url = git@github.com:vim-airline/vim-airline-themes.git
+[submodule "zsh/zsh-autosuggestions"]
+	path = zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/zsh-syntax-highlighting-filetypes"]
+	path = zsh/zsh-syntax-highlighting-filetypes
+	url = https://github.com/trapd00r/zsh-syntax-highlighting-filetypes.git
