@@ -123,3 +123,6 @@
 [submodule ".vim/bundle/csscomplete"]
 	path = .vim/bundle/csscomplete
 	url = https://github.com/othree/csscomplete.vim.git
+[submodule ".vim/bundle/neocomplete.vim"]
+	path = .vim/bundle/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
