@@ -120,3 +120,6 @@
 [submodule "zsh/zsh-autosuggestions"]
 	path = zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule ".vim/bundle/csscomplete"]
+	path = .vim/bundle/csscomplete
+	url = https://github.com/othree/csscomplete.vim.git
