@@ -13,12 +13,7 @@ export DISABLE_AUTO_UPDATE="true"
 PURE_PROMPT_SYMBOL="λ"
 
 # 256 colors
-if [[ ${TMUX} == '' ]]
-then
-    export TERM="xterm-256color"
-else
-    export TERM="screen-256color"
-fi
+export TERM="xterm-256color"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
