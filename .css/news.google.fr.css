@@ -12,3 +12,10 @@ a {
   font-size: 13px !important;
   font-weight: normal !important;
 }
+#nav-menu-wrapper,
+.browse-sidebar {
+  display: none;
+}
+.main-content-with-gutter-wrapper {
+  margin-left: 1em !important;
+}
