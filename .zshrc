@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # export ZSH_THEME="lambda"
 # export ZSH_THEME="avit"
-export PURE_PROMPT_SYMBOL="λ"
+export PURITY_GIT_PULL=0
 export ZSH_THEME="purity"
 export DISABLE_AUTO_UPDATE="true"
 
@@ -164,3 +164,5 @@ if [[ -s $HOME/.zshrc_local ]] ; then source $HOME/.zshrc_local ; fi
 
 export NVM_DIR="/home/aabt/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
