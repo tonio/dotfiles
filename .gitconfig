@@ -8,6 +8,9 @@
     status = auto
     interactive = auto
 
+[interactive]
+    diffFilter = diff-highlight
+
 [alias]
     st = status
     ts = status
@@ -45,6 +48,11 @@
 
 [init]
     templatedir = ~/.dotfiles/.git_template
+
+[pager]
+    log = "diff-highlight | less"
+    show = "diff-highlight | less"
+    diff = "diff-highlight | less"
 
 [merge]
     tool = vimdiff
