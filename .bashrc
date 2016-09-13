@@ -250,3 +250,5 @@ export TERM="xterm-256color"
 if [ -f ~/.bashrc_after ]; then
     source ~/.bashrc_after
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
