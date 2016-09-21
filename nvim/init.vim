@@ -4,7 +4,13 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'neomake/neomake'
 
 call plug#end()
 " }}}
@@ -19,7 +25,6 @@ set cursorline
 
 set number
 set relativenumber
-
 " ——— Lightline ========================================================== {{{
 let g:lightline = {
 	\ 'colorscheme': 'solarized',
@@ -65,14 +70,24 @@ nnoremap <leader>r :e!<CR>
 
 " Find files
 nnoremap <leader>c :FZF<CR>
+nmap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
+nmap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
+nmap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
+nmap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
+set wildmode=list:longest,full
 
 " Search
 set hlsearch
 set ignorecase
 set gdefault
+map <leader><space> :noh<cr>:call clearmatches()<cr>
 
 " Move
 nmap   <C-w><C-w>
+
+" Go to changes
+nmap » ]c
+nmap « [c
 
 " }}}
 "
@@ -99,6 +114,28 @@ if isdirectory(expand(s:dir))
 endif
 
 set undofile
+" }}}
+
+" Abbreviations & commands ================================================{{{
+ab calss class
+ab hig highlight
+
+command! -bang W w<bang>
+command! -bang Q q<bang>
+command! -bang Qa qa<bang>
+command! -bang QA qa<bang>
+command! -bang Wq wq<bang>
+command! -bang WQ wq<bang>
+" }}}
+
+" NeoMake ================================================================ {{{
+let g:neomake_javascript_enabled_makers = ['standard']
+function! neomake#makers#ft#javascript#standard()
+  return {
+        \ 'args': ['--parser', 'babel-eslint'],
+        \ 'errorformat': '%E%f:%l:%c: %m'
+        \ }
+endfunction
 " }}}
 
 " FileTypes ============================================================== {{{
