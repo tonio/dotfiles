@@ -10,7 +10,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 Plug 'neomake/neomake'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 " }}}
@@ -136,6 +138,9 @@ function! neomake#makers#ft#javascript#standard()
         \ 'errorformat': '%E%f:%l:%c: %m'
         \ }
 endfunction
+
+nnoremap <leader>m :Neomake<CR>
+nnoremap <leader>M :Neomake!<CR>
 " }}}
 
 " FileTypes ============================================================== {{{
