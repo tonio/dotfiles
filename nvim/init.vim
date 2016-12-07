@@ -11,8 +11,14 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-abolish'
 Plug 'neomake/neomake'
 Plug 'mattn/emmet-vim'
+Plug 'sophacles/vim-bundle-mako'
+Plug 'godlygeek/tabular'
+Plug 'mhinz/vim-startify'
+Plug 'junegunn/goyo.vim'
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 " }}}
@@ -43,7 +49,8 @@ let g:lightline = {
 	\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))'
 	\ },
 	\ 'separator': { 'left': '', 'right': '' },
-	\ 'subseparator': { 'left': '|', 'right': '|' }
+	\ 'subseparator': { 'left': '|', 'right': '|' },
+  \ 'enable': { 'tabline': 1 }
 	\ }
 " ——— }}}
 
@@ -84,6 +91,9 @@ set ignorecase
 set gdefault
 map <leader><space> :noh<cr>:call clearmatches()<cr>
 
+" Copy
+hi HighlightedyankRegion cterm=reverse gui=reverse
+
 " Move
 nmap   <C-w><C-w>
 
@@ -91,9 +101,17 @@ nmap   <C-w><C-w>
 nmap » ]c
 nmap « [c
 
+" Tabularize
+noremap <leader>: :Tabularize /:<cr>
+noremap <leader>= :Tabularize /=<cr>
+noremap <leader>o vi{:Tabularize /:<cr>
+
+" Goyo
+noremap <leader>g :Goyo<cr>
+
 " }}}
-"
-"
+
+
 " Deoplete =============================================================== {{{
 let g:deoplete#enable_at_startup = 1
 " == tab to cycle
@@ -102,19 +120,11 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Backups ================================================================ {{{
 let s:dir = '~/Library/Vim'
-
 if isdirectory(expand(s:dir))
-  if &directory =~# '^\.,'
-    let &directory = expand(s:dir) . '/swap//,' . &directory
-  endif
-  if &backupdir =~# '^\.,'
-    let &backupdir = expand(s:dir) . '/backup//,' . &backupdir
-  endif
-  if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
-    let &undodir = expand(s:dir) . '/undo//,' . &undodir
-  endif
+  let &directory = expand(s:dir) . '/swap/,' . &directory
+  let &backupdir = expand(s:dir) . '/backup/,' . &backupdir
+  let &undodir = expand(s:dir) . '/undo/,' . &undodir
 endif
-
 set undofile
 " }}}
 
@@ -145,4 +155,5 @@ nnoremap <leader>M :Neomake!<CR>
 
 " FileTypes ============================================================== {{{
 au BufNewFile,BufRead *.es6 setf javascript
+au BufNewFile,BufRead *.coffee setf javascript
 " }}}
