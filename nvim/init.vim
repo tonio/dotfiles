@@ -19,6 +19,7 @@ Plug 'godlygeek/tabular'
 Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
 Plug 'machakann/vim-highlightedyank'
+Plug 'lfv89/vim-interestingwords'
 
 call plug#end()
 " }}}
@@ -33,26 +34,12 @@ set cursorline
 
 set number
 set relativenumber
-" ——— Lightline ========================================================== {{{
-let g:lightline = {
-	\ 'colorscheme': 'solarized',
-	\ 'active': {
-	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component': {
-	\   'readonly': '%{&filetype=="help"?"":&readonly?"×":""}',
-	\   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
-	\ },
-	\ 'component_visible_condition': {
-	\   'readonly': '(&filetype!="help"&& &readonly)',
-	\   'modified': '(&filetype!="help"&&(&modified||!&modifiable))'
-	\ },
-	\ 'separator': { 'left': '', 'right': '' },
-	\ 'subseparator': { 'left': '|', 'right': '|' },
-  \ 'enable': { 'tabline': 1 }
-	\ }
-" ——— }}}
+
+" Lightline
+source ~/.config/nvim/lightline.vim
+
+" Git Commit Editor
+source ~/.config/nvim/git-commit-editor.vim
 
 " }}}
 
@@ -91,6 +78,9 @@ set ignorecase
 set gdefault
 map <leader><space> :noh<cr>:call clearmatches()<cr>
 
+" Live preview
+set inccommand=split
+
 " Copy
 hi HighlightedyankRegion cterm=reverse gui=reverse
 
@@ -108,6 +98,15 @@ noremap <leader>o vi{:Tabularize /:<cr>
 
 " Goyo
 noremap <leader>g :Goyo<cr>
+
+" Surround
+nmap <leader>é ysiw
+
+" XML Lint
+nmap <leader>x :%!xmllint --format --recover -<cr>
+
+" Emmet
+let g:user_emmet_leader_key='<C-E>'
 
 " }}}
 
