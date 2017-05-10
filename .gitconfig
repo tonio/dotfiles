@@ -43,8 +43,6 @@
 
 [core]
     excludesfile = ~/.global_gitignore
-    # insanely beautiful diffs
-    #pager = zsh -lc 'diff-highlight | strip_diff_leading_symbols() | less -r'
 
 [init]
     templatedir = ~/.dotfiles/.git_template
@@ -58,3 +56,6 @@
     tool = vimdiff
 [push]
     default = simple
+[rebase]
+	autoStash = true
+  autosquash = true
