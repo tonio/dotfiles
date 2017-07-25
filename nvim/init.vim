@@ -20,10 +20,16 @@ Plug 'mhinz/vim-startify'
 Plug 'junegunn/goyo.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'lfv89/vim-interestingwords'
+Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'isRuslan/vim-es6'
+Plug 'ruanyl/vim-caniuse'
 
 call plug#end()
 " }}}
 
+" Python ================================================================= {{{
+let g:python3_host_prog = '/home/aabt/.virtualenvs/neovim/bin/python3'
+" }}}
 
 " UI ===================================================================== {{{
 set termguicolors
@@ -38,8 +44,8 @@ set relativenumber
 " Lightline
 source ~/.config/nvim/lightline.vim
 
-" Git Commit Editor
-source ~/.config/nvim/git-commit-editor.vim
+" GitGutter
+let g:gitgutter_diff_args = '-w'
 
 " }}}
 
@@ -143,8 +149,7 @@ command! -bang WQ wq<bang>
 let g:neomake_javascript_enabled_makers = ['standard']
 function! neomake#makers#ft#javascript#standard()
   return {
-        \ 'args': ['--parser', 'babel-eslint'],
-        \ 'errorformat': '%E%f:%l:%c: %m'
+        \ 'args': ['--parser', 'babel-eslint']
         \ }
 endfunction
 
@@ -155,4 +160,5 @@ nnoremap <leader>M :Neomake!<CR>
 " FileTypes ============================================================== {{{
 au BufNewFile,BufRead *.es6 setf javascript
 au BufNewFile,BufRead *.coffee setf javascript
+" autocmd bufwritepost *.es6 silent !standard --fix %
 " }}}
