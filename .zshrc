@@ -103,3 +103,7 @@ export NVM_DIR="/home/aabt/.nvm"
 
 # added by travis gem
 [ -f /home/aabt/.travis/travis.sh ] && source /home/aabt/.travis/travis.sh
+
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
