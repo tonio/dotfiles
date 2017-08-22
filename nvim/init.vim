@@ -97,6 +97,9 @@ nmap   <C-w><C-w>
 nmap » ]c
 nmap « [c
 
+" Follow link
+nmap <leader>d <c-]>
+
 " Tabularize
 noremap <leader>: :Tabularize /:<cr>
 noremap <leader>= :Tabularize /=<cr>
