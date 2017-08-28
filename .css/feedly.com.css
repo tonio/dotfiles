@@ -1,0 +1,10 @@
+.fx h1 .heading a,
+.entryholder .u100Entry .title {
+  font-family: "Slab Serif";
+  font-size: 17px;
+  line-height: 1rem;
+  letter-spacing: 0;
+}
+.fx .presentation-0 h1 {
+  font-family: "Slab Serif";
+}
