@@ -1,28 +1,29 @@
 " Plug =================================================================== {{{
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'airblade/vim-gitgutter'
+Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'}
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'godlygeek/tabular'
+Plug 'isRuslan/vim-es6'
+Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-surround'
+Plug 'junegunn/goyo.vim'
+Plug 'lfv89/vim-interestingwords'
+Plug 'machakann/vim-highlightedyank'
+Plug 'mattn/emmet-vim'
+Plug 'mhinz/vim-startify'
+Plug 'ruanyl/vim-caniuse'
+Plug 'sophacles/vim-bundle-mako'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-abolish'
-Plug 'neomake/neomake'
-Plug 'mattn/emmet-vim'
-Plug 'sophacles/vim-bundle-mako'
-Plug 'godlygeek/tabular'
-Plug 'mhinz/vim-startify'
-Plug 'junegunn/goyo.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'lfv89/vim-interestingwords'
-Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'isRuslan/vim-es6'
-Plug 'ruanyl/vim-caniuse'
+Plug 'tpope/vim-surround'
+Plug 'w0rp/ale'
 
 call plug#end()
 " }}}
@@ -32,6 +33,7 @@ let g:python3_host_prog = '/home/aabt/.virtualenvs/neovim/bin/python3'
 " }}}
 
 " UI ===================================================================== {{{
+" set bg=dark
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme solarized
@@ -148,16 +150,10 @@ command! -bang Wq wq<bang>
 command! -bang WQ wq<bang>
 " }}}
 
-" NeoMake ================================================================ {{{
-let g:neomake_javascript_enabled_makers = ['standard']
-function! neomake#makers#ft#javascript#standard()
-  return {
-        \ 'args': ['--parser', 'babel-eslint']
-        \ }
-endfunction
-
-nnoremap <leader>m :Neomake<CR>
-nnoremap <leader>M :Neomake!<CR>
+" ALE ==================================================================== {{{
+nnoremap <leader>F :ALEFix<CR>
+let g:ale_linters = { 'javascript': ['standard']}
+let g:ale_fixers = { 'javascript': ['standard']}
 " }}}
 
 " FileTypes ============================================================== {{{
