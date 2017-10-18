@@ -154,6 +154,8 @@ command! -bang WQ wq<bang>
 nnoremap <leader>F :ALEFix<CR>
 let g:ale_linters = { 'javascript': ['standard']}
 let g:ale_fixers = { 'javascript': ['standard']}
+let g:ale_linters = { 'css': ['stylelint']}
+let g:ale_fixers = { 'css': ['stylelint']}
 " }}}
 
 " FileTypes ============================================================== {{{
