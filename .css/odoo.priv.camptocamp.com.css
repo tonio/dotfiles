@@ -294,7 +294,7 @@ body .openerp .oe_e * {
   white-space: nowrap;
 }
 
-.openerp .oe_form header .oe_button.oe_highlight:first-child span:before {
+.openerp .oe_form header .oe_button.oe_highlight:first-child span::before {
   display: inline-block;
   content: "»";
 }
