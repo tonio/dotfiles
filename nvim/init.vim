@@ -140,7 +140,6 @@ set undofile
 
 " Abbreviations & commands ================================================{{{
 ab calss class
-ab hig highlight
 
 command! -bang W w<bang>
 command! -bang Q q<bang>
