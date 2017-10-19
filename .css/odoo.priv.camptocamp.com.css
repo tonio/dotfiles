@@ -1,6 +1,16 @@
 body,
 * {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol" !important;
 }
 
 .openerp .oe_application a {
@@ -47,7 +57,17 @@ body,
 }
 
 .openerp .oe_leftbar * {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol" !important;
 }
 
 .openerp .oe_secondary_menu_section {
@@ -276,7 +296,7 @@ body .openerp .oe_e * {
 
 .openerp .oe_form header .oe_button.oe_highlight:first-child span:before {
   display: inline-block;
-  content: '»';
+  content: "»";
 }
 
 .openerp .oe_view_manager table.oe_view_manager_header h2 {
@@ -304,17 +324,18 @@ body .openerp .oe_e * {
   color: #009688;
 }
 
-.openerp .oe_notebook > li.ui-state-active > a, .openerp .oe_notebook > li.ui-state-active > a:hover {
+.openerp .oe_notebook > li.ui-state-active > a,
+.openerp .oe_notebook > li.ui-state-active > a:hover {
   color: #009688;
   border-bottom: 3px solid #009688;
   border-width: 0 0 3px;
 }
 
-tr[style*=red] {
+tr[style*="red"] {
   color: #727272 !important;
 }
 
-tr[style*=blue] {
+tr[style*="blue"] {
   color: #ff5722 !important;
   font-weight: bold;
 }
@@ -330,7 +351,7 @@ tr[style*=blue] {
   margin-right: -4em;
   border: medium none;
   z-index: 1000;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .openerp .oe_list_content th.oe_sortable div::after {
