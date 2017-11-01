@@ -4,7 +4,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
-Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'}
+Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'}  " Tmux syntax
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'godlygeek/tabular'
 Plug 'isRuslan/vim-es6'
@@ -15,8 +15,6 @@ Plug 'junegunn/goyo.vim'
 Plug 'lfv89/vim-interestingwords'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mattn/emmet-vim'
-Plug 'mhinz/vim-startify'
-Plug 'ruanyl/vim-caniuse'
 Plug 'sophacles/vim-bundle-mako'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -74,11 +72,17 @@ nnoremap <leader>r :e!<CR>
 
 " Find files
 nnoremap <leader>c :FZF<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap à :Buffers<CR>
+nnoremap <leader>a :Ag<CR>
 nmap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>et :tabe <C-R>=expand("%:p:h") . "/" <CR>
 set wildmode=list:longest,full
+
+" File statistics
+nmap <leader>s g<C-G>
 
 " Search
 set hlsearch
@@ -161,4 +165,27 @@ let g:ale_fixers = { 'css': ['stylelint']}
 au BufNewFile,BufRead *.es6 setf javascript
 au BufNewFile,BufRead *.coffee setf javascript
 " autocmd bufwritepost *.es6 silent !standard --fix %
+" }}}
+
+" FZF ==================================================================== {{{
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Clear'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+" }}}
+
+" Ag ===================================================================== {{{
+" Fix `ag` colors
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;15" --color-match "1;31" --color-line-number "1;36"', fzf#vim#with_preview(), <bang>0)
+" Search with `ag` word under cursor
+nmap <leader>n "zyiw:Ag <c-r>z<CR>
 " }}}
