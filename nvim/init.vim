@@ -31,12 +31,13 @@ let g:python3_host_prog = '/home/aabt/.virtualenvs/neovim/bin/python3'
 " }}}
 
 " UI ===================================================================== {{{
-" set bg=dark
+set bg=dark
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme solarized
 set cc=80
 set cursorline
+hi htmlArg gui=italic
 
 set number
 set relativenumber
@@ -62,6 +63,7 @@ set shiftwidth=2
 
 " Basic mappings ========================================================= {{{
 inoremap gq <esc>
+tnoremap <esc> <C-\><C-n>
 
 " Browsing
 nnoremap é gT
@@ -155,16 +157,14 @@ command! -bang WQ wq<bang>
 
 " ALE ==================================================================== {{{
 nnoremap <leader>F :ALEFix<CR>
-let g:ale_linters = { 'javascript': ['standard']}
-let g:ale_fixers = { 'javascript': ['standard']}
-let g:ale_linters = { 'css': ['stylelint']}
-let g:ale_fixers = { 'css': ['stylelint']}
+let g:ale_linters = { 'javascript': ['standard'], 'css': ['stylelint'] }
+let g:ale_fixers = { 'javascript': ['standard'], 'css': ['stylelint'] }
 " }}}
 
 " FileTypes ============================================================== {{{
 au BufNewFile,BufRead *.es6 setf javascript
 au BufNewFile,BufRead *.coffee setf javascript
-" autocmd bufwritepost *.es6 silent !standard --fix %
+autocmd bufwritepost *.es6 silent !standard --fix %
 " }}}
 
 " FZF ==================================================================== {{{
