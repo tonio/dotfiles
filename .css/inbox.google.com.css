@@ -1,9 +1,0 @@
-body>:nth-child(11)>:nth-child(2)>:nth-child(2)  {
-    box-shadow:4px 0 8px rgba(0,0,0,.28);
-    z-index:22;
-}
-
-body>:nth-child(11)>:nth-child(2)>:nth-child(2)>:nth-child(1)  {
-    background:#FFF !important
-}
-
