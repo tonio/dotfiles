@@ -164,7 +164,7 @@ let g:ale_fixers = { 'javascript': ['standard'], 'css': ['stylelint'] }
 " FileTypes ============================================================== {{{
 au BufNewFile,BufRead *.es6 setf javascript
 au BufNewFile,BufRead *.coffee setf javascript
-autocmd bufwritepost *.es6 silent !standard --fix %
+" autocmd bufwritepost *.es6 silent !standard --fix %
 " }}}
 
 " FZF ==================================================================== {{{

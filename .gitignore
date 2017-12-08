@@ -1,3 +1,4 @@
 .pentadactyl/info
 .vim/.netrwhist
 nvim/plugged
+.bin/rancher
