@@ -15,11 +15,17 @@
   st = status
   ts = status
   s = status -sb
+  c = commit
   ci = commit
+  b = branch
   br = branch
   co = checkout
+  d = diff
+  ds = diff --stat
   df = diff
   lg = log -p
+  f = fetch
+  p = add -p
   lastweek = log --since="1 week" --oneline
   lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
   oops = commit --amend --no-edit
@@ -29,7 +35,6 @@
   vm = ! sh -c 'vim `git ls-files -m`' -
   ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
   mine = log --author=abt
-  d = "!f() { [ \"$GIT_PREFIX\" != \"\" ] && cd "$GIT_PREFIX"; git diff --color $@ | diff-so-fancy | less --tabs=4 -RFX; }; f"
   dc = diff --cached
   fo = fetch origin
   fu = fetch upstream
