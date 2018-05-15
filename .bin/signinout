@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+# coding: utf-8
+from datetime import datetime, timedelta
+
+import sys
+import os
+import getpass
+
+# virtualenv ... && pip install ERPpeek
+
+import erppeek
+
+def get_monday():
+    dt = datetime.now()
+    return (dt - timedelta(days=dt.weekday())).strftime('%Y-%m-%d')
+
+login = os.getenv('USER')
+password = os.getenv('ODOO_PASSWORD', None)
+if password is None:
+    password = getpass.getpass('odoo password:')
+cl = erppeek.Client("https://odoo.priv.camptocamp.com:443",
+        "openerp_prod_camptocamp", login, password)
+
+my_id = cl.search("hr.employee", [["login", "=", login]])[0]
+
+employee = cl.read("hr.employee", [my_id], ["user_id"])
+employee_id = employee[0]['user_id'][0]
+ts = cl.search("hr_timesheet_sheet.sheet", [["user_id", "=", employee_id], ["date_from", "=", get_monday() ]])
+current_ts = ts[0]
+
+cl.execute("hr_timesheet_sheet.sheet", "attendance_action_change", [current_ts])
