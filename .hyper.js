@@ -1,10 +1,10 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 14,
+    fontSize: 13,
 
     // font family with optional fallbacks
-    fontFamily: '"Operator Mono Book", PragmataPro, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
+    fontFamily: 'Operator Mono Book',
     // fontFamily: 'PragmataPro, Menlo, "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
@@ -51,11 +51,11 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    'hyper-solarized-dark',
+    'hyper-solarized-light'
   ],
 
   // in development, you can create a directory under
   // `~/.hyperterm_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
   localPlugins: []
-};
+}
