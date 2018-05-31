@@ -30,14 +30,24 @@ export NODE_PATH=/usr/local/lib/node_modules
 # Utilities ---------------------------------------------------------------{{{
 
 export HISTFILE=$HOME/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
+# vi mode
+set -o vi
+export KEYTIMEOUT=1
 
 # Edit current line
-bindkey -e
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
+
+bindkey '^R' history-incremental-search-backward
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^w' backward-kill-word
+bindkey '^e' vi-forward-char
+
 
 # coherent less output
 export LESS='-R -F -X'
