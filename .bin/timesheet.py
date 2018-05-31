@@ -68,7 +68,7 @@ while True:
         return u'%s%s:%s' % (ret, unicode(hours).zfill(2), unicode(minutes).zfill(2))
 
     output += u'#[fg=cyan] %s#[fg=colour12] / %s #[default]' % \
-            (to_minutes(total_attendance_day), to_minutes(total_attendance_week - todo))
+            (to_minutes(total_attendance_day), to_minutes(total_attendance_week - todo, display_plus=True))
     
     tf = codecs.open('%s/.current_ts' % os.getenv('HOME'), 'w', 'utf-8')
     tf.write(output)
