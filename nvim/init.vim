@@ -22,6 +22,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
+Plug 'sjl/gundo.vim'
+Plug 'sjl/splice.vim'
+Plug 'flowtype/vim-flow'
 
 call plug#end()
 " }}}
@@ -31,7 +34,7 @@ let g:python3_host_prog = '/home/aabt/.virtualenvs/neovim/bin/python3'
 " }}}
 
 " UI ===================================================================== {{{
-set bg=dark
+set bg=light
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 colorscheme solarized
@@ -157,7 +160,7 @@ command! -bang WQ wq<bang>
 
 " ALE ==================================================================== {{{
 nnoremap <leader>F :ALEFix<CR>
-let g:ale_linters = { 'javascript': ['standard'], 'css': ['stylelint'] }
+let g:ale_linters = { 'javascript': ['standard', 'flow'], 'css': ['stylelint'], 'python': ['flake8'] }
 let g:ale_fixers = { 'javascript': ['standard'], 'css': ['stylelint'] }
 " }}}
 
