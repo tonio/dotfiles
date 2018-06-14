@@ -1,0 +1,2 @@
+docker pull camptocamp/qgis-server:latest
+docker run -ti -e DISPLAY=unix:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/aabt:/home/aabt camptocamp/qgis-server:latest /usr/local/bin/start-client
