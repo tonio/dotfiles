@@ -25,6 +25,7 @@ Plug 'w0rp/ale'
 Plug 'sjl/gundo.vim'
 Plug 'sjl/splice.vim'
 Plug 'flowtype/vim-flow'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 " }}}
