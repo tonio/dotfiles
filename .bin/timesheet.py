@@ -23,7 +23,7 @@ login = os.getenv('USER')
 password = os.getenv('ODOO_PASSWORD', None)
 if password is None:
     password = getpass.getpass('odoo password:')
-cl = erppeek.Client("https://odoo.priv.camptocamp.com:443",
+cl = erppeek.Client("https://odoo.exo.camptocamp.com:443",
         "openerp_prod_camptocamp", login, password)
 my_id = cl.search("hr.employee", [["login", "=", login]])[0]
 
