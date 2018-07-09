@@ -2,3 +2,4 @@
 .vim/.netrwhist
 nvim/plugged
 .bin/rancher
+node_modules
