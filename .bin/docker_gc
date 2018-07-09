@@ -1,0 +1,3 @@
+#!/bin/bash
+docker rm `docker ps -q -a`
+docker volume rm `docker volume ls -q`
