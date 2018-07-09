@@ -1,5 +1,7 @@
 .pentadactyl/info
 .vim/.netrwhist
+nvim/.netrwhist
 nvim/plugged
 .bin/rancher
+.bin/ts_helper
 node_modules
