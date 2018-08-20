@@ -62,6 +62,9 @@ alias l="ls --color"
 # ts helpers
 alias ts="pmset -g log | grep -v Dark | grep -v Maintenance | grep -e 'Wake   ' -e 'Entering'"
 
+# headers
+alias headers="curl -I -s -X GET"
+
 #grep colors
 export GREP_COLOR='2;31'
 
