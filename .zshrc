@@ -104,6 +104,7 @@ fi
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 alias scat='source-highlight --out-format=esc -o STDOUT -i '
+alias ack=rg
 # }}}
 
 # VirtualEnvWrapper -------------------------------------------------------{{{
