@@ -54,21 +54,23 @@ while True:
             output += u'=' if done else u'·'
         output += u'#[default]]'
 
-    def to_minutes(st, display_plus=False):
+    def to_minutes(st, display_plus=False, d_icon=False):
         number = float(st)
         hours = int(number)
         minutes = int((number - hours) * 60)
         ret = u'#[fg=cyan]'
+        icon = u' 👍'
         if minutes < 0 or hours < 0:
             minutes = abs(minutes)
             hours = u'-%s' % unicode(abs(hours))
             ret = u''
+            icon = u' 👎'
         elif display_plus:
             hours = '+%s' % hours
-        return u'%s%s:%s' % (ret, unicode(hours).zfill(2), unicode(minutes).zfill(2))
+        return u'%s%s:%s%s' % (ret, unicode(hours).zfill(2), unicode(minutes).zfill(2), icon if d_icon else '')
 
     output += u'#[fg=cyan] %s#[fg=colour12] / %s #[default]' % \
-            (to_minutes(total_attendance_day), to_minutes(total_attendance_week - todo, display_plus=True))
+            (to_minutes(total_attendance_day), to_minutes(total_attendance_week - todo, display_plus=True, d_icon=True))
     
     tf = codecs.open('%s/.current_ts' % os.getenv('HOME'), 'w', 'utf-8')
     tf.write(output)
