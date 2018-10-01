@@ -42,6 +42,8 @@
   tags = tag
   remotes = remote -v
   branches = branch -a
+[diff]
+  indent-heuristic
 
 [diff "asciidiff"]
   textconv = ~/.bin/img-ascii-diff
@@ -68,3 +70,5 @@
 [rebase]
   autoStash = true
   autosquash = true
+[pull]
+	ff = only
