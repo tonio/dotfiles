@@ -77,7 +77,7 @@ nnoremap è gt
 nnoremap <leader>r :e!<CR>
 
 " Find files
-nnoremap <leader>c :FZF<CR>
+nnoremap <leader>c :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap à :Buffers<CR>
 nnoremap <leader>a :Ag<CR>
