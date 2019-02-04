@@ -2,7 +2,7 @@
 --type-set=map=.map
 --type-set=mako=.mako
 --type-set=mako=.jinja2
---type-set=front=.js,.mako,.html,.css,.scss,.less,.jinja2
+--type-set=front=.js,.mako,.html,.css,.scss,.less,.jinja2,.es6
 --type-set=xsl=.xsl,.xslt
 --type-set=i18n=.po
 --ignore-dir=buildout
