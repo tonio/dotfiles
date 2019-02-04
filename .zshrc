@@ -11,6 +11,7 @@ antigen bundle virtualenv
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-completions
+antigen bundle chrissicool/zsh-256color
 antigen bundle zpm-zsh/ssh
 antigen theme subnixr/minimal
 # export PROMPT_LEAN_TMUX=""
@@ -148,6 +149,9 @@ _gen_fzf_default_opts() {
   "
 }
 _gen_fzf_default_opts
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
