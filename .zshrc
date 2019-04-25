@@ -6,7 +6,6 @@ source zsh/antigen.zsh
 
 antigen bundle git
 antigen bundle tmuxinator
-antigen bundle ssh-agent
 antigen bundle virtualenv
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
@@ -27,6 +26,8 @@ export PATH=$PATH:/usr/games
 export PATH=$PATH:$HOME/.local/bin
 export NODE_PATH=/usr/local/lib/node_modules
 export PATH="$PATH:./node_modules/.bin"
+export PATH="$PATH:$HOME/nobackup/go/bin"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # }}}
 
 # Utilities ---------------------------------------------------------------{{{
@@ -87,11 +88,11 @@ export GOPATH=/home/aabt/nobackup/go
 
 # Git ---------------------------------------------------------------------{{{
 alias g=git
-alias gitroot='cd $(git rev-parse --show-cdup)'
+alias groot='cd $(git rev-parse --show-cdup)'
 # }}}
 
 # Vim ---------------------------------------------------------------------{{{
-if ([ -f /usr/bin/nvim ]) ; then
+if ([ -f /home/linuxbrew/.linuxbrew/bin/nvim ]) ; then
   export EDITOR=nvim
   alias vi='nvim'
   alias v='nvim -u NONE'
