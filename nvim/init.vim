@@ -25,19 +25,23 @@ Plug 'w0rp/ale'
 Plug 'sjl/gundo.vim'
 Plug 'sjl/splice.vim'
 Plug 'flowtype/vim-flow'
-Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'docunext/closetag.vim'
 
 call plug#end()
 " }}}
 
 " Python ================================================================= {{{
-let g:python3_host_prog = '/home/aabt/.virtualenvs/neovim/bin/python3'
+let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 " }}}
 
 " UI ===================================================================== {{{
 set bg=light
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let g:solarized_contrast = "normal"
+let g:solarized_visibility= "normal"
 colorscheme solarized
 set cc=80
 set cursorline
@@ -161,14 +165,17 @@ command! -bang WQ wq<bang>
 
 " ALE ==================================================================== {{{
 nnoremap <leader>F :ALEFix<CR>
-let g:ale_linters = { 'javascript': ['standard', 'flow'], 'css': ['stylelint'], 'python': ['flake8'] }
-let g:ale_fixers = { 'javascript': ['standard'], 'css': ['stylelint'] }
+let g:ale_linters = { 'javascript': ['standard', 'flow'], 'css': ['stylelint'], 'python': ['flake8'], 'scss': ['prettier'] }
+let g:ale_fixers = { 'javascript': ['standard'], 'css': ['stylelint'], 'typescript': ['prettier'], 'html': ['prettier'], 'less': ['prettier'], 'scss': ['prettier'], 'python': ['black'] }
 " }}}
 
 " FileTypes ============================================================== {{{
 au BufNewFile,BufRead *.es6 setf javascript
 au BufNewFile,BufRead *.coffee setf javascript
 " autocmd bufwritepost *.es6 silent !standard --fix %
+
+" TypeScript
+let g:tsuquyomi_completion_detail = 1
 " }}}
 
 " FZF ==================================================================== {{{
