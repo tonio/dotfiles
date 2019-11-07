@@ -17,22 +17,24 @@
   s = status -sb
   c = commit
   ci = commit
+  cp = cherry-pick
   b = branch
   br = branch
   co = checkout
-  d = diff
+  c- = checkout --
+  d = diff --word-diff=color
   ds = diff --stat
   df = diff
   lg = log -p
   f = fetch
   p = add -p
+  chicken = pull
   lastweek = log --since="1 week" --oneline
   lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
   oops = commit --amend --no-edit
   addremove = !git add . && git ls-files --deleted | xargs git rm
   fshow = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
   vim   = ! sh -c 'vim `git fshow $1`' -
-  vm = ! sh -c 'vim `git ls-files -m`' -
   ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
   mine = log --author=abt
   dc = diff --cached
@@ -72,3 +74,10 @@
   autosquash = true
 [pull]
 	ff = only
+[advice]
+	ignoredHook = false
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
