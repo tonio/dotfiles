@@ -1,5 +1,6 @@
 # 256 colors
 export TERM="xterm-256color"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
 
 # Antigen {{{
 source zsh/antigen.zsh
@@ -42,6 +43,7 @@ export KEYTIMEOUT=1
 
 # Edit current line
 autoload -U edit-command-line
+autoload -U zmv
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
@@ -61,6 +63,8 @@ if [[ -s $HOME/.bin/tmuxinator.sh ]] ; then source ~/.bin/tmuxinator.sh ; fi
 # dircolors
 eval `dircolors $HOME/.dotfiles/zsh/dircolors-solarized/dircolors.256dark`
 alias l="ls --color"
+
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
 
 # ts helpers
 alias ts="pmset -g log | grep -v Dark | grep -v Maintenance | grep -e 'Wake   ' -e 'Entering'"
