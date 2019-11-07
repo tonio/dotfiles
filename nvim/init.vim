@@ -21,13 +21,16 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'sjl/gundo.vim'
 Plug 'sjl/splice.vim'
 Plug 'flowtype/vim-flow'
 Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 Plug 'docunext/closetag.vim'
+Plug 'janko/vim-test'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 " }}}
@@ -133,6 +136,10 @@ nmap <leader>x :%!xmllint --format --recover -<cr>
 " Emmet
 let g:user_emmet_leader_key='<C-E>'
 
+" Test
+let test#strategy = "neovim"
+nmap <leader>t :TestNearest<cr>
+
 " }}}
 
 
@@ -165,8 +172,17 @@ command! -bang WQ wq<bang>
 
 " ALE ==================================================================== {{{
 nnoremap <leader>F :ALEFix<CR>
-let g:ale_linters = { 'javascript': ['standard', 'flow'], 'css': ['stylelint'], 'python': ['flake8'], 'scss': ['prettier'] }
-let g:ale_fixers = { 'javascript': ['standard'], 'css': ['stylelint'], 'typescript': ['prettier'], 'html': ['prettier'], 'less': ['prettier'], 'scss': ['prettier'], 'python': ['black'] }
+let g:ale_linters = { 'javascript': ['prettier'], 'css': ['stylelint'], 'python': ['black'], 'scss': ['prettier'] }
+let g:ale_fixers = { 'javascript': ['prettier'], 'css': ['stylelint'], 'typescript': ['prettier'], 'html': ['prettier'], 'less': ['prettier'], 'scss': ['prettier'], 'python': ['black'] }
+let g:ale_open_list = 0
+let g:ale_set_quickfix = 0
+let g:ale_set_loclist = 1
+" }}}
+
+" Prettier =============================================================== {{{
+let g:prettier#quickfix_enabled = 0
+let g:prettier#exec_cmd_async = 1
+let g:prettier#quickfix_auto_focus = 0
 " }}}
 
 " FileTypes ============================================================== {{{
@@ -175,7 +191,6 @@ au BufNewFile,BufRead *.coffee setf javascript
 " autocmd bufwritepost *.es6 silent !standard --fix %
 
 " TypeScript
-let g:tsuquyomi_completion_detail = 1
 " }}}
 
 " FZF ==================================================================== {{{
