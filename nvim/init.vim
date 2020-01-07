@@ -31,6 +31,7 @@ Plug 'docunext/closetag.vim'
 Plug 'janko/vim-test'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
+Plug 'evanleck/vim-svelte'
 
 call plug#end()
 " }}}
