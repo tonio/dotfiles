@@ -89,6 +89,7 @@ nnoremap <leader>c :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap à :Buffers<CR>
 nnoremap <leader>a :Ag<CR>
+nnoremap <leader>* "zyiw:Ag <C-R>z<CR>
 nmap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
