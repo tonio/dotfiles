@@ -155,6 +155,10 @@ _gen_fzf_default_opts() {
 }
 _gen_fzf_default_opts
 
+function zsh-stats() {
+  fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n25;
+}
+
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
 
