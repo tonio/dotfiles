@@ -58,6 +58,7 @@
 
 [init]
   templatedir = ~/.dotfiles/.git_template
+	defaultBranch = main
 
 [pager]
   log = "diff-highlight | less"
@@ -77,6 +78,7 @@
   autosquash = true
 [pull]
 	ff = only
+  autoStash = true
 [advice]
 	ignoredHook = false
 [filter "lfs"]
@@ -84,3 +86,5 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[diff "sopsdiffer"]
+	textconv = sops -d
