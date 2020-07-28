@@ -21,6 +21,7 @@
   cp = cherry-pick
   b = branch
   br = branch
+  bl = ! sh -c 'git br --sort=-committerdate | head'
   co = checkout
   c- = checkout --
   d = diff --word-diff=color
