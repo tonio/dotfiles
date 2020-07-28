@@ -1,6 +1,7 @@
 [user]
   name = Antoine Abt
   email = antoine@abt.im
+	signinkey = A7A3E77248CB4240FB8445978C4A276D0FE82986
 
 [color]
   branch = auto
