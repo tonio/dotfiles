@@ -3,7 +3,7 @@ export TERM="xterm-256color"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
 
 # Antigen {{{
-source zsh/antigen.zsh
+source $HOME/zsh/antigen.zsh
 
 antigen bundle git
 antigen bundle tmuxinator
