@@ -29,7 +29,8 @@
   df = diff
   lg = log -p
   f = fetch
-  p = add -p
+  p = push
+  po = push origin
   chicken = pull
   lastweek = log --since="1 week" --oneline
   lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
