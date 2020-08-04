@@ -173,7 +173,7 @@ command! -bang WQ wq<bang>
 
 " ALE ==================================================================== {{{
 nnoremap <leader>F :ALEFix<CR>
-let g:ale_linters = { 'javascript': ['prettier'], 'css': ['stylelint'], 'python': ['black'], 'scss': ['prettier'] }
+let g:ale_linters = { 'javascript': ['prettier'], 'css': ['stylelint'], 'python': ['black'], 'scss': ['prettier'], 'html': ['prettier'] }
 let g:ale_fixers = { 'javascript': ['prettier'], 'css': ['stylelint'], 'typescript': ['prettier'], 'html': ['prettier'], 'less': ['prettier'], 'scss': ['prettier'], 'python': ['black'] }
 let g:ale_open_list = 0
 let g:ale_set_quickfix = 0
