@@ -170,3 +170,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
+
+export BAT_THEME="Solarized (light)" 
+
