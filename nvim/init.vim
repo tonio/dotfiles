@@ -2,7 +2,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'Glench/Vim-Jinja2-Syntax'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
 Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'}  " Tmux syntax
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
@@ -144,10 +144,22 @@ nmap <leader>t :TestNearest<cr>
 " }}}
 
 
+" Coc ==================================================================== {{{
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+"}}}
+
 " Deoplete =============================================================== {{{
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " == tab to cycle
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 "}}}
 
 " Backups ================================================================ {{{
