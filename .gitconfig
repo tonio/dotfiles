@@ -13,6 +13,7 @@
   diffFilter = diff-highlight
 
 [alias]
+  a = add -p
   st = status
   ts = status
   s = status -sb
