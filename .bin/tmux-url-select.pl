@@ -9,8 +9,8 @@ use warnings;
 
 ### config
 
-use constant COMMAND => 'open %s';
-use constant YANK_COMMAND => 'echo %s | xclip -i';
+use constant COMMAND => 'xdg-open %s';
+use constant YANK_COMMAND => 'echo %s | xsel --clipboard --input';
 
 use constant SHOW_STATUS_BAR => 1;
 use constant VERBOSE_MESSAGES => 0;
