@@ -12,7 +12,6 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'junegunn/goyo.vim'
 Plug 'lfv89/vim-interestingwords'
 Plug 'machakann/vim-highlightedyank'
 Plug 'mattn/emmet-vim'
@@ -23,8 +22,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'dense-analysis/ale'
-Plug 'sjl/gundo.vim'
-Plug 'sjl/splice.vim'
 Plug 'flowtype/vim-flow'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -35,9 +32,7 @@ Plug 'codechips/coc-svelte', {'do': 'npm install'}
 Plug 'github/copilot.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'psliwka/vim-smoothie'
-" Plug 'nvim-tree/nvim-web-devicons'
-" Plug 'nvim-tree/nvim-tree.lua'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'alvarosevilla95/luatab.nvim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'wellle/targets.vim'
@@ -54,14 +49,9 @@ Plug 'greggh/claude-code.nvim'
 call plug#end()
 " }}}
 
-" Python ================================================================= {{{
-let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
-" }}}
-
 " UI ===================================================================== {{{
 let &bg = system('gsettings get org.gnome.desktop.interface color-scheme') =~ 'dark' ? 'dark' : 'light'
 set termguicolors
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:solarized_contrast = "normal"
 let g:solarized_visibility= "normal"
 colorscheme solarized8
@@ -79,23 +69,12 @@ set number
 set relativenumber
 set mouse=
 
-lua vim.opt.termguicolors = true
-
 " Lightline
 source ~/.config/nvim/lightline.vim
 
 " GitGutter
 let g:gitgutter_diff_args = '-w'
 
-" VueJS ====== {{{
-" if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
-"   let g:coc_global_extensions += ['coc-prettier']
-" endif
-
-" if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
-"   let g:coc_global_extensions += ['coc-eslint']
-" endif
-" }}}
 
 
 " Leader ================================================================= {{{
@@ -120,9 +99,6 @@ nnoremap è gt
 nnoremap <leader>r :e!<CR>
 
 " Find files
-nnoremap <leader>c :GFiles<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap à :Buffers<CR>
 nmap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
@@ -159,10 +135,6 @@ noremap <leader>: :Tabularize /:<cr>
 noremap <leader>= :Tabularize /=<cr>
 noremap <leader>o vi{:Tabularize /:<cr>
 
-" Goyo
-let g:goyo_width=120
-noremap <leader>g :Goyo<cr>
-
 " Surround
 nmap <leader>é ysiw
 
@@ -188,13 +160,12 @@ lua require("claude-code").setup()
 
 " Coc ==================================================================== {{{
 let g:copilot_no_tab_map = v:true
-imap <silent><script><expr> <C-e> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-j> copilot#Accept("\<CR>")
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
       \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-" inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm(): "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
@@ -224,12 +195,6 @@ endfunction
 "}}}
 
 " Backups ================================================================ {{{
-let s:dir = '~/Library/Vim'
-if isdirectory(expand(s:dir))
-  let &directory = expand(s:dir) . '/swap/,' . &directory
-  let &backupdir = expand(s:dir) . '/backup/,' . &backupdir
-  let &undodir = expand(s:dir) . '/undo/,' . &undodir
-endif
 set undofile
 " }}}
 
@@ -256,25 +221,10 @@ let g:ale_set_quickfix = 0
 let g:ale_set_loclist = 1
 " }}}
 
-" Prettier =============================================================== {{{
-let g:prettier#quickfix_enabled = 0
-let g:prettier#exec_cmd_async = 1
-let g:prettier#quickfix_auto_focus = 0
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
-" }}}
-
-" FileTypes ============================================================== {{{
-au BufNewFile,BufRead *.es6 setf javascript
-au BufNewFile,BufRead *.coffee setf javascript
-" autocmd bufwritepost *.es6 silent !standard --fix %
-
-" TypeScript
-" }}}
-
-
 " Telescope ============================================================== {{{
 nnoremap <leader>c <cmd>Telescope find_files<cr>
-nnoremap <leader>tg <cmd>Telescope live_grep<cr>
+nnoremap <leader>g <cmd>Telescope live_grep<cr>
 nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap à <cmd>Telescope buffers<cr>
 nnoremap <leader>n <cmd>Telescope notify<cr>
 " }}}
