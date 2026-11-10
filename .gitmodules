@@ -18,3 +18,6 @@
 [submodule "zsh/zsh-autosuggestions"]
 	path = zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule ".tmux/fingers"]
+	path = .tmux/fingers
+	url = https://github.com/Morantron/tmux-fingers.git
