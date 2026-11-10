@@ -83,9 +83,7 @@ alias bat=batcat
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"
-export NVM_DIR="/home/aabt/.nvm"
-
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 
 # Follow the GNOME light/dark setting, read once per shell.
 [[ $(gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null) == *dark* ]] && COLOR_SCHEME=dark || COLOR_SCHEME=light
