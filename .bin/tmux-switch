@@ -1,0 +1,22 @@
+#!/bin/sh
+# Pick a running session (●) or a tmuxinator project not yet started (○);
+# typing a new name creates a session.
+tab=$(printf '\t')
+line=$( {
+  tmux ls -F 'S #S'
+  ls ~/.config/tmuxinator 2>/dev/null | sed -n 's/\.yml$//p' | sed 's/^/P /'
+} | awk '{ n = substr($0, 3) } !seen[n]++ {
+    if ($1 == "S") printf "\033[32m●\033[0m\t%s\n", n
+    else           printf "\033[2m○\t%s\033[0m\n", n
+  }' \
+  | fzf --ansi --reverse --delimiter="$tab" --nth=2 --prompt='session> ' --print-query | tail -1 )
+sel=${line#*"$tab"}
+[ -n "$sel" ] || exit 0
+
+if tmux has-session -t "=$sel" 2>/dev/null; then
+  tmux switch-client -t "=$sel"
+elif [ -f ~/.config/tmuxinator/"$sel".yml ]; then
+  tmuxinator start "$sel"
+else
+  tmux new-session -d -s "$sel" && tmux switch-client -t "=$sel"
+fi
