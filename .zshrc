@@ -6,21 +6,17 @@ antidote load $HOME/.dotfiles/zsh/plugins.txt
 # }}}
 
 # Paths -------------------------------------------------------------------{{{
-export PATH=$HOME/local/node/bin:$HOME/bin:/usr/local/bin:$HOME/.bin:$PATH
-export PATH=$PATH:/usr/local/share/npm/bin
+export PATH=/usr/local/bin:$HOME/.bin:$PATH
 export PATH=$PATH:/usr/games
 export PATH=$PATH:/snap/bin
-export NODE_PATH=/usr/local/lib/node_modules
 export PATH="$PATH:./node_modules/.bin"
-export PATH="$PATH:$HOME/nobackup/go/bin"
-export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # }}}
 
 # Utilities ---------------------------------------------------------------{{{
 export HISTFILE=$HOME/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
+setopt share_history hist_ignore_all_dups hist_ignore_space extended_history
 
 # vi mode
 set -o vi
@@ -32,7 +28,6 @@ autoload -U zmv
 zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
-bindkey '^R' history-incremental-search-backward
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^w' backward-kill-word
@@ -42,12 +37,8 @@ bindkey '^j' jq-complete
 
 # coherent less output
 export LESS='-R -F -X'
-
-if [[ -s $HOME/.bin/tmuxinator.sh ]] ; then source ~/.bin/tmuxinator.sh ; fi
 # }}}
 
-# dircolors
-# eval `dircolors $HOME/.dotfiles/zsh/dircolors-solarized/dircolors.256dark`
 alias l="ls --color -h"
 alias ll="ls --color -h -l"
 
@@ -65,14 +56,9 @@ alias _='sudo -E '
 # auto-ls on cd -----------------------------------------------------------{{{
 auto-ls () {
     emulate -L zsh;
-    # explicit sexy ls'ing as aliases arent honored in here.
-    hash gls >/dev/null 2>&1 && CLICOLOR_FORCE=1 gls -aFh --color --group-directories-first || ls --color -h
+    ls --color -h
 }
 chpwd_functions=( auto-ls $chpwd_functions )
-# }}}
-
-# Go ----------------------------------------------------------------------{{{
-export GOPATH=/home/aabt/nobackup/go
 # }}}
 
 # Git ---------------------------------------------------------------------{{{
@@ -89,14 +75,8 @@ alias v='nvim -u NONE'
 # Utils -------------------------------------------------------------------{{{
 alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
-alias scat='source-highlight --out-format=esc -o STDOUT -i '
 alias ack=rg
-alias ungron='gron --ungron'
 alias bat=batcat
-# }}}
-
-# VirtualEnvWrapper -------------------------------------------------------{{{
-if [[ -s $HOME/.local/bin/virtualenvwrapper.sh ]] ; then alias vv='source ~/.local/bin/virtualenvwrapper.sh' ; fi
 # }}}
 
 
@@ -141,15 +121,13 @@ _gen_fzf_default_opts() {
   fi
 }
 _gen_fzf_default_opts
+source <(fzf --zsh)
 
 function zsh-stats() {
   fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n25;
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# added by travis gem
-[ -f /home/aabt/.travis/travis.sh ] && source /home/aabt/.travis/travis.sh
 
 export BAT_THEME="Solarized ($COLOR_SCHEME)"
 
