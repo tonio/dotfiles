@@ -21,3 +21,6 @@
 [submodule ".tmux/fingers"]
 	path = .tmux/fingers
 	url = https://github.com/Morantron/tmux-fingers.git
+[submodule "zsh/antidote"]
+	path = zsh/antidote
+	url = https://github.com/mattmc3/antidote.git

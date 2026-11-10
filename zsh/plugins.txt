@@ -1,0 +1,11 @@
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/tmuxinator
+ohmyzsh/ohmyzsh path:plugins/virtualenv
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions path:src kind:fpath
+chrissicool/zsh-256color
+zpm-zsh/ssh
+reegnz/jq-zsh-plugin
+subnixr/minimal
+zsh-users/zsh-syntax-highlighting

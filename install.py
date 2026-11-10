@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import os
 import fnmatch
 import shutil
@@ -14,4 +14,4 @@ for f in os.listdir('.'):
         elif os.path.isdir(path):
             shutil.rmtree(path)
         os.symlink(os.path.abspath(f), path)
-        print 'create link for %s' % (path)
+        print('create link for %s' % (path))

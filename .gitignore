@@ -5,3 +5,6 @@ nvim/plugged
 .bin/rancher
 .bin/ts_helper
 node_modules
+.bin/kubectl
+.bin/oc
+zsh/plugins.zsh
