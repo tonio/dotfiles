@@ -59,7 +59,7 @@ let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 " }}}
 
 " UI ===================================================================== {{{
-set bg=dark
+let &bg = system('gsettings get org.gnome.desktop.interface color-scheme') =~ 'dark' ? 'dark' : 'light'
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:solarized_contrast = "normal"
