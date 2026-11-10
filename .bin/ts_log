@@ -1,2 +1,0 @@
-#!/bin/bash
-tail -f -n 200 ~/lock_screen.log
