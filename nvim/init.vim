@@ -2,15 +2,16 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'Glench/Vim-Jinja2-Syntax'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'airblade/vim-gitgutter'
-Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'}  " Tmux syntax
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
+Plug 'ericpruitt/tmux.vim', {'rtp': 'vim/'}
+Plug 'lifepillar/vim-solarized8'
 Plug 'godlygeek/tabular'
 Plug 'isRuslan/vim-es6'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'junegunn/goyo.vim'
 Plug 'lfv89/vim-interestingwords'
 Plug 'machakann/vim-highlightedyank'
@@ -26,12 +27,29 @@ Plug 'sjl/gundo.vim'
 Plug 'sjl/splice.vim'
 Plug 'flowtype/vim-flow'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'docunext/closetag.vim'
 Plug 'janko/vim-test'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'majutsushi/tagbar'
 Plug 'evanleck/vim-svelte'
+Plug 'codechips/coc-svelte', {'do': 'npm install'}
+Plug 'github/copilot.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'psliwka/vim-smoothie'
+" Plug 'nvim-tree/nvim-web-devicons'
+" Plug 'nvim-tree/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'alvarosevilla95/luatab.nvim'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'wellle/targets.vim'
+Plug 'posva/vim-vue'
+Plug 'yaegassy/coc-volar', { 'do': 'yarn install --frozen-lockfile' } " VueJS
+Plug 'yaegassy/coc-volar-tools', { 'do': 'yarn install --frozen-lockfile' }
+
+Plug 'folke/noice.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'rcarriga/nvim-notify'
+Plug 'greggh/claude-code.nvim'
+
 
 call plug#end()
 " }}}
@@ -41,18 +59,27 @@ let g:python3_host_prog = '/home/linuxbrew/.linuxbrew/bin/python3'
 " }}}
 
 " UI ===================================================================== {{{
-set bg=light
+set bg=dark
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let g:solarized_contrast = "normal"
 let g:solarized_visibility= "normal"
-colorscheme solarized
+colorscheme solarized8
 set cc=80
 set cursorline
 hi htmlArg gui=italic
+hi TabLine ctermbg=None
+set cmdheight=0
+
+lua << EOF
+require('luatab').setup{ windowCount = function() return '' end }
+EOF
 
 set number
 set relativenumber
+set mouse=
+
+lua vim.opt.termguicolors = true
 
 " Lightline
 source ~/.config/nvim/lightline.vim
@@ -60,6 +87,14 @@ source ~/.config/nvim/lightline.vim
 " GitGutter
 let g:gitgutter_diff_args = '-w'
 
+" VueJS ====== {{{
+" if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+"   let g:coc_global_extensions += ['coc-prettier']
+" endif
+
+" if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+"   let g:coc_global_extensions += ['coc-eslint']
+" endif
 " }}}
 
 
@@ -88,7 +123,6 @@ nnoremap <leader>r :e!<CR>
 nnoremap <leader>c :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap à :Buffers<CR>
-nnoremap <leader>a :Ag<CR>
 nmap <leader>ew :e <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>es :sp <C-R>=expand("%:p:h") . "/" <CR>
 nmap <leader>ev :vsp <C-R>=expand("%:p:h") . "/" <CR>
@@ -126,6 +160,7 @@ noremap <leader>= :Tabularize /=<cr>
 noremap <leader>o vi{:Tabularize /:<cr>
 
 " Goyo
+let g:goyo_width=120
 noremap <leader>g :Goyo<cr>
 
 " Surround
@@ -143,23 +178,49 @@ nmap <leader>t :TestNearest<cr>
 
 " }}}
 
+" Noice ================================================================== {{{
+lua require("noice").setup()
+" }}}
+
+" Claude ================================================================= {{{
+lua require("claude-code").setup()
+" }}}
 
 " Coc ==================================================================== {{{
-function! s:check_back_space() abort
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-e> copilot#Accept("\<CR>")
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+" inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? "\<Tab>" : coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm(): "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
-      \ coc#refresh()
-"}}}
+nmap <leader>qf  <Plug>(coc-codeaction)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> rn <Plug>(coc-rename)
 
-" Deoplete =============================================================== {{{
-" let g:deoplete#enable_at_startup = 1
-" == tab to cycle
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 "}}}
 
 " Backups ================================================================ {{{
@@ -185,8 +246,11 @@ command! -bang WQ wq<bang>
 
 " ALE ==================================================================== {{{
 nnoremap <leader>F :ALEFix<CR>
-let g:ale_linters = { 'javascript': ['prettier'], 'css': ['stylelint'], 'python': ['black'], 'scss': ['prettier'], 'html': ['prettier'] }
-let g:ale_fixers = { 'javascript': ['prettier'], 'css': ['stylelint'], 'typescript': ['prettier'], 'html': ['prettier'], 'less': ['prettier'], 'scss': ['prettier'], 'python': ['black'] }
+" Without this, ALE adds its default linters (incl. tsserver) for any filetype
+" absent from g:ale_linters, duplicating the language server coc already runs.
+let g:ale_linters_explicit = 1
+let g:ale_linters = { 'javascript': ['prettier'], 'css': ['stylelint'], 'python': ['black'], 'scss': ['prettier'], 'html': ['prettier'], 'svelte': ['prettier'], 'vue': ['prettier'] }
+let g:ale_fixers = { 'javascript': ['prettier'], 'css': ['stylelint'], 'typescript': ['prettier'], 'html': ['prettier'], 'less': ['prettier'], 'scss': ['prettier'], 'python': ['black'], 'svelte': ['prettier', 'eslint'] , 'vue': ['prettier', 'eslint']}
 let g:ale_open_list = 0
 let g:ale_set_quickfix = 0
 let g:ale_set_loclist = 1
@@ -196,6 +260,7 @@ let g:ale_set_loclist = 1
 let g:prettier#quickfix_enabled = 0
 let g:prettier#exec_cmd_async = 1
 let g:prettier#quickfix_auto_focus = 0
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 " }}}
 
 " FileTypes ============================================================== {{{
@@ -206,47 +271,10 @@ au BufNewFile,BufRead *.coffee setf javascript
 " TypeScript
 " }}}
 
-" FZF ==================================================================== {{{
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Clear'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'Normal'],
-  \ 'bg+':     ['bg'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
 
-" floating
-if has('nvim')
-  let $FZF_DEFAULT_OPTS .= ' --layout=reverse'
-
-  function! FloatingFZF()
-    let width = float2nr(&columns * 0.9)
-    let height = float2nr(&lines * 0.6)
-    let opts = { 'relative': 'editor',
-          \ 'row': (&lines - height) / 2,
-          \ 'col': (&columns - width) / 2,
-          \ 'width': width,
-          \ 'height': height,
-          \ 'style': 'minimal'
-          \}
-    let buf = nvim_create_buf(v:false, v:true)
-    let win = nvim_open_win(buf, v:true, opts)
-    call setwinvar(win, '&winhl', 'NormalFloat:TabLine')
-  endfunction
-
-  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-endif
-" }}}
-
-" Ag ===================================================================== {{{
-" Fix `ag` colors
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;15" --color-match "1;31" --color-line-number "1;36"', fzf#vim#with_preview(), <bang>0)
-" Search with `ag` word under cursor
-nmap <leader>n "zyiw:Ag <c-r>z<CR>
+" Telescope ============================================================== {{{
+nnoremap <leader>c <cmd>Telescope find_files<cr>
+nnoremap <leader>tg <cmd>Telescope live_grep<cr>
+nnoremap <leader>b <cmd>Telescope buffers<cr>
+nnoremap <leader>n <cmd>Telescope notify<cr>
 " }}}

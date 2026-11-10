@@ -1,3 +1,20 @@
 {
-  "suggest.echodocSupport": true
+  "svelte.enable-ts-plugin": true,
+  "coc.preferences.formatOnSaveFiletypes": ["svelte"],
+   "languageserver": {
+    "python": {
+      "command": "pyright-langserver",
+      "args": ["--stdio"],
+      "filetypes": ["python"],
+      "settings": {
+        "python": {
+          "analysis": {
+            "autoSearchPaths": true,
+            "diagnosticMode": "workspace",
+            "useLibraryCodeForTypes": true
+          }
+        }
+      }
+    }
+  }
 }
