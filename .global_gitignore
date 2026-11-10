@@ -5,3 +5,5 @@
 tags
 npm-debug.log
 .vscode
+Session.vim
+pyrightconfig.json

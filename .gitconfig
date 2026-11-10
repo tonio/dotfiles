@@ -9,8 +9,8 @@
   status = auto
   interactive = auto
 
-[interactive]
-  diffFilter = diff-highlight
+; [interactive]
+; 	diffFilter = diff-so-fancy --patch
 
 [alias]
   a = add -p
@@ -19,10 +19,10 @@
   s = status -sb
   c = commit
   ci = commit
-  cp = cherry-pick
+  ch = cherry-pick
   b = branch
   br = branch
-  bl = ! sh -c 'git br --sort=-committerdate | head'
+  bl = ! sh -c 'git br --sort=-committerdate | head -n 40'
   co = checkout
   c- = checkout --
   d = diff --word-diff=color
@@ -31,14 +31,15 @@
   lg = log -p
   f = fetch
   p = push
-  po = push origin
-  chicken = pull
+  r = restore
+  re = rebase
+  rom = rebase origin/master
+  roma = rebase origin/main
+  rc = rebase --continue
+  poh = push -u origin HEAD
   lastweek = log --since="1 week" --oneline
   lol = log --decorate --pretty=oneline --abbrev-commit --all --graph
   oops = commit --amend --no-edit
-  addremove = !git add . && git ls-files --deleted | xargs git rm
-  fshow = ! sh -c 'git show --pretty="format:" --name-only $1 | grep -v "^$" | uniq | sed -e "s#^#`git rev-parse --show-toplevel`/#"' -
-  vim   = ! sh -c 'vim `git fshow $1`' -
   ctags = "!sh -c '[ -f .git/hooks/ctags ] || git init; .git/hooks/ctags' git-ctags"
   mine = log --author=abt
   dc = diff --cached
@@ -48,6 +49,7 @@
   tags = tag
   remotes = remote -v
   branches = branch -a
+  pur = pull --rebase
 [diff]
   indent-heuristic
 
@@ -56,15 +58,15 @@
 
 [core]
   excludesfile = ~/.global_gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [init]
   templatedir = ~/.dotfiles/.git_template
 	defaultBranch = main
 
 [pager]
-  log = "diff-highlight | less"
-  show = "diff-highlight | less"
-  diff = "diff-highlight | less"
+  log = "diff-so-fancy | less"
+  show = "diff-so-fancy | less"
 
 [merge]
   tool = vimdiff
@@ -82,10 +84,10 @@
   autoStash = true
 [advice]
 	ignoredHook = false
+[diff "sopsdiffer"]
+	textconv = sops -d
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
-[diff "sopsdiffer"]
-	textconv = sops -d
