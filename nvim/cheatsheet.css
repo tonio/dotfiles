@@ -1,0 +1,15 @@
+@page { size: A4 landscape; margin: 0; }
+html { font-family: "DejaVu Sans Condensed", "DejaVu Sans", sans-serif; color: #073642; background: #fdf6e3; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-size: 9.8pt !important; line-height: 1.3; margin: 0; max-width: none; padding: 8mm 10mm; box-sizing: border-box; column-count: 3; column-gap: 8mm; }
+header#title-block-header { display: none; }
+h1 { column-span: all; font-size: 20pt; margin: 0 0 1mm; color: #268bd2; }
+h1 + p { column-span: all; margin: 0 0 3mm; color: #657b83; }
+section.level2 { break-inside: avoid; margin-bottom: 3.5mm; }
+h2 { font-size: 14pt; margin: 0 0 1mm; padding-bottom: .5mm; color: #cb4b16; border-bottom: 1px solid #eee8d5; }
+table { width: 100%; border-collapse: collapse; }
+thead { display: none; }
+col { width: auto !important; }
+td { padding: .5mm 1mm; vertical-align: top; border-bottom: 1px solid #eee8d5; }
+td:first-child { width: 1%; padding-right: 3mm; }
+td:first-child, td:first-child code { white-space: nowrap !important; }
+code { font-family: "FiraCode Nerd Font Mono", "DejaVu Sans Mono", monospace; font-size: .92em; color: #859900; background: #eee8d5; padding: 0 .6mm; border-radius: 2px; }
