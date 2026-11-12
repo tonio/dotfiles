@@ -52,7 +52,6 @@ vim.pack.add({
   gh('godlygeek/tabular'),
   gh('mattn/emmet-vim'),
   gh('janko/vim-test'),
-  gh('greggh/claude-code.nvim'),
 })
 
 -- UI =====================================================================
@@ -96,7 +95,6 @@ require('lualine').setup({
 require('gitsigns').setup({ diff_opts = { ignore_whitespace = true } })
 require('ibl').setup()
 require('noice').setup()
-require('claude-code').setup()
 
 -- Editor =================================================================
 vim.g.mapleader = ','
