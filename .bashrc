@@ -239,7 +239,7 @@ export PYTHONSTARTUP="$HOME/.pystartup"
 alias svnd='svn diff --diff-cmd colordiff'
 alias gdf='git diff --word-diff=color'
 
-alias ack='~/.bin/ack-standalone'
+alias ack=rg
 
 # cd to git root dir
 alias gitroot='cd $(git rev-parse --show-toplevel)'
