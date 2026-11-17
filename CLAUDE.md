@@ -9,3 +9,8 @@
   `vim.pack`; commit `nvim/nvim-pack-lock.json` with any plugin change.
 - When a mapping changes in `nvim/init.lua`, update `nvim/CHEATSHEET.md` and
   run `make` in `nvim/` to regenerate `CHEATSHEET.pdf`.
+- `libinput-gestures.conf` maps 4-finger horizontal swipes to tmux
+  next/previous window. Prerequisites: `sudo apt install libinput-tools`,
+  install https://github.com/bulletmark/libinput-gestures
+  (`sudo ./libinput-gestures-setup install`), `sudo gpasswd -a $USER input`
+  then log out/in, then `libinput-gestures-setup autostart start`.

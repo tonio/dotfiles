@@ -15,6 +15,7 @@ links = {
     '.tmux': '.tmux',
     '.tmux.conf': '.tmux.conf',
     '.zshrc': '.zshrc',
+    'libinput-gestures.conf': '.config/libinput-gestures.conf',
     'nvim': '.config/nvim',
 }
 
